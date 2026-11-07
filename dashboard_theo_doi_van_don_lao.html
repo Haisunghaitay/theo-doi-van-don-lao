@@ -1571,9 +1571,9 @@
             const apiBase = isLocal ? '' : 'https://pages-quit-overall-avi.trycloudflare.com';
             const syncEndpoint = `${apiBase}/api/sync-tracking`;
 
-            // Cho phép thời gian tối đa 60 giây để cào đủ 3 quốc gia
+            // Cho phép thời gian tối đa 120 giây để máy chủ cào đủ 3 quốc gia và xuất bản lên Cloud
             const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 60000);
+            const timeoutId = setTimeout(() => controller.abort(), 120000);
 
             try {
                 const response = await fetch(syncEndpoint, {
