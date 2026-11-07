@@ -1546,18 +1546,34 @@
         // Đồng bộ dữ liệu Cập Nhật Tức Thì
         async function reloadAllOrdersData() {
             const btn = document.querySelector('.btn-sync');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '⏳ Đang Quét Live Cả 3 Tác Vụ...';
+            const originalText = '🔄 Cập Nhật Tức Thì';
             btn.disabled = true;
 
-            showToast('🚀 Đang kết nối bưu cục Lào (Anousith, HAL), SPX Việt Nam & VET Express Campuchia...', 'info', 3000);
+            showToast('🚀 Đang kết nối máy chủ cào đơn Live: Thái Dương FFM (Lào), SPX Express (Việt Nam) & VET (Campuchia)...', 'info', 5000);
+
+            // Cập nhật trạng thái từng bước trên nút bấm
+            let seconds = 0;
+            const progressInterval = setInterval(() => {
+                seconds += 1;
+                if (seconds < 7) {
+                    btn.innerHTML = `⏳ [1/3] Đang cào đơn Lào (${seconds}s)...`;
+                } else if (seconds < 14) {
+                    btn.innerHTML = `⏳ [2/3] Đang cào đơn SPX VN (${seconds}s)...`;
+                } else if (seconds < 22) {
+                    btn.innerHTML = `⏳ [3/3] Đang cào đơn VET Cam (${seconds}s)...`;
+                } else {
+                    btn.innerHTML = `🌐 Đang xuất bản lên Cloud (${seconds}s)...`;
+                }
+            }, 1000);
 
             const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            // Tự động nhận diện API: Ưu tiên local nếu đang mở local, ngược lại gọi qua Cloudflare Tunnel hoặc cổng 8080
             const apiBase = isLocal ? '' : 'https://pages-quit-overall-avi.trycloudflare.com';
             const syncEndpoint = `${apiBase}/api/sync-tracking`;
 
+            // Cho phép thời gian tối đa 60 giây để cào đủ 3 quốc gia
             const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 2500);
+            const timeoutId = setTimeout(() => controller.abort(), 60000);
 
             try {
                 const response = await fetch(syncEndpoint, {
@@ -1566,6 +1582,7 @@
                     signal: controller.signal
                 });
                 clearTimeout(timeoutId);
+                clearInterval(progressInterval);
 
                 if (response.ok) {
                     const result = await response.json();
@@ -1573,28 +1590,42 @@
                     initData();
 
                     const summary = result.summary || {};
-                    const msg = `🎉 ĐÃ QUÉT & CẬP NHẬT TỨC THÌ THÀNH CÔNG!
-• Lào: ${summary.laos_total || 7} đơn
-• SPX VN: ${summary.vietnam_total || 4} đơn
-• VET Cam: ${summary.cambodia_total || 0} đơn`;
-                    showToast(msg, 'success', 6000);
+                    const laosTotal = summary.laos_total || (typeof rawOrders !== 'undefined' ? rawOrders.length : 0);
+                    const vnTotal = summary.vietnam_total || (typeof spxOrdersData !== 'undefined' ? spxOrdersData.length : 0);
+                    const khTotal = summary.cambodia_total || (typeof vetOrdersData !== 'undefined' ? vetOrdersData.length : 0);
+
+                    btn.innerHTML = '🎉 Cập Nhật Thành Công!';
+                    const msg = `🎉 ĐÃ CÀO & CẬP NHẬT TỨC THÌ THÀNH CÔNG!
+• 🇱🇦 Lào: ${laosTotal} đơn
+• 🇻🇳 Việt Nam (SPX): ${vnTotal} đơn
+• 🇰🇭 Campuchia (VET): ${khTotal} đơn
+🌐 Toàn bộ dữ liệu đã đồng bộ lên GitHub Pages & Surge!`;
+                    showToast(msg, 'success', 7000);
+                } else {
+                    throw new Error(`Mã lỗi HTTP: ${response.status}`);
                 }
             } catch (err) {
                 clearTimeout(timeoutId);
-                console.log("Kích hoạt chế độ Cloud 24/7 độc lập:", err.message);
+                clearInterval(progressInterval);
+                console.warn("Lỗi đồng bộ trực tiếp qua máy chủ local:", err.message);
+
                 await refreshScripts();
                 initData();
 
                 const laosCount = allUnifiedOrders.filter(o => o.country === 'LA').length;
                 const vnCount = allUnifiedOrders.filter(o => o.country === 'VN').length;
                 const khCount = allUnifiedOrders.filter(o => o.country === 'KH').length;
-                const msg = `✅ ĐÃ LÀM MỚI DỮ LIỆU TỪ ĐÁM MÂY CLOUD 24/7!
-• Đang theo dõi: ${allUnifiedOrders.length} đơn hàng (${laosCount} đơn Lào, ${vnCount} đơn SPX VN, ${khCount} đơn VET Cam)
-• Tắt máy Mac vẫn cập nhật tốt trên điện thoại ngoài đường!`;
-                showToast(msg, 'success', 6000);
+
+                btn.innerHTML = '✅ Đã Tải Dữ Liệu Cloud';
+                const msg = `✅ ĐÃ TẢI DỮ LIỆU ĐÁM MÂY MỚI NHẤT!
+• Tổng đang theo dõi: ${allUnifiedOrders.length} đơn hàng (${laosCount} đơn Lào, ${vnCount} đơn SPX, ${khCount} đơn VET)
+• Lưu ý: Để cào đơn mới tức thì từ bưu cục, hãy mở hệ thống trên máy Mac!`;
+                showToast(msg, 'info', 6000);
             } finally {
-                btn.innerHTML = originalText;
-                btn.disabled = false;
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 3000);
             }
         }
 
