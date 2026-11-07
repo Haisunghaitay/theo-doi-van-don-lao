@@ -1096,6 +1096,58 @@
             // HƯỚNG 2: MÁY MAC TẮT / GẬP MÀN HÌNH / Ở NGOÀI ĐƯỜNG
             // TỰ ĐỘNG KÍCH HOẠT ĐÁM MÂY CLOUD (24/7 MIỄN PHÍ)
             // ==========================================
+            if (isLocal) {
+                macServerAvailable = true;
+            } else {
+                // Kiểm tra xem máy Mac có đang bật không (timeout nhanh 2s)
+                try {
+                    const checkMac = await fetch('https://ebooks-cdt-startup-wallpaper.trycloudflare.com/api/status', {
+                        method: 'GET',
+                        mode: 'cors',
+                        signal: AbortSignal.timeout(2000)
+                    });
+                    if (checkMac.ok) {
+                        macServerAvailable = true;
+                    }
+                } catch (e) {
+                    macServerAvailable = false;
+                }
+            }
+
+            // ==========================================
+            // HƯỚNG 1: MÁY MAC ĐANG MỞ (QUÉT TRỰC TIẾP)
+            // ==========================================
+            if (macServerAvailable) {
+                showSyncNotification('🚀 Đang kích hoạt máy chủ: Tải đơn từ kho Thái Dương FFM, quét trực tiếp bưu cục Anousith Express & HAL Logistics...', 'info', 15000);
+                const apiBase = isLocal ? '' : 'https://ebooks-cdt-startup-wallpaper.trycloudflare.com';
+                try {
+                    const response = await fetch(`${apiBase}/api/sync-tracking`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+                        await refreshDataScript();
+                        if (result.stats) {
+                            applyData({ stats: result.stats, orders: window.__ORDERS_TRACKING_DATA__ ? window.__ORDERS_TRACKING_DATA__.orders : allOrdersData });
+                        } else {
+                            await loadData();
+                        }
+                        const st = result.stats || {};
+                        const msg = `🎉 CẬP NHẬT THÀNH CÔNG TỪ BƯU CỤC!\n• Tổng đơn hàng: ${st.total_orders || allOrdersData.length}\n• Giao thành công: ${st.completed || 0} đơn (${st.delivery_rate || 0}%)\n• Đã đến chi nhánh đích: ${st.ready_for_pickup || 0} đơn\n• Đang vận chuyển: ${st.in_transit || 0} đơn\n• Cảnh báo hoàn: ${st.return_warning || 0} đơn`;
+                        showSyncNotification(msg, 'success', 8000);
+                        return;
+                    }
+                } catch (err) {
+                    console.warn("Máy tính nội bộ bận, chuyển sang chế độ Đám Mây Cloud...");
+                }
+            }
+
+            // ==========================================
+            // HƯỚNG 2: MÁY MAC TẮT / GẬP MÀN HÌNH / Ở NGOÀI ĐƯỜNG
+            // TỰ ĐỘNG KÍCH HOẠT ĐÁM MÂY CLOUD (24/7 MIỄN PHÍ)
+            // ==========================================
             try {
                 btn.innerHTML = '☁️ Đang Bật Đám Mây...';
                 showSyncNotification('☁️ Đang kích hoạt Máy Chủ Đám Mây (Cloud Runner):\nTự động quét kho Thái Dương FFM, bưu cục Anousith & HAL độc lập 24/7 (Không cần máy Mac bật)...\nVui lòng đợi khoảng 25 giây!', 'info', 25000);
