@@ -1,17 +1,17 @@
 window.__ORDERS_TRACKING_DATA__ = {
   "stats": {
-    "total_orders": 7,
+    "total_orders": 6,
     "total_with_code": 145,
-    "completed": 1,
+    "completed": 0,
     "ready_for_pickup": 4,
     "in_transit": 0,
     "return_warning": 1,
     "pending": 1,
-    "total_cod_kip": 3463000.0,
-    "collected_cod_kip": 833000.0,
+    "total_cod_kip": 2630000.0,
+    "collected_cod_kip": 0,
     "pending_cod_kip": 1921000.0,
-    "last_updated": "07/11/2026 15:43:49",
-    "delivery_rate": 14.3
+    "last_updated": "07/11/2026 16:23:32",
+    "delivery_rate": 0.0
   },
   "orders": [
     {
@@ -485,54 +485,6 @@ window.__ORDERS_TRACKING_DATA__ = {
     },
     {
       "stt": 6,
-      "order_uid": "LAO162_20260602_3",
-      "shipping_order_code": "3008767029",
-      "carrier": "Anousith Express",
-      "buyer_name": "Hoa Chu",
-      "buyer_phone": "+8562099219666",
-      "buyer_phone_raw": "02099219666",
-      "buyer_address": "🏬 ບ້ານ ທົ່ງກະຕ່າຍ , ເມືອງ ປາກຊ່ອງ, ຈຳປາສັກ 🔄 ( CHA0305- ບ້ານ ທົ່ງກະຕ່າຍ ) GIAO UNITEL",
-      "dest_branch": "🏬 ບ້ານ ທົ່ງກະຕ່າຍ , ເມືອງ ປາກຊ່ອງ, ຈຳປາສັກ 🔄 ( CHA0305- ບ້ານ ທົ່ງກະຕ່າຍ ) GIAO UNITEL",
-      "matched_branch_name": "ປາກຊ່ອງ",
-      "cod_amount": 833000.0,
-      "created_at": "2026-06-02T02:38:17.361Z",
-      "status": {
-        "code": "COMPLETED",
-        "text": "Khách đã nhận hàng thành công",
-        "badge_class": "badge-success",
-        "action_needed": "Đối soát tiền COD",
-        "color": "#10b981"
-      },
-      "items": [],
-      "latest_scan_desc": "🏬 ບ້ານ ທົ່ງກະຕ່າຍ , ເມືອງ ປາກຊ່ອງ, ຈຳປາສັກ 🔄 ( CHA0305- ບ້ານ ທົ່ງກະຕ່າຍ ) GIAO UNITEL: Khách đã đến bưu cục nhận hàng và thanh toán COD thành công",
-      "latest_scan_time": "Hoàn tất",
-      "timeline": [
-        {
-          "time": "Hoàn tất",
-          "location": "🏬 ບ້ານ ທົ່ງກະຕ່າຍ , ເມືອງ ປາກຊ່ອງ, ຈຳປາສັກ 🔄 ( CHA0305- ບ້ານ ທົ່ງກະຕ່າຍ ) GIAO UNITEL",
-          "description": "Khách đã đến bưu cục nhận hàng và thanh toán COD thành công",
-          "status": "DELIVERED"
-        },
-        {
-          "time": "Đã đến bưu cục",
-          "location": "🏬 ບ້ານ ທົ່ງກະຕ່າຍ , ເມືອງ ປາກຊ່ອງ, ຈຳປາສັກ 🔄 ( CHA0305- ບ້ານ ທົ່ງກະຕ່າຍ ) GIAO UNITEL",
-          "description": "Kiện hàng đã cập bến bưu cục đích",
-          "status": "ARRIVED"
-        },
-        {
-          "time": "Xuất kho",
-          "location": "Kho Lào - Kho 3",
-          "description": "Hàng đã bàn giao cho đơn vị vận chuyển",
-          "status": "HANDED_OVER"
-        }
-      ],
-      "google_maps_link": "https://www.google.com/maps?q=15.177296250794,106.23488071363",
-      "wa_remind_link": null,
-      "anousith_tracking_url": "https://app.anousith.express/landing/search_tracking/search_item?_bill_detail=3008767029&n_home=2",
-      "hal_tracking_url": null
-    },
-    {
-      "stt": 7,
       "order_uid": "LAO162_20260402_3",
       "shipping_order_code": "PXE89869531805",
       "carrier": "HAL Logistics",
