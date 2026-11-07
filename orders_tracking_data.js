@@ -1,16 +1,16 @@
 window.__ORDERS_TRACKING_DATA__ = {
   "stats": {
-    "total_orders": 6,
+    "total_orders": 7,
     "total_with_code": 145,
     "completed": 0,
     "ready_for_pickup": 4,
     "in_transit": 0,
     "return_warning": 1,
-    "pending": 1,
-    "total_cod_kip": 2630000.0,
+    "pending": 2,
+    "total_cod_kip": 3463000.0,
     "collected_cod_kip": 0,
     "pending_cod_kip": 1921000.0,
-    "last_updated": "07/11/2026 16:23:32",
+    "last_updated": "07/11/2026 16:43:54",
     "delivery_rate": 0.0
   },
   "orders": [
@@ -485,6 +485,35 @@ window.__ORDERS_TRACKING_DATA__ = {
     },
     {
       "stt": 6,
+      "order_uid": "LAO162_20260602_3",
+      "shipping_order_code": "3008767029",
+      "carrier": "Anousith Express",
+      "buyer_name": "Hoa Chu",
+      "buyer_phone": "+8562099219666",
+      "buyer_phone_raw": "02099219666",
+      "buyer_address": "🏬 ບ້ານ ທົ່ງກະຕ່າຍ , ເມືອງ ປາກຊ່ອງ, ຈຳປາສັກ 🔄 ( CHA0305- ບ້ານ ທົ່ງກະຕ່າຍ ) GIAO UNITEL",
+      "dest_branch": "🏬 ບ້ານ ທົ່ງກະຕ່າຍ , ເມືອງ ປາກຊ່ອງ, ຈຳປາສັກ 🔄 ( CHA0305- ບ້ານ ທົ່ງກະຕ່າຍ ) GIAO UNITEL",
+      "matched_branch_name": "ປາກຊ່ອງ",
+      "cod_amount": 833000.0,
+      "created_at": "2026-06-02T02:38:17.361Z",
+      "status": {
+        "code": "PENDING",
+        "text": "Chờ bàn giao vận chuyển",
+        "badge_class": "badge-secondary",
+        "action_needed": "Xuất kho đóng gói",
+        "color": "#64748b"
+      },
+      "items": [],
+      "latest_scan_desc": "Chưa có dữ liệu quét",
+      "latest_scan_time": "",
+      "timeline": [],
+      "google_maps_link": "https://www.google.com/maps?q=15.177296250794,106.23488071363",
+      "wa_remind_link": null,
+      "anousith_tracking_url": "https://app.anousith.express/landing/search_tracking/search_item?_bill_detail=3008767029&n_home=2",
+      "hal_tracking_url": null
+    },
+    {
+      "stt": 7,
       "order_uid": "LAO162_20260402_3",
       "shipping_order_code": "PXE89869531805",
       "carrier": "HAL Logistics",
