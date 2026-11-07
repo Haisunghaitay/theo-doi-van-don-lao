@@ -980,15 +980,15 @@
                     <div>
                         <div class="task-metrics">
                             <div class="metric-item">
-                                <span class="m-val" id="ws-kh-count">3</span>
+                                <span class="m-val" id="ws-kh-count">0</span>
                                 <span class="m-lbl">Đơn theo dõi</span>
                             </div>
                             <div class="metric-item">
-                                <span class="m-val" id="ws-kh-cod" style="color: #34d399;">$90.00 USD</span>
+                                <span class="m-val" id="ws-kh-cod" style="color: #34d399;">$0.00 USD</span>
                                 <span class="m-lbl">Tiền COD</span>
                             </div>
                             <div class="metric-item">
-                                <span class="m-val" id="ws-kh-delivering" style="color: #f59e0b;">1</span>
+                                <span class="m-val" id="ws-kh-delivering" style="color: #f59e0b;">0</span>
                                 <span class="m-lbl">Đang phát</span>
                             </div>
                         </div>
@@ -1418,9 +1418,17 @@
                     </div>
                 `;
 
-                // Actions: Lào thì gửi WhatsApp; Việt Nam thì Zalo & Gọi Điện
+                // Actions: Campuchia (VET) thì Telegram/Gọi; Việt Nam thì Zalo & Gọi Điện; Lào thì gửi WhatsApp
                 let actionsHtml = '';
-                if (o.country === 'VN') {
+                if (o.country === 'KH') {
+                    actionsHtml = `
+                        <div style="display: flex; gap: 5px; justify-content: center; align-items: center;">
+                            <button class="btn-action btn-timeline" onclick='showTimeline(${JSON.stringify(o).replace(/'/g, "&apos;")})'>👁️ Hành Trình</button>
+                            ${o.telegram_link ? `<a href="${o.telegram_link}" target="_blank" class="btn-action btn-telegram" title="Nhắn tin Telegram cho khách hàng">💬 Telegram</a>` : ''}
+                            ${o.call_link ? `<a href="${o.call_link}" class="btn-action btn-call" title="Gọi điện thoại cho khách hàng">📞 Gọi</a>` : ''}
+                        </div>
+                    `;
+                } else if (o.country === 'VN') {
                     actionsHtml = `
                         <div style="display: flex; gap: 5px; justify-content: center; align-items: center;">
                             <button class="btn-action btn-timeline" onclick='showTimeline(${JSON.stringify(o).replace(/'/g, "&apos;")})'>👁️ Hành Trình</button>
@@ -1452,8 +1460,13 @@
                 }
 
                 // COD Display
-                const codCurr = o.currency || (o.country === 'VN' ? 'VNĐ' : 'KIP');
-                const codDisplay = `${Number(o.cod_amount).toLocaleString()} ${codCurr}`;
+                let codDisplay = '';
+                if (o.currency === 'USD' || o.country === 'KH') {
+                    codDisplay = `$${Number(o.cod_amount).toFixed(2)} USD`;
+                } else {
+                    const codCurr = o.currency || (o.country === 'VN' ? 'VNĐ' : 'KIP');
+                    codDisplay = `${Number(o.cod_amount).toLocaleString()} ${codCurr}`;
+                }
 
                 tr.innerHTML = `
                     <td style="text-align: center; font-weight: 700; color: var(--text-muted);">${o.stt || index + 1}</td>
