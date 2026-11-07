@@ -11,7 +11,7 @@ window.__VET_TRACKING_DATA__ = {
     "completed": 0,
     "return_warning": 0,
     "total_cod_usd": 0.0,
-    "last_updated": "08/11/2026 00:03:03"
+    "last_updated": "08/11/2026 00:08:37"
   },
   "orders": []
 };
