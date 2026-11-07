@@ -1,108 +1,21 @@
 window.__ORDERS_TRACKING_DATA__ = {
   "stats": {
-    "total_orders": 9,
+    "total_orders": 6,
     "total_with_code": 145,
     "completed": 0,
     "ready_for_pickup": 4,
     "in_transit": 0,
     "return_warning": 1,
-    "pending": 4,
-    "total_cod_kip": 6062445.0,
+    "pending": 1,
+    "total_cod_kip": 2630000.0,
     "collected_cod_kip": 0,
     "pending_cod_kip": 1921000.0,
-    "last_updated": "08/11/2026 01:18:49",
+    "last_updated": "08/11/2026 01:23:12",
     "delivery_rate": 0.0
   },
   "orders": [
     {
       "stt": 1,
-      "order_uid": "LAO162_20261108_2",
-      "shipping_order_code": null,
-      "carrier": "Anousith Express",
-      "buyer_name": "gccccc",
-      "buyer_phone": "ccccc",
-      "buyer_phone_raw": "ccccc",
-      "buyer_address": "cccc",
-      "dest_branch": "cccc",
-      "matched_branch_name": "cccc",
-      "cod_amount": 11101.0,
-      "created_at": "2026-11-07T17:47:10.086Z",
-      "status": {
-        "code": "PENDING",
-        "text": "Chờ bàn giao vận chuyển",
-        "badge_class": "badge-secondary",
-        "action_needed": "Xuất kho đóng gói",
-        "color": "#64748b"
-      },
-      "items": [],
-      "latest_scan_desc": "Chưa có dữ liệu quét",
-      "latest_scan_time": "",
-      "timeline": [],
-      "google_maps_link": "https://maps.google.com/?q=cccc%2C+Laos",
-      "wa_remind_link": null,
-      "anousith_tracking_url": null,
-      "hal_tracking_url": null
-    },
-    {
-      "stt": 2,
-      "order_uid": "LAO162_20261108_1",
-      "shipping_order_code": null,
-      "carrier": "Anousith Express",
-      "buyer_name": "ádasdd",
-      "buyer_phone": "+85620ádasdasd",
-      "buyer_phone_raw": "ádasdasd",
-      "buyer_address": "đas",
-      "dest_branch": "đas",
-      "matched_branch_name": "đas",
-      "cod_amount": 1110.0,
-      "created_at": "2026-11-07T17:23:08.352Z",
-      "status": {
-        "code": "PENDING",
-        "text": "Chờ bàn giao vận chuyển",
-        "badge_class": "badge-secondary",
-        "action_needed": "Xuất kho đóng gói",
-        "color": "#64748b"
-      },
-      "items": [],
-      "latest_scan_desc": "Chưa có dữ liệu quét",
-      "latest_scan_time": "",
-      "timeline": [],
-      "google_maps_link": "https://maps.google.com/?q=%C4%91as%2C+Laos",
-      "wa_remind_link": null,
-      "anousith_tracking_url": null,
-      "hal_tracking_url": null
-    },
-    {
-      "stt": 3,
-      "order_uid": "LAO162_20261107_1",
-      "shipping_order_code": null,
-      "carrier": "Anousith Express",
-      "buyer_name": "234234",
-      "buyer_phone": "234",
-      "buyer_phone_raw": "234",
-      "buyer_address": "14234",
-      "dest_branch": "14234",
-      "matched_branch_name": "14234",
-      "cod_amount": 3420234.0,
-      "created_at": "2026-11-07T16:27:50.410Z",
-      "status": {
-        "code": "PENDING",
-        "text": "Chờ bàn giao vận chuyển",
-        "badge_class": "badge-secondary",
-        "action_needed": "Xuất kho đóng gói",
-        "color": "#64748b"
-      },
-      "items": [],
-      "latest_scan_desc": "Chưa có dữ liệu quét",
-      "latest_scan_time": "",
-      "timeline": [],
-      "google_maps_link": "https://maps.google.com/?q=14234%2C+Laos",
-      "wa_remind_link": null,
-      "anousith_tracking_url": null,
-      "hal_tracking_url": null
-    },
-    {
-      "stt": 4,
       "order_uid": "LAO162_20261104_1",
       "shipping_order_code": "8263098019271",
       "carrier": "Anousith Express",
@@ -195,7 +108,7 @@ window.__ORDERS_TRACKING_DATA__ = {
       "hal_tracking_url": null
     },
     {
-      "stt": 5,
+      "stt": 2,
       "order_uid": "LAO162_20261102_3",
       "shipping_order_code": "8263072039944",
       "carrier": "Anousith Express",
@@ -295,7 +208,7 @@ window.__ORDERS_TRACKING_DATA__ = {
       "hal_tracking_url": null
     },
     {
-      "stt": 6,
+      "stt": 3,
       "order_uid": "LAO162_20261102_1",
       "shipping_order_code": "PXE46905477845",
       "carrier": "HAL Logistics",
@@ -385,7 +298,7 @@ window.__ORDERS_TRACKING_DATA__ = {
       "hal_tracking_url": "https://hal.hal-logistics.la/api/v1/orders/tracking/PXE46905477845?lang=la"
     },
     {
-      "stt": 7,
+      "stt": 4,
       "order_uid": "LAO162_20261026_3",
       "shipping_order_code": "8263076668038",
       "carrier": "Anousith Express",
@@ -464,7 +377,7 @@ window.__ORDERS_TRACKING_DATA__ = {
       "hal_tracking_url": null
     },
     {
-      "stt": 8,
+      "stt": 5,
       "order_uid": "LAO162_20261012_1",
       "shipping_order_code": "8262897344949",
       "carrier": "Anousith Express",
@@ -571,7 +484,7 @@ window.__ORDERS_TRACKING_DATA__ = {
       "hal_tracking_url": null
     },
     {
-      "stt": 9,
+      "stt": 6,
       "order_uid": "LAO162_20260402_3",
       "shipping_order_code": "PXE89869531805",
       "carrier": "HAL Logistics",
