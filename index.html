@@ -1042,11 +1042,18 @@
             btn.style.cursor = 'wait';
 
             // Hiển thị thông báo trạng thái
-            showSyncNotification('🚀 Đang kích hoạt toàn bộ máy: Tải đơn từ kho Thái Dương FFM, quét trực tiếp bưu cục Anousith Express & HAL Logistics...', 'info', 10000);
+            showSyncNotification('🚀 Đang kích hoạt máy chủ: Tải đơn từ kho Thái Dương FFM, quét trực tiếp bưu cục Anousith Express & HAL Logistics...', 'info', 15000);
+
+            // Xác định địa chỉ máy chủ API thông minh:
+            // 1. Nếu mở trực tiếp trên máy Mac (localhost/127.0.0.1): Gọi trực tiếp /api/sync-tracking
+            // 2. Nếu mở online (Surge, GitHub Pages hoặc điện thoại): Gọi qua Cloudflare Tunnel kết nối thẳng về máy Mac!
+            const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            const apiBase = isLocal ? '' : 'https://ebooks-cdt-startup-wallpaper.trycloudflare.com';
+            const syncEndpoint = `${apiBase}/api/sync-tracking`;
 
             try {
                 // Gọi API backend thông minh trên máy chủ
-                const response = await fetch('/api/sync-tracking', {
+                const response = await fetch(syncEndpoint, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' }
                 });
@@ -1074,9 +1081,9 @@
                     throw new Error('Máy chủ phản hồi mã lỗi: ' + response.status);
                 }
             } catch (err) {
-                console.warn("Đang chạy trên môi trường Web Tĩnh (Surge/Online):", err);
+                console.warn("Chưa thể kết nối tới máy chủ quét trên máy Mac:", err);
                 await refreshDataScript();
-                showSyncNotification('🔄 Đã làm mới dữ liệu vận đơn mới nhất!\n(Hệ thống tự động quét bưu cục Anousith & HAL lúc 09:00 sáng & 14:00 chiều mỗi ngày)', 'success', 6000);
+                showSyncNotification('⚠️ Máy tính quản trị (máy Mac) đang tạm tắt hoặc chưa bật máy chủ quét.\n(Nếu đang ngồi tại máy Mac, bạn chỉ cần click file "⚡ Quet_Don_Lao_Ngay_Lap_Tuc.command" để cập nhật ngay!)', 'warning', 8000);
             } finally {
                 btn.innerHTML = originalText;
                 btn.disabled = false;
