@@ -9,8 +9,8 @@ window.__SPX_TRACKING_DATA__ = {
     "delivering": 0,
     "completed": 0,
     "return_warning": 1,
-    "total_cod_vnd": 0.0,
-    "last_updated": "07/11/2026 20:07:09"
+    "total_cod_vnd": 1541000,
+    "last_updated": "07/11/2026 20:20:19"
   },
   "orders": [
     {
@@ -27,7 +27,7 @@ window.__SPX_TRACKING_DATA__ = {
       "buyer_address": "Số nhà 40 gần chợ Phi Thông, Kiên Giang, Thành Phố Rạch Giá, Xã Phi Thông",
       "dest_branch": "SPX Rạch Giá Hub (Kiên Giang)",
       "google_maps_link": "https://www.google.com/maps/search/?api=1&query=SPX+Express+Rạch+Giá+Kiên+Giang",
-      "cod_amount": 0.0,
+      "cod_amount": 599000,
       "cod_currency": "VNĐ",
       "created_at": "07/11/2026 19:31:04",
       "status": {
@@ -52,7 +52,7 @@ window.__SPX_TRACKING_DATA__ = {
       "call_link": "tel:0867690471",
       "items": [
         {
-          "product_name": "Kiện hàng SPX Express",
+          "product_name": "Hộp kẹo sâm hamer x 1",
           "quantity": 1
         }
       ]
@@ -71,7 +71,7 @@ window.__SPX_TRACKING_DATA__ = {
       "buyer_address": "05 Trịnh Hoài Đức Quy Nhơn, Tỉnh Gia Lai, Phường Quy Nhơn Đông",
       "dest_branch": "SPX Pleiku Hub (Gia Lai)",
       "google_maps_link": "https://www.google.com/maps/search/?api=1&query=SPX+Express+Pleiku+Gia+Lai",
-      "cod_amount": 0.0,
+      "cod_amount": 314000,
       "cod_currency": "VNĐ",
       "created_at": "05/11/2026 18:30:36",
       "status": {
@@ -108,7 +108,7 @@ window.__SPX_TRACKING_DATA__ = {
       "call_link": "tel:0779007946",
       "items": [
         {
-          "product_name": "Kiện hàng SPX Express",
+          "product_name": "Nước Hoa Nam x 1",
           "quantity": 1
         }
       ]
@@ -127,7 +127,7 @@ window.__SPX_TRACKING_DATA__ = {
       "buyer_address": "• Thôn Điền Hoà, Tỉnh Quảng Ngãi, Xã Nghĩa Giang",
       "dest_branch": "SPX Nghĩa Hành Hub (Quảng Ngãi)",
       "google_maps_link": "https://www.google.com/maps/search/?api=1&query=SPX+Express+Quảng+Ngãi",
-      "cod_amount": 0.0,
+      "cod_amount": 314000,
       "cod_currency": "VNĐ",
       "created_at": "04/11/2026 17:30:03",
       "status": {
@@ -164,7 +164,7 @@ window.__SPX_TRACKING_DATA__ = {
       "call_link": "tel:0798766709",
       "items": [
         {
-          "product_name": "Kiện hàng SPX Express",
+          "product_name": "Nước Hoa Nam x 1",
           "quantity": 1
         }
       ]
@@ -183,7 +183,7 @@ window.__SPX_TRACKING_DATA__ = {
       "buyer_address": "• Thôn Điền Hoà, Tỉnh Quảng Ngãi, Xã Nghĩa Giang",
       "dest_branch": "SPX Nghĩa Hành Hub (Quảng Ngãi)",
       "google_maps_link": "https://www.google.com/maps/search/?api=1&query=SPX+Express+Quảng+Ngãi",
-      "cod_amount": 0.0,
+      "cod_amount": 314000,
       "cod_currency": "VNĐ",
       "created_at": "30/10/2026 11:04:55",
       "status": {
@@ -214,7 +214,7 @@ window.__SPX_TRACKING_DATA__ = {
       "call_link": "tel:0798766709",
       "items": [
         {
-          "product_name": "Kiện hàng SPX Express",
+          "product_name": "Nước Hoa Nam x 1",
           "quantity": 1
         }
       ]

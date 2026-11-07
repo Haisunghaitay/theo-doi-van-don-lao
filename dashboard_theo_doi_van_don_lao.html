@@ -631,9 +631,210 @@
         .toast.info { border-color: rgba(56, 189, 248, 0.5); background: #0c4a6e; }
         .toast.warning { border-color: rgba(245, 158, 11, 0.5); background: #78350f; }
 
+        /* Workspace Hub Section (Trang Chủ Đa Tác Vụ) */
+        .workspace-section {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .workspace-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .workspace-title {
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            color: #94a3b8;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 8px #10b981;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .workspace-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .workspace-card {
+            background: var(--bg-card);
+            border: 1.5px solid var(--card-border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .workspace-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+        }
+
+        .workspace-card.active {
+            border-color: #38bdf8;
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%);
+            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3), 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .workspace-card.card-spx.active {
+            border-color: #f97316;
+            box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.3), 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .workspace-card.card-all.active {
+            border-color: #10b981;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3), 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .task-badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+
+        .badge-lao { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+        .badge-vn { background: rgba(234, 88, 12, 0.15); color: #fb923c; border: 1px solid rgba(234, 88, 12, 0.3); }
+        .badge-all { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+
+        .task-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .task-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.45;
+            margin-bottom: 16px;
+            min-height: 48px;
+        }
+
+        .task-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 10px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .metric-item {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .m-val {
+            font-size: 13px;
+            font-weight: 700;
+            color: #f1f5f9;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .m-lbl {
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .task-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .task-status {
+            font-size: 11px;
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .btn-open-task {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-open-task:hover {
+            background: #38bdf8;
+            color: #000;
+        }
+
+        .btn-open-spx {
+            background: rgba(249, 115, 22, 0.15);
+            color: #fb923c;
+            border-color: rgba(249, 115, 22, 0.3);
+        }
+
+        .btn-open-spx:hover {
+            background: #f97316;
+            color: #fff;
+        }
+
+        .btn-open-all {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-open-all:hover {
+            background: #10b981;
+            color: #fff;
+        }
+
         @media (max-width: 900px) {
             body { padding: 14px; }
             h1 { font-size: 20px; }
+            .workspace-grid { grid-template-columns: 1fr; }
             .toolbar { flex-direction: column; align-items: stretch; }
             .search-box { max-width: 100%; }
         }
@@ -646,10 +847,10 @@
             <div class="header-title-box">
                 <div class="header-icon">🚚</div>
                 <div>
-                    <div class="badge-hub">🌐 HỆ THỐNG GIÁM SÁT VẬN ĐƠN ĐA QUỐC GIA (DUY PASAY HUB)</div>
-                    <h1>Theo Dõi Vận Đơn Lào & Việt Nam (SPX Express)</h1>
+                    <div class="badge-hub">🎛️ CỔNG ĐIỀU HÀNH & GIÁM SÁT ĐA TÁC VỤ (DUY PASAY HUB)</div>
+                    <h1>Dashboard Trang Chủ Quản Trị Đa Tác Vụ</h1>
                     <p class="subtitle">
-                        Đồng bộ live hành trình thực tế từ: 🇱🇦 <strong>Anousith Express</strong> & <strong>HAL Logistics</strong> (Lào) và 🇻🇳 <strong>SPX Express</strong> (Shopee Express Việt Nam).
+                        Hệ thống quản trị tập trung nhiều tác vụ vận hành: 🇱🇦 <strong>Tác vụ Vận Đơn Lào</strong> (Anousith & HAL Logistics) và 🇻🇳 <strong>Tác vụ Vận Đơn Việt Nam</strong> (SPX Express).
                     </p>
                 </div>
             </div>
@@ -659,6 +860,107 @@
                 </button>
             </div>
         </header>
+
+        <!-- CỔNG TÁC VỤ QUẢN TRỊ TRANG CHỦ (TASK WORKSPACES) -->
+        <div class="workspace-section">
+            <div class="workspace-header">
+                <div class="workspace-title">
+                    <span class="pulse-dot"></span> DANH MỤC CÁC TÁC VỤ VẬN HÀNH (TRANG CHỦ DUY PASAY HUB)
+                </div>
+                <div style="font-size: 12px; color: var(--text-muted);">
+                    Hệ thống tích hợp đa tác vụ • Bấm vào tác vụ bên dưới để chuyển vùng điều hành chuyên sâu:
+                </div>
+            </div>
+
+            <div class="workspace-grid">
+                <!-- TÁC VỤ 1: VẬN ĐƠN LÀO -->
+                <div class="workspace-card" id="card-task-laos" onclick="switchCountryTab('LAOS')">
+                    <div>
+                        <div class="task-badge badge-lao">🇱🇦 TÁC VỤ 1: VẬN ĐƠN LÀO</div>
+                        <div class="task-name">Giám Sát Vận Đơn Lào</div>
+                        <p class="task-desc">Quản lý kiện hàng xuất kho Thái Dương FFM sang Lào, tra cứu live bưu cục Anousith Express & HAL Logistics, đối chiếu COD KIP, link Maps và mở khóa WhatsApp khi đến đích.</p>
+                    </div>
+                    <div>
+                        <div class="task-metrics">
+                            <div class="metric-item">
+                                <span class="m-val" id="ws-laos-count">6</span>
+                                <span class="m-lbl">Đơn theo dõi</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="m-val" id="ws-laos-cod" style="color: #34d399;">2.63M KIP</span>
+                                <span class="m-lbl">Tiền COD</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="m-val" id="ws-laos-ready" style="color: #f59e0b;">4</span>
+                                <span class="m-lbl">Đã đến đích</span>
+                            </div>
+                        </div>
+                        <div class="task-footer">
+                            <span class="task-status">🟢 Đang trực tuyến</span>
+                            <button class="btn-open-task">Mở Tác Vụ Lào →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TÁC VỤ 2: VẬN ĐƠN VIỆT NAM (SPX) -->
+                <div class="workspace-card card-spx" id="card-task-vietnam" onclick="switchCountryTab('VIETNAM')">
+                    <div>
+                        <div class="task-badge badge-vn">🇻🇳 TÁC VỤ 2: VẬN ĐƠN VIỆT NAM (SPX)</div>
+                        <div class="task-name">Giám Sát Vận Đơn SPX Express</div>
+                        <p class="task-desc">Trích xuất live trực tiếp từ tài khoản SPX Admin (spx.vn), theo dõi luân chuyển trung tâm Củ Chi SOC, cập nhật tiền thu hộ COD VNĐ, liên hệ Zalo & gọi khách 1 chạm.</p>
+                    </div>
+                    <div>
+                        <div class="task-metrics">
+                            <div class="metric-item">
+                                <span class="m-val" id="ws-vn-count">4</span>
+                                <span class="m-lbl">Đơn theo dõi</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="m-val" id="ws-vn-cod" style="color: #34d399;">1.54M VNĐ</span>
+                                <span class="m-lbl">Tiền COD</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="m-val" id="ws-vn-transit" style="color: #60a5fa;">2</span>
+                                <span class="m-lbl">Đang vận chuyển</span>
+                            </div>
+                        </div>
+                        <div class="task-footer">
+                            <span class="task-status">🟢 Đang trực tuyến</span>
+                            <button class="btn-open-task btn-open-spx">Mở Tác Vụ SPX →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TÁC VỤ HỢP NHẤT TOÀN THỂ -->
+                <div class="workspace-card card-all active" id="card-task-all" onclick="switchCountryTab('ALL')">
+                    <div>
+                        <div class="task-badge badge-all">🌐 TỔNG QUAN HỢP NHẤT</div>
+                        <div class="task-name">Cổng Điều Hành Toàn Thể</div>
+                        <p class="task-desc">Giám sát song song toàn bộ 2 quốc gia Lào & Việt Nam trên cùng một giao diện, quản trị đa kênh và tổng hợp dòng tiền COD đa tiền tệ (KIP & VNĐ).</p>
+                    </div>
+                    <div>
+                        <div class="task-metrics">
+                            <div class="metric-item">
+                                <span class="m-val" id="ws-all-count">10</span>
+                                <span class="m-lbl">Tổng đơn</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="m-val" style="color: #34d399; font-size: 11px;">KIP & VNĐ</span>
+                                <span class="m-lbl">Đa tiền tệ</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="m-val">2 Quốc Gia</span>
+                                <span class="m-lbl">Phạm vi</span>
+                            </div>
+                        </div>
+                        <div class="task-footer">
+                            <span class="task-status">🟢 Tự động đồng bộ</span>
+                            <button class="btn-open-task btn-open-all">Xem Toàn Bộ →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Country Navigation Tabs -->
         <div class="country-nav">
@@ -834,22 +1136,28 @@
             filterOrders();
         }
 
-        // Chuyển Tab Quốc Gia
+        // Chuyển Tab Quốc Gia / Tác Vụ
         function switchCountryTab(country) {
             currentCountry = country;
             document.querySelectorAll('.country-tab').forEach(b => b.classList.remove('active'));
-            if (country === 'ALL') document.getElementById('tab-nav-all').classList.add('active');
-            if (country === 'LAOS') document.getElementById('tab-nav-laos').classList.add('active');
-            if (country === 'VIETNAM') document.getElementById('tab-nav-vietnam').classList.add('active');
+            if (country === 'ALL') document.getElementById('tab-nav-all')?.classList.add('active');
+            if (country === 'LAOS') document.getElementById('tab-nav-laos')?.classList.add('active');
+            if (country === 'VIETNAM') document.getElementById('tab-nav-vietnam')?.classList.add('active');
+
+            // Cập nhật trạng thái Active của các Thẻ Tác Vụ trên Trang Chủ
+            document.querySelectorAll('.workspace-card').forEach(c => c.classList.remove('active'));
+            if (country === 'ALL') document.getElementById('card-task-all')?.classList.add('active');
+            if (country === 'LAOS') document.getElementById('card-task-laos')?.classList.add('active');
+            if (country === 'VIETNAM') document.getElementById('card-task-vietnam')?.classList.add('active');
 
             // Cập nhật banner thông báo nghiệp vụ phù hợp
             const banner = document.getElementById('notice-banner-text');
             if (country === 'VIETNAM') {
-                banner.innerHTML = `<span style="font-size: 18px;">🇻🇳</span><div><strong>Đơn hàng SPX Express Việt Nam:</strong> Giao tận nhà toàn quốc trong 1-3 ngày. Nhấp <strong>Zalo</strong> để mở trực tiếp chat với khách hàng hoặc bấm <strong>Gọi Khách</strong> để liên hệ nhanh.</div>`;
+                banner.innerHTML = `<span style="font-size: 18px;">🇻🇳</span><div><strong>Tác vụ Vận Đơn Việt Nam (SPX Express):</strong> Đơn hàng đồng bộ trực tiếp từ tài khoản spx.vn. Cập nhật đầy đủ tiền thu COD VNĐ, liên hệ trực tiếp Zalo 1 chạm hoặc gọi bưu tá / khách hàng ngay trên hệ thống.</div>`;
             } else if (country === 'LAOS') {
-                banner.innerHTML = `<span style="font-size: 18px;">🇱🇦</span><div><strong>Quy định vận đơn Lào:</strong> Tự động giải mã địa chỉ thành link Google Maps. Khóa an toàn WhatsApp: <strong>Chỉ khi đơn hàng đã về chi nhánh đích</strong> thì nút WhatsApp mới được kích hoạt.</div>`;
+                banner.innerHTML = `<span style="font-size: 18px;">🇱🇦</span><div><strong>Tác vụ Vận Đơn Lào:</strong> Tự động giải mã bưu cục thành link Google Maps. Khóa an toàn WhatsApp: <strong>Chỉ khi đơn hàng đã về chi nhánh đích</strong> thì nút WhatsApp mới được kích hoạt.</div>`;
             } else {
-                banner.innerHTML = `<span style="font-size: 18px;">🌐</span><div><strong>Trung tâm điều hành hợp nhất:</strong> Quản lý song song toàn diện tuyến vận chuyển <strong>Lào (Anousith & HAL)</strong> và <strong>Việt Nam (SPX Express)</strong>. Tự động chuyển đổi theo dõi live.</div>`;
+                banner.innerHTML = `<span style="font-size: 18px;">🎛️</span><div><strong>Trang Chủ Quản Trị Đa Tác Vụ:</strong> Quản lý tập trung song song 🇱🇦 <strong>Tác vụ Lào</strong> (Anousith & HAL) và 🇻🇳 <strong>Tác vụ Việt Nam</strong> (SPX Express). Sẵn sàng kết nối các module tiếp theo.</div>`;
             }
 
             filterOrders();
@@ -885,6 +1193,29 @@
             document.getElementById('tab-anousith-count').innerText = anousithCount;
             document.getElementById('tab-hal-count').innerText = halCount;
             document.getElementById('tab-spx-count').innerText = spxCount;
+
+            // Cập nhật số liệu chi tiết cho các Thẻ Tác Vụ Trang Chủ
+            const laosCod = laosList.reduce((acc, cur) => acc + (Number(cur.cod_amount) || 0), 0);
+            const vnCod = vnList.reduce((acc, cur) => acc + (Number(cur.cod_amount) || 0), 0);
+            const laosReady = laosList.filter(o => o.status.code === 'READY_FOR_PICKUP').length;
+            const vnTransit = vnList.filter(o => o.status.code === 'IN_TRANSIT').length;
+
+            const elLaosCount = document.getElementById('ws-laos-count');
+            if (elLaosCount) elLaosCount.innerText = laosList.length;
+            const elLaosCod = document.getElementById('ws-laos-cod');
+            if (elLaosCod) elLaosCod.innerText = laosCod.toLocaleString() + ' KIP';
+            const elLaosReady = document.getElementById('ws-laos-ready');
+            if (elLaosReady) elLaosReady.innerText = laosReady;
+
+            const elVnCount = document.getElementById('ws-vn-count');
+            if (elVnCount) elVnCount.innerText = vnList.length;
+            const elVnCod = document.getElementById('ws-vn-cod');
+            if (elVnCod) elVnCod.innerText = vnCod.toLocaleString() + ' VNĐ';
+            const elVnTransit = document.getElementById('ws-vn-transit');
+            if (elVnTransit) elVnTransit.innerText = vnTransit;
+
+            const elAllCount = document.getElementById('ws-all-count');
+            if (elAllCount) elAllCount.innerText = allUnifiedOrders.length;
         }
 
         function filterOrders() {
