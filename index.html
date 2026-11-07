@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trung Tâm Giám Sát Vận Đơn Đa Quốc Gia | Lào (Anousith & HAL) & Việt Nam (SPX Express)</title>
+    <title>Cổng Điều Hành & Giám Sát Đa Tác Vụ | Lào, Việt Nam (SPX) & Campuchia (VET)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -17,6 +17,7 @@
             --primary-glow: rgba(56, 189, 248, 0.25);
             --lao-color: #3b82f6;
             --vn-color: #ea580c;
+            --vet-color: #a855f7;
             --hal-color: #f59e0b;
             --success: #10b981;
             --warning: #f59e0b;
@@ -40,10 +41,11 @@
             background-color: var(--bg-base);
             color: var(--text-main);
             min-height: 100vh;
-            padding: 24px;
+            padding: 24px 20px;
             background-image: 
-                radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.06) 0%, transparent 40%),
-                radial-gradient(circle at 85% 80%, rgba(234, 88, 12, 0.05) 0%, transparent 40%);
+                radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.07) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(234, 88, 12, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
             background-attachment: fixed;
         }
 
@@ -52,12 +54,12 @@
             margin: 0 auto;
         }
 
-        /* Header */
+        /* Header dùng chung */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
             padding-bottom: 20px;
             border-bottom: 1px solid var(--card-border);
             flex-wrap: wrap;
@@ -71,14 +73,15 @@
         }
 
         .header-icon {
-            font-size: 36px;
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(234, 88, 12, 0.2));
+            font-size: 34px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(168, 85, 247, 0.2));
             border: 1px solid var(--card-border);
             padding: 12px;
             border-radius: var(--radius-lg);
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
         }
 
         .badge-hub {
@@ -131,6 +134,7 @@
             cursor: pointer;
             box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35);
             transition: all 0.2s ease;
+            min-height: 44px;
         }
 
         .btn-sync:hover {
@@ -144,64 +148,372 @@
             transform: none;
         }
 
-        /* Country Navigation Tabs */
-        .country-nav {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 24px;
-            border-bottom: 1px solid var(--card-border);
-            padding-bottom: 12px;
-            overflow-x: auto;
+        /* ========================================================
+           CẤP 1: MÀN HÌNH TRANG CHỦ (CHỈ HIỂN THỊ ĐÚNG 3 TÁC VỤ)
+           ======================================================== */
+        #home-view {
+            display: block;
+            animation: fadeIn 0.3s ease;
         }
 
-        .country-tab {
+        .home-hero {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 24px 28px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .home-hero-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .home-hero-title {
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            color: #94a3b8;
+            text-transform: uppercase;
             display: flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 8px #10b981;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .home-hero-desc {
+            font-size: 13px;
             color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        /* Lưới 3 Thẻ Tác Vụ Cân Đối Hoàn Hảo */
+        .tasks-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 1024px) {
+            .tasks-grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tasks-grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .task-card-hero {
+            background: var(--bg-card);
+            border: 2px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 26px 24px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            min-height: 310px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .task-card-hero:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Tác vụ 1: Lào */
+        .card-laos {
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        .card-laos:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.25);
+        }
+
+        /* Tác vụ 2: SPX Việt Nam */
+        .card-spx {
+            border-color: rgba(234, 88, 12, 0.3);
+        }
+        .card-spx:hover {
+            border-color: #f97316;
+            box-shadow: 0 15px 35px rgba(234, 88, 12, 0.25);
+        }
+
+        /* Tác vụ 3: VET Campuchia */
+        .card-vet {
+            border-color: rgba(168, 85, 247, 0.3);
+        }
+        .card-vet:hover {
+            border-color: #c084fc;
+            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.25);
+        }
+
+        .task-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            padding: 6px 12px;
+            border-radius: 999px;
+            margin-bottom: 14px;
+            width: fit-content;
+        }
+
+        .badge-laos {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .badge-vn {
+            background: rgba(234, 88, 12, 0.15);
+            color: #fb923c;
+            border: 1px solid rgba(234, 88, 12, 0.3);
+        }
+
+        .badge-vet {
+            background: rgba(168, 85, 247, 0.15);
+            color: #c084fc;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .task-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+
+        .task-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .task-metrics-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 14px 10px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 18px;
+            text-align: center;
+        }
+
+        .metric-cell .m-val {
+            font-size: 16px;
+            font-weight: 800;
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            display: block;
+        }
+
+        .metric-cell .m-lbl {
+            font-size: 10px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-top: 3px;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .task-footer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            padding-top: 16px;
+        }
+
+        .task-live-status {
+            font-size: 12px;
+            color: #34d399;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-launch-task {
+            padding: 10px 18px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #fff;
+        }
+
+        .btn-launch-laos {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+        }
+        .btn-launch-laos:hover {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+        }
+
+        .btn-launch-spx {
+            background: linear-gradient(135deg, #ea580c, #c2410c);
+            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.4);
+        }
+        .btn-launch-spx:hover {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+        }
+
+        .btn-launch-vet {
+            background: linear-gradient(135deg, #7e22ce, #6b21a8);
+            box-shadow: 0 4px 12px rgba(126, 34, 206, 0.4);
+        }
+        .btn-launch-vet:hover {
+            background: linear-gradient(135deg, #9333ea, #7e22ce);
+        }
+
+        /* ========================================================
+           CẤP 2: MÀN HÌNH CHI TIẾT TỪNG TÁC VỤ (TASK WORKSPACE)
+           ======================================================== */
+        #task-view {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Thanh điều hướng quay lại & chuyển tác vụ */
+        .task-nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.7);
             border: 1px solid var(--card-border);
-            padding: 10px 20px;
-            border-radius: 12px;
-            font-size: 14px;
+            border-radius: var(--radius-lg);
+            padding: 14px 20px;
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 10px 18px;
+            border-radius: var(--radius-md);
+            font-size: 13px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s;
-            white-space: nowrap;
+            min-height: 42px;
         }
 
-        .country-tab:hover {
+        .btn-back-home:hover {
+            background: rgba(255, 255, 255, 0.16);
+            transform: translateX(-3px);
+            border-color: var(--primary);
+        }
+
+        .current-task-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .current-task-title {
+            font-size: 17px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .task-switch-quick {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-quick-switch {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--card-border);
+            color: var(--text-muted);
+            padding: 8px 14px;
+            border-radius: var(--radius-md);
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-quick-switch:hover {
             background: rgba(255, 255, 255, 0.08);
             color: #fff;
         }
 
-        .country-tab.active {
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(37, 99, 235, 0.2));
-            color: #fff;
+        .btn-quick-switch.active {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--primary);
             border-color: var(--primary);
-            box-shadow: 0 0 15px var(--primary-glow);
         }
 
-        .country-tab.active.tab-vn {
-            background: linear-gradient(135deg, rgba(234, 88, 12, 0.2), rgba(225, 29, 72, 0.2));
-            border-color: #fb923c;
-            box-shadow: 0 0 15px rgba(234, 88, 12, 0.3);
+        /* Banner nghiệp vụ riêng */
+        .notice-banner {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            color: #bae6fd;
+            line-height: 1.4;
         }
 
-        .tab-badge {
-            font-size: 11px;
-            background: rgba(255, 255, 255, 0.12);
-            padding: 2px 7px;
-            border-radius: 999px;
-            color: #fff;
-        }
-
-        /* Stats Cards */
+        /* Stats Cards trong tác vụ */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 22px;
         }
 
         .stat-card {
@@ -212,17 +524,16 @@
             display: flex;
             align-items: center;
             gap: 16px;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: transform 0.2s;
         }
 
         .stat-card:hover {
             transform: translateY(-2px);
-            border-color: rgba(255, 255, 255, 0.15);
         }
 
         .stat-icon {
-            width: 48px;
-            height: 48px;
+            width: 46px;
+            height: 46px;
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -245,26 +556,12 @@
             font-weight: 500;
         }
 
-        /* Notice Banner */
-        .notice-banner {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            border-radius: 12px;
-            padding: 12px 18px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 13px;
-            color: #bae6fd;
-        }
-
-        /* Toolbar & Filters */
+        /* Toolbar & Search & Filters */
         .toolbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 16px;
+            gap: 14px;
             margin-bottom: 20px;
             flex-wrap: wrap;
         }
@@ -272,7 +569,7 @@
         .search-box {
             position: relative;
             flex: 1;
-            max-width: 380px;
+            max-width: 400px;
             min-width: 260px;
         }
 
@@ -339,6 +636,7 @@
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            overflow-x: auto;
         }
 
         table {
@@ -346,17 +644,19 @@
             border-collapse: collapse;
             text-align: left;
             font-size: 13px;
+            min-width: 1000px;
         }
 
         th {
             background: rgba(15, 23, 42, 0.85);
-            color: var(--text-muted);
             padding: 14px 16px;
+            color: #94a3b8;
             font-weight: 700;
-            text-transform: uppercase;
             font-size: 11px;
-            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             border-bottom: 1px solid var(--card-border);
+            white-space: nowrap;
         }
 
         td {
@@ -369,232 +669,140 @@
             background: rgba(255, 255, 255, 0.02);
         }
 
-        /* Badges & Tags */
-        .carrier-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 3px 8px;
-            border-radius: var(--radius-sm);
-            font-size: 11px;
-            font-weight: 700;
-            margin-top: 4px;
-        }
-
-        .carrier-anousith {
-            background: rgba(59, 130, 246, 0.15);
-            color: #60a5fa;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .carrier-hal {
-            background: rgba(245, 158, 11, 0.15);
-            color: #fbbf24;
-            border: 1px solid rgba(245, 158, 11, 0.35);
-        }
-
-        .carrier-spx {
-            background: rgba(234, 88, 12, 0.15);
-            color: #fb923c;
-            border: 1px solid rgba(234, 88, 12, 0.35);
-        }
-
         .code-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid var(--card-border);
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
             padding: 3px 8px;
             border-radius: var(--radius-sm);
-            font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
-            color: #f1f5f9;
+            font-weight: 700;
             text-decoration: none;
-            transition: all 0.15s;
+            display: inline-block;
         }
 
         .code-pill:hover {
-            border-color: var(--primary);
-            color: var(--primary);
+            text-decoration: underline;
         }
+
+        .carrier-tag {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 999px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        .carrier-anousith { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+        .carrier-hal { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+        .carrier-spx { background: rgba(234, 88, 12, 0.15); color: #fb923c; border: 1px solid rgba(234, 88, 12, 0.3); }
+        .carrier-vet { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
 
         .badge-status {
             display: inline-block;
-            padding: 4px 10px;
+            padding: 5px 10px;
             border-radius: 999px;
             font-size: 11px;
             font-weight: 700;
             white-space: nowrap;
         }
 
-        .badge-warning {
-            background: rgba(245, 158, 11, 0.15);
-            color: #fbbf24;
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
+        .badge-warning { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+        .badge-in-transit { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+        .badge-success { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .badge-danger { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
 
-        .badge-info {
-            background: rgba(59, 130, 246, 0.15);
-            color: #60a5fa;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .badge-success {
-            background: rgba(16, 185, 129, 0.15);
-            color: #34d399;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-
-        .badge-danger {
-            background: rgba(239, 68, 68, 0.15);
-            color: #f87171;
-            border: 1px solid rgba(239, 68, 68, 0.3);
-        }
-
-        .badge-secondary {
-            background: rgba(148, 163, 184, 0.15);
-            color: #cbd5e1;
-            border: 1px solid rgba(148, 163, 184, 0.25);
-        }
-
-        /* Action Buttons */
         .btn-action {
             display: inline-flex;
             align-items: center;
             gap: 5px;
-            padding: 6px 10px;
+            padding: 7px 12px;
             border-radius: var(--radius-sm);
             font-size: 11px;
             font-weight: 700;
-            text-decoration: none;
             cursor: pointer;
-            border: none;
+            text-decoration: none;
             transition: all 0.15s;
+            border: 1px solid transparent;
             white-space: nowrap;
         }
 
-        .btn-whatsapp {
-            background: #25d366;
-            color: #000;
-        }
-        .btn-whatsapp:hover { background: #22c55e; }
+        .btn-timeline { background: rgba(255, 255, 255, 0.08); color: #fff; }
+        .btn-timeline:hover { background: rgba(255, 255, 255, 0.15); }
 
-        .btn-whatsapp-sent {
-            background: rgba(37, 99, 235, 0.2);
-            color: #60a5fa;
-            border: 1px solid rgba(37, 99, 235, 0.4);
-        }
+        .btn-whatsapp { background: #25d366; color: #000; font-weight: 800; }
+        .btn-whatsapp:hover { background: #1ebd5a; }
 
-        .btn-zalo {
-            background: #0068ff;
-            color: #fff;
-        }
-        .btn-zalo:hover { background: #0056d6; }
+        .btn-whatsapp-sent { background: rgba(37, 211, 102, 0.2); color: #4ade80; border: 1px solid rgba(37, 211, 102, 0.4); }
 
-        .btn-telegram {
-            background: #0088cc;
-            color: #fff;
-        }
-        .btn-telegram:hover { background: #0077b5; box-shadow: 0 0 10px rgba(0, 136, 204, 0.4); }
+        .btn-zalo { background: #0068ff; color: #fff; }
+        .btn-zalo:hover { background: #0053cc; }
 
-        .btn-call {
-            background: #10b981;
-            color: #fff;
-        }
-        .btn-call:hover { background: #059669; }
+        .btn-telegram { background: #229ed9; color: #fff; }
+        .btn-telegram:hover { background: #1a7ab0; }
 
-        .carrier-vet {
-            background: rgba(168, 85, 247, 0.15);
-            color: #c084fc;
-            border: 1px solid rgba(168, 85, 247, 0.3);
-        }
-
-        .country-tab.tab-kh.active {
-            background: #a855f7;
-            border-color: #a855f7;
-            color: #fff;
-        }
-        .country-tab.tab-kh:hover:not(.active) {
-            border-color: rgba(168, 85, 247, 0.5);
-            color: #c084fc;
-        }
-
-        .btn-timeline {
-            background: rgba(255, 255, 255, 0.08);
-            color: #cbd5e1;
-            border: 1px solid var(--card-border);
-        }
-        .btn-timeline:hover {
-            background: rgba(255, 255, 255, 0.15);
-            color: #fff;
-        }
+        .btn-call { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .btn-call:hover { background: #10b981; color: #000; }
 
         /* Timeline Modal */
         .modal {
-            display: none;
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: rgba(0, 0, 0, 0.75);
             backdrop-filter: blur(4px);
-            z-index: 1000;
+            display: none;
             align-items: center;
             justify-content: center;
+            z-index: 1000;
             padding: 20px;
         }
 
-        .modal.active { display: flex; }
+        .modal.active {
+            display: flex;
+        }
 
         .modal-content {
             background: #0f172a;
             border: 1px solid var(--card-border);
             border-radius: var(--radius-lg);
             width: 100%;
-            max-width: 620px;
+            max-width: 650px;
             max-height: 85vh;
             overflow-y: auto;
             padding: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
         }
 
         .modal-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             margin-bottom: 20px;
-            padding-bottom: 14px;
             border-bottom: 1px solid var(--card-border);
+            padding-bottom: 14px;
         }
 
         .modal-title { font-size: 18px; font-weight: 800; color: #fff; }
-        .modal-sub { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
-        .modal-close {
-            background: none; border: none; color: var(--text-muted);
-            font-size: 20px; cursor: pointer; padding: 4px;
-        }
+        .modal-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+        .modal-close { background: none; border: none; font-size: 20px; color: var(--text-muted); cursor: pointer; }
         .modal-close:hover { color: #fff; }
 
-        .timeline-list {
-            position: relative;
-            padding-left: 20px;
-        }
-
+        .timeline-list { position: relative; padding-left: 20px; }
         .timeline-list::before {
             content: '';
             position: absolute;
-            top: 6px; bottom: 6px; left: 6px;
+            left: 7px;
+            top: 6px;
+            bottom: 6px;
             width: 2px;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--card-border);
         }
 
-        .timeline-item {
-            position: relative;
-            padding-bottom: 20px;
-        }
-
-        .timeline-item:last-child { padding-bottom: 0; }
-
+        .timeline-item { position: relative; margin-bottom: 20px; }
         .timeline-dot {
             position: absolute;
             left: -20px;
@@ -606,30 +814,9 @@
             border: 3px solid var(--primary);
         }
 
-        .timeline-item:first-child .timeline-dot {
-            border-color: #10b981;
-            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
-        }
-
-        .timeline-time {
-            font-size: 11px;
-            color: var(--text-muted);
-            font-family: 'JetBrains Mono', monospace;
-            margin-bottom: 2px;
-        }
-
-        .timeline-loc {
-            font-weight: 700;
-            color: #fff;
-            font-size: 13px;
-        }
-
-        .timeline-desc {
-            font-size: 12px;
-            color: #cbd5e1;
-            margin-top: 2px;
-            line-height: 1.4;
-        }
+        .timeline-time { font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+        .timeline-loc { font-weight: 700; color: #fff; font-size: 13px; margin: 2px 0; }
+        .timeline-desc { font-size: 12px; color: #cbd5e1; line-height: 1.4; }
 
         /* Toast */
         .toast {
@@ -652,245 +839,18 @@
         .toast.success { border-color: rgba(16, 185, 129, 0.5); background: #064e3b; }
         .toast.info { border-color: rgba(56, 189, 248, 0.5); background: #0c4a6e; }
         .toast.warning { border-color: rgba(245, 158, 11, 0.5); background: #78350f; }
-
-        /* Workspace Hub Section (Trang Chủ Đa Tác Vụ) */
-        .workspace-section {
-            background: rgba(15, 23, 42, 0.7);
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius-lg);
-            padding: 20px 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-        }
-
-        .workspace-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .workspace-title {
-            font-size: 14px;
-            font-weight: 800;
-            letter-spacing: 0.05em;
-            color: #94a3b8;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #10b981;
-            box-shadow: 0 0 8px #10b981;
-            display: inline-block;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
-
-        .workspace-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 18px;
-        }
-
-        .workspace-card {
-            background: var(--bg-card);
-            border: 1.5px solid var(--card-border);
-            border-radius: var(--radius-md);
-            padding: 20px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .workspace-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(56, 189, 248, 0.5);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
-        }
-
-        .workspace-card.active {
-            border-color: #38bdf8;
-            background: linear-gradient(180deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%);
-            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3), 0 10px 25px rgba(0, 0, 0, 0.4);
-        }
-
-        .workspace-card.card-spx.active {
-            border-color: #f97316;
-            box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.3), 0 10px 25px rgba(0, 0, 0, 0.4);
-        }
-
-        .workspace-card.card-vet.active {
-            border-color: #a855f7;
-            box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.3), 0 10px 25px rgba(0, 0, 0, 0.4);
-        }
-
-        .workspace-card.card-all.active {
-            border-color: #10b981;
-            box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.3), 0 10px 25px rgba(0, 0, 0, 0.4);
-        }
-
-        .task-badge {
-            font-size: 11px;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-bottom: 10px;
-            width: fit-content;
-        }
-
-        .badge-lao { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
-        .badge-vn { background: rgba(234, 88, 12, 0.15); color: #fb923c; border: 1px solid rgba(234, 88, 12, 0.3); }
-        .badge-kh { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
-        .badge-all { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
-
-        .task-name {
-            font-size: 16px;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 6px;
-        }
-
-        .task-desc {
-            font-size: 12px;
-            color: var(--text-muted);
-            line-height: 1.45;
-            margin-bottom: 16px;
-            min-height: 48px;
-        }
-
-        .task-metrics {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            background: rgba(0, 0, 0, 0.25);
-            padding: 10px;
-            border-radius: var(--radius-sm);
-            margin-bottom: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .metric-item {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .m-val {
-            font-size: 13px;
-            font-weight: 700;
-            color: #f1f5f9;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .m-lbl {
-            font-size: 10px;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
-
-        .task-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 8px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .task-status {
-            font-size: 11px;
-            color: #10b981;
-            font-weight: 600;
-        }
-
-        .btn-open-task {
-            background: rgba(56, 189, 248, 0.15);
-            color: #38bdf8;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            padding: 5px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .btn-open-task:hover {
-            background: #38bdf8;
-            color: #000;
-        }
-
-        .btn-open-spx {
-            background: rgba(249, 115, 22, 0.15);
-            color: #fb923c;
-            border-color: rgba(249, 115, 22, 0.3);
-        }
-
-        .btn-open-spx:hover {
-            background: #f97316;
-            color: #fff;
-        }
-
-        .btn-open-vet {
-            background: rgba(168, 85, 247, 0.15);
-            color: #c084fc;
-            border-color: rgba(168, 85, 247, 0.3);
-        }
-
-        .btn-open-vet:hover {
-            background: #a855f7;
-            color: #fff;
-        }
-
-        .btn-open-all {
-            background: rgba(16, 185, 129, 0.15);
-            color: #34d399;
-            border-color: rgba(16, 185, 129, 0.3);
-        }
-
-        .btn-open-all:hover {
-            background: #10b981;
-            color: #fff;
-        }
-
-        @media (max-width: 900px) {
-            body { padding: 14px; }
-            h1 { font-size: 20px; }
-            .workspace-grid { grid-template-columns: 1fr; }
-            .toolbar { flex-direction: column; align-items: stretch; }
-            .search-box { max-width: 100%; }
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
+        <!-- Header dùng chung -->
         <header>
             <div class="header-title-box">
                 <div class="header-icon">🚚</div>
                 <div>
-                    <div class="badge-hub">🎛️ CỔNG ĐIỀU HÀNH & GIÁM SÁT ĐA TÁC VỤ (DUY PASAY HUB)</div>
-                    <h1>Dashboard Trang Chủ Quản Trị Đa Tác Vụ</h1>
-                    <p class="subtitle">
-                        Hệ thống quản trị tập trung nhiều tác vụ vận hành: 🇱🇦 <strong>Tác vụ Vận Đơn Lào</strong> (Anousith & HAL Logistics) và 🇻🇳 <strong>Tác vụ Vận Đơn Việt Nam</strong> (SPX Express).
-                    </p>
+                    <div class="badge-hub">CỔNG ĐIỀU HÀNH & GIÁM SÁT ĐA TÁC VỤ (DUY PASAY HUB)</div>
+                    <h1 id="header-main-title">Dashboard Trang Chủ Quản Trị Đa Tác Vụ</h1>
+                    <div class="subtitle" id="header-sub-title">Hệ thống quản trị tập trung nhiều tác vụ: 🇱🇦 Vận Đơn Lào, 🇻🇳 Vận Đơn Việt Nam (SPX) và 🇰🇭 Vận Đơn Campuchia (VET).</div>
                 </div>
             </div>
             <div class="header-actions">
@@ -900,249 +860,224 @@
             </div>
         </header>
 
-        <!-- CỔNG TÁC VỤ QUẢN TRỊ TRANG CHỦ (TASK WORKSPACES) -->
-        <div class="workspace-section">
-            <div class="workspace-header">
-                <div class="workspace-title">
-                    <span class="pulse-dot"></span> DANH MỤC CÁC TÁC VỤ VẬN HÀNH (TRANG CHỦ DUY PASAY HUB)
+        <!-- ========================================================
+             CẤP 1: MÀN HÌNH TRANG CHỦ DASHBOARD (CHỈ CÓ 3 TÁC VỤ)
+             ======================================================== -->
+        <div id="home-view">
+            <div class="home-hero">
+                <div class="home-hero-header">
+                    <div class="home-hero-title">
+                        <span class="pulse-dot"></span> DANH MỤC CÁC TÁC VỤ VẬN HÀNH (TRANG CHỦ DUY PASAY HUB)
+                    </div>
+                    <span style="font-size: 12px; color: var(--text-muted);">Hệ thống module hóa độc lập • Click vào từng tác vụ để mở không gian làm việc</span>
                 </div>
-                <div style="font-size: 12px; color: var(--text-muted);">
-                    Hệ thống tích hợp đa tác vụ • Bấm vào tác vụ bên dưới để chuyển vùng điều hành chuyên sâu:
+                <div class="home-hero-desc">
+                    Mỗi tác vụ được vận hành và giám sát chuyên biệt theo từng thị trường: giải mã Google Maps & WhatsApp chuẩn cho Lào; luân chuyển kho & Zalo cho Việt Nam SPX; tiền tệ USD & Telegram cho Campuchia VET Express.
                 </div>
             </div>
 
-            <div class="workspace-grid">
+            <!-- CHỈ HIỂN THỊ ĐÚNG 3 THẺ TÁC VỤ CHÍNH -->
+            <div class="tasks-grid-3">
                 <!-- TÁC VỤ 1: VẬN ĐƠN LÀO -->
-                <div class="workspace-card" id="card-task-laos" onclick="switchCountryTab('LAOS')">
+                <div class="task-card-hero card-laos" onclick="openTask('LAOS')">
                     <div>
-                        <div class="task-badge badge-lao">🇱🇦 TÁC VỤ 1: VẬN ĐƠN LÀO</div>
-                        <div class="task-name">Giám Sát Vận Đơn Lào</div>
+                        <div class="task-badge-pill badge-laos">🇱🇦 TÁC VỤ 1: VẬN ĐƠN LÀO</div>
+                        <div class="task-title">Giám Sát Vận Đơn Lào</div>
                         <p class="task-desc">Quản lý kiện hàng xuất kho Thái Dương FFM sang Lào, tra cứu live bưu cục Anousith Express & HAL Logistics, đối chiếu COD KIP, link Maps và mở khóa WhatsApp khi đến đích.</p>
                     </div>
                     <div>
-                        <div class="task-metrics">
-                            <div class="metric-item">
-                                <span class="m-val" id="ws-laos-count">6</span>
+                        <div class="task-metrics-row">
+                            <div class="metric-cell">
+                                <span class="m-val" id="ws-laos-count">0</span>
                                 <span class="m-lbl">Đơn theo dõi</span>
                             </div>
-                            <div class="metric-item">
-                                <span class="m-val" id="ws-laos-cod" style="color: #34d399;">2.63M KIP</span>
+                            <div class="metric-cell">
+                                <span class="m-val" id="ws-laos-cod" style="color: #34d399; font-size: 14px;">0 KIP</span>
                                 <span class="m-lbl">Tiền COD</span>
                             </div>
-                            <div class="metric-item">
-                                <span class="m-val" id="ws-laos-ready" style="color: #f59e0b;">4</span>
+                            <div class="metric-cell">
+                                <span class="m-val" id="ws-laos-ready" style="color: #f59e0b;">0</span>
                                 <span class="m-lbl">Đã đến đích</span>
                             </div>
                         </div>
-                        <div class="task-footer">
-                            <span class="task-status">🟢 Đang trực tuyến</span>
-                            <button class="btn-open-task">Mở Tác Vụ Lào →</button>
+                        <div class="task-footer-row">
+                            <span class="task-live-status">🟢 Đang trực tuyến</span>
+                            <button class="btn-launch-task btn-launch-laos" onclick="event.stopPropagation(); openTask('LAOS')">Mở Tác Vụ Lào →</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- TÁC VỤ 2: VẬN ĐƠN VIỆT NAM (SPX) -->
-                <div class="workspace-card card-spx" id="card-task-vietnam" onclick="switchCountryTab('VIETNAM')">
+                <div class="task-card-hero card-spx" onclick="openTask('VIETNAM')">
                     <div>
-                        <div class="task-badge badge-vn">🇻🇳 TÁC VỤ 2: VẬN ĐƠN VIỆT NAM (SPX)</div>
-                        <div class="task-name">Giám Sát Vận Đơn SPX Express</div>
+                        <div class="task-badge-pill badge-vn">🇻🇳 TÁC VỤ 2: VẬN ĐƠN VIỆT NAM (SPX)</div>
+                        <div class="task-title">Giám Sát Vận Đơn SPX Express</div>
                         <p class="task-desc">Trích xuất live trực tiếp từ tài khoản SPX Admin (spx.vn), theo dõi luân chuyển trung tâm Củ Chi SOC, cập nhật tiền thu hộ COD VNĐ, liên hệ Zalo & gọi khách 1 chạm.</p>
                     </div>
                     <div>
-                        <div class="task-metrics">
-                            <div class="metric-item">
-                                <span class="m-val" id="ws-vn-count">4</span>
+                        <div class="task-metrics-row">
+                            <div class="metric-cell">
+                                <span class="m-val" id="ws-vn-count">0</span>
                                 <span class="m-lbl">Đơn theo dõi</span>
                             </div>
-                            <div class="metric-item">
-                                <span class="m-val" id="ws-vn-cod" style="color: #34d399;">1.54M VNĐ</span>
+                            <div class="metric-cell">
+                                <span class="m-val" id="ws-vn-cod" style="color: #34d399; font-size: 14px;">0 VNĐ</span>
                                 <span class="m-lbl">Tiền COD</span>
                             </div>
-                            <div class="metric-item">
-                                <span class="m-val" id="ws-vn-transit" style="color: #60a5fa;">2</span>
+                            <div class="metric-cell">
+                                <span class="m-val" id="ws-vn-transit" style="color: #60a5fa;">0</span>
                                 <span class="m-lbl">Đang vận chuyển</span>
                             </div>
                         </div>
-                        <div class="task-footer">
-                            <span class="task-status">🟢 Đang trực tuyến</span>
-                            <button class="btn-open-task btn-open-spx">Mở Tác Vụ SPX →</button>
+                        <div class="task-footer-row">
+                            <span class="task-live-status">🟢 Đang trực tuyến</span>
+                            <button class="btn-launch-task btn-launch-spx" onclick="event.stopPropagation(); openTask('VIETNAM')">Mở Tác Vụ SPX →</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- TÁC VỤ 3: VẬN ĐƠN CAMPUCHIA (VET EXPRESS) -->
-                <div class="workspace-card card-vet" id="card-task-cambodia" onclick="switchCountryTab('CAMBODIA')">
+                <!-- TÁC VỤ 3: VẬN ĐƠN CAMPUCHIA (VET) -->
+                <div class="task-card-hero card-vet" onclick="openTask('CAMBODIA')">
                     <div>
-                        <div class="task-badge badge-kh">🇰🇭 TÁC VỤ 3: VẬN ĐƠN CAMPUCHIA (VET)</div>
-                        <div class="task-name">Giám Sát VET Express</div>
+                        <div class="task-badge-pill badge-vet">🇰🇭 TÁC VỤ 3: VẬN ĐƠN CAMPUCHIA (VET)</div>
+                        <div class="task-title">Giám Sát VET Express</div>
                         <p class="task-desc">Quản lý kiện hàng xuất kho Phnom Penh & Bavet qua Virak Buntham Logistics (2604...-kh), đối soát tiền thu COD USD ($), chăm sóc khách hàng 1 chạm qua Telegram.</p>
                     </div>
                     <div>
-                        <div class="task-metrics">
-                            <div class="metric-item">
+                        <div class="task-metrics-row">
+                            <div class="metric-cell">
                                 <span class="m-val" id="ws-kh-count">0</span>
                                 <span class="m-lbl">Đơn theo dõi</span>
                             </div>
-                            <div class="metric-item">
-                                <span class="m-val" id="ws-kh-cod" style="color: #34d399;">$0.00 USD</span>
+                            <div class="metric-cell">
+                                <span class="m-val" id="ws-kh-cod" style="color: #34d399; font-size: 14px;">$0.00 USD</span>
                                 <span class="m-lbl">Tiền COD</span>
                             </div>
-                            <div class="metric-item">
+                            <div class="metric-cell">
                                 <span class="m-val" id="ws-kh-delivering" style="color: #f59e0b;">0</span>
                                 <span class="m-lbl">Đang phát</span>
                             </div>
                         </div>
-                        <div class="task-footer">
-                            <span class="task-status">🟢 Đang trực tuyến</span>
-                            <button class="btn-open-task btn-open-vet">Mở Tác Vụ VET →</button>
+                        <div class="task-footer-row">
+                            <span class="task-live-status">🟢 Đang trực tuyến</span>
+                            <button class="btn-launch-task btn-launch-vet" onclick="event.stopPropagation(); openTask('CAMBODIA')">Mở Tác Vụ VET →</button>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <!-- TÁC VỤ HỢP NHẤT TOÀN THỂ -->
-                <div class="workspace-card card-all active" id="card-task-all" onclick="switchCountryTab('ALL')">
+        <!-- ========================================================
+             CẤP 2: MÀN HÌNH CHI TIẾT TỪNG TÁC VỤ (TASK WORKSPACE)
+             ======================================================== -->
+        <div id="task-view">
+            <!-- Thanh điều hướng tác vụ -->
+            <div class="task-nav-bar">
+                <button class="btn-back-home" onclick="backToHome()">
+                    ← Quay Về Trang Chủ (Chọn Tác Vụ Khác)
+                </button>
+                <div class="current-task-heading">
+                    <span id="current-task-flag" style="font-size: 24px;">🇱🇦</span>
+                    <span class="current-task-title" id="current-task-title">Tác Vụ 1: Vận Đơn Lào (Anousith & HAL)</span>
+                </div>
+                <div class="task-switch-quick">
+                    <button class="btn-quick-switch" id="btn-quick-laos" onclick="openTask('LAOS')">🇱🇦 Lào</button>
+                    <button class="btn-quick-switch" id="btn-quick-spx" onclick="openTask('VIETNAM')">🇻🇳 SPX VN</button>
+                    <button class="btn-quick-switch" id="btn-quick-vet" onclick="openTask('CAMBODIA')">🇰🇭 VET Cam</button>
+                </div>
+            </div>
+
+            <!-- Banner nghiệp vụ riêng của tác vụ đang mở -->
+            <div class="notice-banner" id="task-banner-text">
+                <span style="font-size: 20px;" id="banner-icon">📍</span>
+                <div id="banner-content">Đang tải chính sách nghiệp vụ tác vụ...</div>
+            </div>
+
+            <!-- 5 Thẻ Số Liệu Thống Kê (Tính riêng cho tác vụ đang mở) -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;">📦</div>
                     <div>
-                        <div class="task-badge badge-all">🌐 TỔNG QUAN HỢP NHẤT</div>
-                        <div class="task-name">Cổng Điều Hành Toàn Thể</div>
-                        <p class="task-desc">Giám sát song song 3 quốc gia Lào, Việt Nam & Campuchia trên cùng một giao diện, quản trị đa kênh và tổng hợp dòng tiền COD đa tiền tệ (KIP, VNĐ & USD).</p>
+                        <div class="stat-val" id="stat-total">0</div>
+                        <div class="stat-lbl">Tổng Đơn Tác Vụ Này</div>
                     </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">🚛</div>
                     <div>
-                        <div class="task-metrics">
-                            <div class="metric-item">
-                                <span class="m-val" id="ws-all-count">13</span>
-                                <span class="m-lbl">Tổng đơn</span>
-                            </div>
-                            <div class="metric-item">
-                                <span class="m-val" style="color: #34d399; font-size: 11px;">KIP, VNĐ, USD</span>
-                                <span class="m-lbl">Đa tiền tệ</span>
-                            </div>
-                            <div class="metric-item">
-                                <span class="m-val">3 Quốc Gia</span>
-                                <span class="m-lbl">Phạm vi</span>
-                            </div>
-                        </div>
-                        <div class="task-footer">
-                            <span class="task-status">🟢 Tự động đồng bộ</span>
-                            <button class="btn-open-task btn-open-all">Xem Toàn Bộ →</button>
-                        </div>
+                        <div class="stat-val" id="stat-transit">0</div>
+                        <div class="stat-lbl">Đang Vận Chuyển</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">📍</div>
+                    <div>
+                        <div class="stat-val" id="stat-pickup">0</div>
+                        <div class="stat-lbl">Đã Đến Đích / Đang Phát</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">✅</div>
+                    <div>
+                        <div class="stat-val" id="stat-completed">0</div>
+                        <div class="stat-lbl">Giao Thành Công (< 1 ngày)</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">⚠️</div>
+                    <div>
+                        <div class="stat-val" id="stat-return">0</div>
+                        <div class="stat-lbl">Cảnh Báo Hoàn / Tồn</div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Country Navigation Tabs -->
-        <div class="country-nav">
-            <button class="country-tab active" id="tab-nav-all" onclick="switchCountryTab('ALL')">
-                🌐 Tất Cả Vận Đơn <span class="tab-badge" id="badge-count-all">0</span>
-            </button>
-            <button class="country-tab" id="tab-nav-laos" onclick="switchCountryTab('LAOS')">
-                🇱🇦 Vận Đơn Lào (Anousith & HAL) <span class="tab-badge" id="badge-count-laos">0</span>
-            </button>
-            <button class="country-tab tab-vn" id="tab-nav-vietnam" onclick="switchCountryTab('VIETNAM')">
-                🇻🇳 Vận Đơn Việt Nam (SPX Express) <span class="tab-badge" id="badge-count-vietnam">0</span>
-            </button>
-            <button class="country-tab tab-kh" id="tab-nav-cambodia" onclick="switchCountryTab('CAMBODIA')">
-                🇰🇭 Vận Đơn Campuchia (VET Express) <span class="tab-badge" id="badge-count-cambodia">0</span>
-            </button>
-        </div>
-
-        <!-- Quy định nghiệp vụ & CSKH -->
-        <div class="notice-banner" id="notice-banner-text">
-            <span style="font-size: 18px;">📍</span>
-            <div>
-                <strong>Chính sách CSKH chuẩn hóa:</strong> 
-                Đối với đơn <strong>Lào</strong>, nút WhatsApp chỉ mở khi kiện hàng đã về chi nhánh đích. 
-                Đối với đơn <strong>Việt Nam (SPX)</strong>, có thể liên hệ trực tiếp Zalo 1 chạm hoặc gọi bưu tá / khách hàng ngay trên hệ thống.
-            </div>
-        </div>
-
-        <!-- Stats Bar -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-icon" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;">📦</div>
-                <div>
-                    <div class="stat-val" id="stat-total">0</div>
-                    <div class="stat-lbl">Tổng Đơn Đang Theo Dõi</div>
+            <!-- Toolbar Tìm Kiếm & Bộ Lọc Tác Vụ -->
+            <div class="toolbar">
+                <div class="search-box">
+                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 14z"/></svg>
+                    <input type="text" id="searchInput" placeholder="Tìm theo tên khách, SĐT, mã vận đơn, bưu cục..." onkeyup="filterOrders()">
+                </div>
+                <div class="filter-tabs">
+                    <button class="filter-btn status-btn active" onclick="setStatusFilter('ALL', this)">Tất Cả Trạng Thái (<span id="tab-all-count">0</span>)</button>
+                    <button class="filter-btn status-btn" onclick="setStatusFilter('IN_TRANSIT', this)">🚚 Vận Chuyển (<span id="tab-transit-count">0</span>)</button>
+                    <button class="filter-btn status-btn" onclick="setStatusFilter('READY_FOR_PICKUP', this)">📍 Đến Đích / Đang Giao (<span id="tab-pickup-count">0</span>)</button>
+                    <button class="filter-btn status-btn" onclick="setStatusFilter('COMPLETED', this)">✅ Thành Công (<span id="tab-completed-count">0</span>)</button>
+                    <button class="filter-btn status-btn" onclick="setStatusFilter('RETURN_WARNING', this)">⚠️ Cảnh Báo (<span id="tab-return-count">0</span>)</button>
+                    
+                    <span style="display: inline-block; width: 1px; height: 20px; background: var(--card-border); margin: 0 4px;"></span>
+                    
+                    <button class="filter-btn carrier-btn active" onclick="setCarrierFilter('ALL', this)">Tất Cả Hãng</button>
+                    <span id="carrier-filter-group"></span>
                 </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">🚛</div>
-                <div>
-                    <div class="stat-val" id="stat-transit">0</div>
-                    <div class="stat-lbl">Đang Vận Chuyển / Trung Chuyển</div>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">📍</div>
-                <div>
-                    <div class="stat-val" id="stat-pickup">0</div>
-                    <div class="stat-lbl">Đã Đến Đích / Đang Phát</div>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">✅</div>
-                <div>
-                    <div class="stat-val" id="stat-completed">0</div>
-                    <div class="stat-lbl">Giao Thành Công (< 1 ngày)</div>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">⚠️</div>
-                <div>
-                    <div class="stat-val" id="stat-return">0</div>
-                    <div class="stat-lbl">Cảnh Báo Hoàn / Tồn</div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Toolbar -->
-        <div class="toolbar">
-            <div class="search-box">
-                <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-                <input type="text" id="searchInput" placeholder="Tìm theo tên khách, SĐT, mã vận đơn, bưu cục..." onkeyup="filterOrders()">
+            <!-- Bảng Dữ Liệu Đơn Hàng Của Tác Vụ -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 50px; text-align: center;">STT</th>
+                            <th style="width: 90px; text-align: center;">Quốc Gia</th>
+                            <th style="width: 150px;">Mã Đơn Kho</th>
+                            <th style="width: 170px;">Mã Vận Đơn</th>
+                            <th style="width: 220px;">Khách Hàng & Liên Hệ</th>
+                            <th style="width: 240px;">Bưu Cục Đích & Vị Trí Maps</th>
+                            <th style="width: 130px;">Tiền Thu COD</th>
+                            <th style="width: 150px;">Trạng Thái Vận Đơn</th>
+                            <th style="min-width: 180px;">Tiến Trình Mới Nhất</th>
+                            <th style="width: 190px; text-align: center;">Hành Động CSKH</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                        <tr>
+                            <td colspan="10" style="text-align: center; padding: 40px; color: var(--text-muted);">
+                                ⏳ Đang tải dữ liệu vận đơn...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="filter-tabs">
-                <button class="filter-btn status-btn active" onclick="setStatusFilter('ALL', this)">Tất Cả Trạng Thái (<span id="tab-all-count">0</span>)</button>
-                <button class="filter-btn status-btn" onclick="setStatusFilter('IN_TRANSIT', this)">🚚 Vận Chuyển (<span id="tab-transit-count">0</span>)</button>
-                <button class="filter-btn status-btn" onclick="setStatusFilter('READY_FOR_PICKUP', this)">📍 Đến Đích / Đang Giao (<span id="tab-pickup-count">0</span>)</button>
-                <button class="filter-btn status-btn" onclick="setStatusFilter('COMPLETED', this)">✅ Thành Công (<span id="tab-completed-count">0</span>)</button>
-                <button class="filter-btn status-btn" onclick="setStatusFilter('RETURN_WARNING', this)">⚠️ Cảnh Báo (<span id="tab-return-count">0</span>)</button>
-                
-                <span style="display: inline-block; width: 1px; height: 20px; background: var(--card-border); margin: 0 4px;"></span>
-                
-                <button class="filter-btn carrier-btn active" onclick="setCarrierFilter('ALL', this)">Tất Cả Hãng</button>
-                <button class="filter-btn carrier-btn" onclick="setCarrierFilter('Anousith Express', this)">🇱🇦 Anousith (<span id="tab-anousith-count">0</span>)</button>
-                <button class="filter-btn carrier-btn" onclick="setCarrierFilter('HAL Logistics', this)">🛡️ HAL (<span id="tab-hal-count">0</span>)</button>
-                <button class="filter-btn carrier-btn" onclick="setCarrierFilter('SPX Express', this)" style="border-color: rgba(234, 88, 12, 0.4); color: #fb923c;">⚡ SPX Express (<span id="tab-spx-count">0</span>)</button>
-                <button class="filter-btn carrier-btn" onclick="setCarrierFilter('VET Express', this)" style="border-color: rgba(168, 85, 247, 0.4); color: #c084fc;">🇰🇭 VET Express (<span id="tab-vet-count">0</span>)</button>
-            </div>
-        </div>
-
-        <!-- Table View -->
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th style="width: 50px; text-align: center;">STT</th>
-                        <th style="width: 90px; text-align: center;">Quốc Gia</th>
-                        <th style="width: 150px;">Mã Đơn Kho</th>
-                        <th style="width: 170px;">Mã Vận Đơn</th>
-                        <th style="width: 220px;">Khách Hàng & Liên Hệ</th>
-                        <th style="width: 240px;">Bưu Cục Đích & Vị Trí Maps</th>
-                        <th style="width: 130px;">Tiền Thu COD</th>
-                        <th style="width: 150px;">Trạng Thái Vận Đơn</th>
-                        <th style="min-width: 180px;">Tiến Trình Mới Nhất</th>
-                        <th style="width: 190px; text-align: center;">Hành Động CSKH</th>
-                    </tr>
-                </thead>
-                <tbody id="ordersTableBody">
-                    <tr>
-                        <td colspan="10" style="text-align: center; padding: 40px; color: var(--text-muted);">
-                            ⏳ Đang tải dữ liệu vận đơn Lào & Việt Nam...
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
 
@@ -1167,11 +1102,12 @@
     <script id="tracking-unified-script" src="orders_unified_data.js"></script>
     <script id="tracking-data-script" src="orders_tracking_data.js"></script>
     <script id="tracking-spx-script" src="orders_spx_data.js"></script>
+    <script id="tracking-vet-script" src="orders_vet_data.js"></script>
 
     <script>
         // State Management
         let allUnifiedOrders = [];
-        let currentCountry = 'ALL';   // 'ALL', 'LAOS', 'VIETNAM'
+        let currentActiveTask = null; // null = Trang Chủ (#home-view), 'LAOS', 'VIETNAM', 'CAMBODIA'
         let currentStatusFilter = 'ALL';
         let currentCarrierFilter = 'ALL';
 
@@ -1179,11 +1115,10 @@
         function initData() {
             let combined = [];
 
-            // 1. Ưu tiên nạp từ __UNIFIED_TRACKING_DATA__
             if (window.__UNIFIED_TRACKING_DATA__ && window.__UNIFIED_TRACKING_DATA__.all_orders) {
                 combined = window.__UNIFIED_TRACKING_DATA__.all_orders;
             } else {
-                // 2. Fallback gộp dữ liệu Lào và Việt Nam
+                // Fallback gộp dữ liệu 3 nước
                 const laosOrders = (window.__ORDERS_TRACKING_DATA__ && window.__ORDERS_TRACKING_DATA__.orders) ? window.__ORDERS_TRACKING_DATA__.orders : [];
                 laosOrders.forEach(o => {
                     o.country = 'LA';
@@ -1200,36 +1135,147 @@
                     o.currency = 'VNĐ';
                 });
 
-                combined = [...laosOrders, ...spxOrders];
+                const vetOrders = (window.__VET_TRACKING_DATA__ && window.__VET_TRACKING_DATA__.orders) ? window.__VET_TRACKING_DATA__.orders : [];
+                vetOrders.forEach(o => {
+                    o.country = 'KH';
+                    o.country_name = 'Campuchia';
+                    o.flag = '🇰🇭';
+                    o.currency = 'USD';
+                });
+
+                combined = [...laosOrders, ...spxOrders, ...vetOrders];
             }
 
             allUnifiedOrders = combined;
-            updateNavigationBadges();
-            filterOrders();
+            updateHomeCardsMetrics();
+
+            // Nếu đang trong view chi tiết tác vụ thì cập nhật lại bảng và thống kê
+            if (currentActiveTask) {
+                updateTaskWorkspace();
+            }
         }
 
-        // Chuyển Tab Quốc Gia / Tác Vụ
-        function switchCountryTab(country) {
-            currentCountry = country;
-            document.querySelectorAll('.country-tab').forEach(b => b.classList.remove('active'));
-            if (country === 'ALL') document.getElementById('tab-nav-all')?.classList.add('active');
-            if (country === 'LAOS') document.getElementById('tab-nav-laos')?.classList.add('active');
-            if (country === 'VIETNAM') document.getElementById('tab-nav-vietnam')?.classList.add('active');
+        // Cập nhật số liệu trên 3 Thẻ Trang Chủ
+        function updateHomeCardsMetrics() {
+            const laosList = allUnifiedOrders.filter(o => o.country === 'LA');
+            const vnList = allUnifiedOrders.filter(o => o.country === 'VN');
+            const khList = allUnifiedOrders.filter(o => o.country === 'KH');
 
-            // Cập nhật trạng thái Active của các Thẻ Tác Vụ trên Trang Chủ
-            document.querySelectorAll('.workspace-card').forEach(c => c.classList.remove('active'));
-            if (country === 'ALL') document.getElementById('card-task-all')?.classList.add('active');
-            if (country === 'LAOS') document.getElementById('card-task-laos')?.classList.add('active');
-            if (country === 'VIETNAM') document.getElementById('card-task-vietnam')?.classList.add('active');
+            const laosCod = laosList.reduce((acc, cur) => acc + (Number(cur.cod_amount) || 0), 0);
+            const vnCod = vnList.reduce((acc, cur) => acc + (Number(cur.cod_amount) || 0), 0);
+            const khCod = khList.reduce((acc, cur) => acc + (Number(cur.cod_amount) || 0), 0);
 
-            // Cập nhật banner thông báo nghiệp vụ phù hợp
-            const banner = document.getElementById('notice-banner-text');
-            if (country === 'VIETNAM') {
-                banner.innerHTML = `<span style="font-size: 18px;">🇻🇳</span><div><strong>Tác vụ Vận Đơn Việt Nam (SPX Express):</strong> Đơn hàng đồng bộ trực tiếp từ tài khoản spx.vn. Cập nhật đầy đủ tiền thu COD VNĐ, liên hệ trực tiếp Zalo 1 chạm hoặc gọi bưu tá / khách hàng ngay trên hệ thống.</div>`;
-            } else if (country === 'LAOS') {
-                banner.innerHTML = `<span style="font-size: 18px;">🇱🇦</span><div><strong>Tác vụ Vận Đơn Lào:</strong> Tự động giải mã bưu cục thành link Google Maps. Khóa an toàn WhatsApp: <strong>Chỉ khi đơn hàng đã về chi nhánh đích</strong> thì nút WhatsApp mới được kích hoạt.</div>`;
-            } else {
-                banner.innerHTML = `<span style="font-size: 18px;">🎛️</span><div><strong>Trang Chủ Quản Trị Đa Tác Vụ:</strong> Quản lý tập trung song song 🇱🇦 <strong>Tác vụ Lào</strong> (Anousith & HAL) và 🇻🇳 <strong>Tác vụ Việt Nam</strong> (SPX Express). Sẵn sàng kết nối các module tiếp theo.</div>`;
+            const laosReady = laosList.filter(o => o.status.code === 'READY_FOR_PICKUP').length;
+            const vnTransit = vnList.filter(o => o.status.code === 'IN_TRANSIT').length;
+            const khDelivering = khList.filter(o => o.status.code === 'DELIVERING' || o.status.code === 'READY_FOR_PICKUP').length;
+
+            // Thẻ Lào
+            const elLaosCount = document.getElementById('ws-laos-count');
+            if (elLaosCount) elLaosCount.innerText = laosList.length;
+            const elLaosCod = document.getElementById('ws-laos-cod');
+            if (elLaosCod) elLaosCod.innerText = laosCod.toLocaleString() + ' KIP';
+            const elLaosReady = document.getElementById('ws-laos-ready');
+            if (elLaosReady) elLaosReady.innerText = laosReady;
+
+            // Thẻ SPX Việt Nam
+            const elVnCount = document.getElementById('ws-vn-count');
+            if (elVnCount) elVnCount.innerText = vnList.length;
+            const elVnCod = document.getElementById('ws-vn-cod');
+            if (elVnCod) elVnCod.innerText = vnCod.toLocaleString() + ' VNĐ';
+            const elVnTransit = document.getElementById('ws-vn-transit');
+            if (elVnTransit) elVnTransit.innerText = vnTransit;
+
+            // Thẻ VET Campuchia
+            const elKhCount = document.getElementById('ws-kh-count');
+            if (elKhCount) elKhCount.innerText = khList.length;
+            const elKhCod = document.getElementById('ws-kh-cod');
+            if (elKhCod) elKhCod.innerText = '$' + khCod.toFixed(2) + ' USD';
+            const elKhDelivering = document.getElementById('ws-kh-delivering');
+            if (elKhDelivering) elKhDelivering.innerText = khDelivering;
+        }
+
+        // Mở một tác vụ chuyên sâu (Chuyển từ Trang Chủ sang Không Gian Tác Vụ)
+        function openTask(taskKey) {
+            currentActiveTask = taskKey; // 'LAOS', 'VIETNAM', 'CAMBODIA'
+            currentStatusFilter = 'ALL';
+            currentCarrierFilter = 'ALL';
+
+            // Ẩn Trang Chủ, Hiện Không Gian Tác Vụ
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('task-view').style.display = 'block';
+
+            // Cập nhật hash trên thanh địa chỉ URL
+            let hashTag = '#laos';
+            if (taskKey === 'VIETNAM') hashTag = '#spx';
+            if (taskKey === 'CAMBODIA') hashTag = '#vet';
+            if (window.location.hash !== hashTag) {
+                history.pushState({ task: taskKey }, '', hashTag);
+            }
+
+            updateTaskWorkspace();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Quay về Trang Chủ (Chỉ hiển thị 3 Thẻ Tác Vụ)
+        function backToHome() {
+            currentActiveTask = null;
+            document.getElementById('task-view').style.display = 'none';
+            document.getElementById('home-view').style.display = 'block';
+
+            if (window.location.hash) {
+                history.pushState(null, '', window.location.pathname);
+            }
+            updateHomeCardsMetrics();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Cập nhật nội dung hiển thị trong Không Gian Tác Vụ
+        function updateTaskWorkspace() {
+            const taskKey = currentActiveTask;
+            const flagEl = document.getElementById('current-task-flag');
+            const titleEl = document.getElementById('current-task-title');
+            const bannerIcon = document.getElementById('banner-icon');
+            const bannerContent = document.getElementById('banner-content');
+            const carrierGroup = document.getElementById('carrier-filter-group');
+
+            // Đặt active nút switch nhanh
+            document.querySelectorAll('.btn-quick-switch').forEach(b => b.classList.remove('active'));
+
+            if (taskKey === 'LAOS') {
+                document.getElementById('btn-quick-laos')?.classList.add('active');
+                flagEl.innerText = '🇱🇦';
+                titleEl.innerText = 'Tác Vụ 1: Quản Trị Vận Đơn Lào (Anousith & HAL Logistics)';
+                bannerIcon.innerText = '🇱🇦';
+                bannerContent.innerHTML = '<strong>Chính sách CSKH Vận Đơn Lào:</strong> Tự động giải mã bưu cục thành link Google Maps. Khóa an toàn WhatsApp: <strong>Chỉ khi kiện hàng đã về chi nhánh đích (Ready for pickup)</strong> thì nút WhatsApp mới được kích hoạt.';
+                
+                const anousithCount = allUnifiedOrders.filter(o => o.carrier === 'Anousith Express').length;
+                const halCount = allUnifiedOrders.filter(o => o.carrier === 'HAL Logistics').length;
+                carrierGroup.innerHTML = `
+                    <button class="filter-btn carrier-btn" onclick="setCarrierFilter('Anousith Express', this)">🇱🇦 Anousith (${anousithCount})</button>
+                    <button class="filter-btn carrier-btn" onclick="setCarrierFilter('HAL Logistics', this)">🛡️ HAL (${halCount})</button>
+                `;
+            } else if (taskKey === 'VIETNAM') {
+                document.getElementById('btn-quick-spx')?.classList.add('active');
+                flagEl.innerText = '🇻🇳';
+                titleEl.innerText = 'Tác Vụ 2: Quản Trị Vận Đơn Việt Nam (SPX Express)';
+                bannerIcon.innerText = '🇻🇳';
+                bannerContent.innerHTML = '<strong>Chính sách CSKH SPX Express:</strong> Đơn hàng đồng bộ trực tiếp từ tài khoản spx.vn. Cập nhật đầy đủ tiền thu COD VNĐ, liên hệ trực tiếp Zalo 1 chạm hoặc gọi bưu tá / khách hàng ngay trên hệ thống.';
+                
+                const spxCount = allUnifiedOrders.filter(o => o.carrier === 'SPX Express').length;
+                carrierGroup.innerHTML = `
+                    <button class="filter-btn carrier-btn" onclick="setCarrierFilter('SPX Express', this)" style="border-color: rgba(234, 88, 12, 0.4); color: #fb923c;">⚡ SPX Express (${spxCount})</button>
+                `;
+            } else if (taskKey === 'CAMBODIA') {
+                document.getElementById('btn-quick-vet')?.classList.add('active');
+                flagEl.innerText = '🇰🇭';
+                titleEl.innerText = 'Tác Vụ 3: Quản Trị Vận Đơn Campuchia (VET Express)';
+                bannerIcon.innerText = '🇰🇭';
+                bannerContent.innerHTML = '<strong>Chính sách CSKH VET Express:</strong> Hoạt động độc lập 100% với POS Cake, chỉ dùng API VET Express (Virak Buntham Logistics). Tiền COD tính bằng <strong>USD ($)</strong>, hỗ trợ CSKH 1 chạm trực tiếp qua <strong>Telegram</strong>.';
+                
+                const vetCount = allUnifiedOrders.filter(o => o.carrier === 'VET Express').length;
+                carrierGroup.innerHTML = `
+                    <button class="filter-btn carrier-btn" onclick="setCarrierFilter('VET Express', this)" style="border-color: rgba(168, 85, 247, 0.4); color: #c084fc;">🇰🇭 VET Express (${vetCount})</button>
+                `;
             }
 
             filterOrders();
@@ -1249,94 +1295,53 @@
             filterOrders();
         }
 
-        function updateNavigationBadges() {
-            const laosList = allUnifiedOrders.filter(o => o.country === 'LA');
-            const vnList = allUnifiedOrders.filter(o => o.country === 'VN');
-            
-            document.getElementById('badge-count-all').innerText = allUnifiedOrders.length;
-            document.getElementById('badge-count-laos').innerText = laosList.length;
-            document.getElementById('badge-count-vietnam').innerText = vnList.length;
-
-            // Đếm theo hãng
-            const anousithCount = allUnifiedOrders.filter(o => o.carrier === 'Anousith Express').length;
-            const halCount = allUnifiedOrders.filter(o => o.carrier === 'HAL Logistics').length;
-            const spxCount = allUnifiedOrders.filter(o => o.carrier === 'SPX Express').length;
-
-            document.getElementById('tab-anousith-count').innerText = anousithCount;
-            document.getElementById('tab-hal-count').innerText = halCount;
-            document.getElementById('tab-spx-count').innerText = spxCount;
-
-            // Cập nhật số liệu chi tiết cho các Thẻ Tác Vụ Trang Chủ
-            const laosCod = laosList.reduce((acc, cur) => acc + (Number(cur.cod_amount) || 0), 0);
-            const vnCod = vnList.reduce((acc, cur) => acc + (Number(cur.cod_amount) || 0), 0);
-            const laosReady = laosList.filter(o => o.status.code === 'READY_FOR_PICKUP').length;
-            const vnTransit = vnList.filter(o => o.status.code === 'IN_TRANSIT').length;
-
-            const elLaosCount = document.getElementById('ws-laos-count');
-            if (elLaosCount) elLaosCount.innerText = laosList.length;
-            const elLaosCod = document.getElementById('ws-laos-cod');
-            if (elLaosCod) elLaosCod.innerText = laosCod.toLocaleString() + ' KIP';
-            const elLaosReady = document.getElementById('ws-laos-ready');
-            if (elLaosReady) elLaosReady.innerText = laosReady;
-
-            const elVnCount = document.getElementById('ws-vn-count');
-            if (elVnCount) elVnCount.innerText = vnList.length;
-            const elVnCod = document.getElementById('ws-vn-cod');
-            if (elVnCod) elVnCod.innerText = vnCod.toLocaleString() + ' VNĐ';
-            const elVnTransit = document.getElementById('ws-vn-transit');
-            if (elVnTransit) elVnTransit.innerText = vnTransit;
-
-            const elAllCount = document.getElementById('ws-all-count');
-            if (elAllCount) elAllCount.innerText = allUnifiedOrders.length;
-        }
-
         function filterOrders() {
+            if (!currentActiveTask) return;
+
             const query = (document.getElementById('searchInput').value || '').toLowerCase().trim();
 
-            let filtered = allUnifiedOrders.filter(o => {
-                // 1. Lọc theo Quốc Gia
-                if (currentCountry === 'LAOS' && o.country !== 'LA') return false;
-                if (currentCountry === 'VIETNAM' && o.country !== 'VN') return false;
+            let targetCountryCode = 'LA';
+            if (currentActiveTask === 'VIETNAM') targetCountryCode = 'VN';
+            if (currentActiveTask === 'CAMBODIA') targetCountryCode = 'KH';
 
-                // 2. Lọc theo Hãng vận chuyển
-                if (currentCarrierFilter !== 'ALL' && o.carrier !== currentCarrierFilter) return false;
+            // 1. Chỉ lọc các đơn thuộc Tác Vụ hiện tại
+            let filtered = allUnifiedOrders.filter(o => o.country === targetCountryCode);
 
-                // 3. Lọc theo Trạng thái
-                if (currentStatusFilter !== 'ALL') {
-                    if (currentStatusFilter === 'READY_FOR_PICKUP') {
-                        if (o.status.code !== 'READY_FOR_PICKUP' && o.status.code !== 'DELIVERING') return false;
-                    } else if (o.status.code !== currentStatusFilter) {
-                        return false;
-                    }
+            // 2. Lọc theo Hãng vận chuyển
+            if (currentCarrierFilter !== 'ALL') {
+                filtered = filtered.filter(o => o.carrier === currentCarrierFilter);
+            }
+
+            // 3. Lọc theo Trạng thái
+            if (currentStatusFilter !== 'ALL') {
+                if (currentStatusFilter === 'READY_FOR_PICKUP') {
+                    filtered = filtered.filter(o => o.status.code === 'READY_FOR_PICKUP' || o.status.code === 'DELIVERING');
+                } else {
+                    filtered = filtered.filter(o => o.status.code === currentStatusFilter);
                 }
+            }
 
-                // 4. Lọc theo Từ khóa tìm kiếm
-                if (query) {
+            // 4. Lọc theo Từ khóa tìm kiếm
+            if (query) {
+                filtered = filtered.filter(o => {
                     const text = [
                         o.order_uid, o.display_id, o.shipping_order_code,
                         o.buyer_name, o.buyer_phone, o.dest_branch,
                         o.buyer_address, o.carrier
                     ].join(' ').toLowerCase();
-                    if (!text.includes(query)) return false;
-                }
+                    return text.includes(query);
+                });
+            }
 
-                return true;
-            });
-
-            updateStatsAndCounts(filtered);
+            updateStatsAndCounts(targetCountryCode);
             renderTable(filtered);
         }
 
-        function updateStatsAndCounts(orders) {
-            // Danh sách theo phạm vi hiện tại (quốc gia đang chọn)
-            const currentScopeOrders = allUnifiedOrders.filter(o => {
-                if (currentCountry === 'LAOS' && o.country !== 'LA') return false;
-                if (currentCountry === 'VIETNAM' && o.country !== 'VN') return false;
-                return true;
-            });
+        function updateStatsAndCounts(countryCode) {
+            const scopeOrders = allUnifiedOrders.filter(o => o.country === countryCode);
 
             let transit = 0, pickup = 0, completed = 0, warn = 0;
-            currentScopeOrders.forEach(o => {
+            scopeOrders.forEach(o => {
                 const code = o.status.code;
                 if (code === 'IN_TRANSIT') transit++;
                 else if (code === 'READY_FOR_PICKUP' || code === 'DELIVERING') pickup++;
@@ -1344,13 +1349,13 @@
                 else if (code === 'RETURN_WARNING') warn++;
             });
 
-            document.getElementById('stat-total').innerText = currentScopeOrders.length;
+            document.getElementById('stat-total').innerText = scopeOrders.length;
             document.getElementById('stat-transit').innerText = transit;
             document.getElementById('stat-pickup').innerText = pickup;
             document.getElementById('stat-completed').innerText = completed;
             document.getElementById('stat-return').innerText = warn;
 
-            document.getElementById('tab-all-count').innerText = currentScopeOrders.length;
+            document.getElementById('tab-all-count').innerText = scopeOrders.length;
             document.getElementById('tab-transit-count').innerText = transit;
             document.getElementById('tab-pickup-count').innerText = pickup;
             document.getElementById('tab-completed-count').innerText = completed;
@@ -1362,7 +1367,11 @@
             tbody.innerHTML = '';
 
             if (orders.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="10" style="text-align: center; padding: 40px; color: var(--text-muted);">Không tìm thấy đơn hàng nào phù hợp với bộ lọc hiện tại.</td></tr>`;
+                let emptyMsg = "Không tìm thấy đơn hàng nào phù hợp với bộ lọc hiện tại.";
+                if (currentActiveTask === 'CAMBODIA') {
+                    emptyMsg = "✨ Chưa có vận đơn VET Express nào đang chạy. Hệ thống sẵn sàng kết nối trực tiếp API Virak Buntham Logistics (Campuchia) ngay khi có đơn mới!";
+                }
+                tbody.innerHTML = `<tr><td colspan="10" style="text-align: center; padding: 50px 20px; color: var(--text-muted); font-size: 14px;">${emptyMsg}</td></tr>`;
                 return;
             }
 
@@ -1406,7 +1415,7 @@
                     `;
                 }
 
-                // Customer info
+                // Khách hàng & SĐT
                 const phone = o.buyer_phone || '';
                 const customerHtml = `
                     <div>
@@ -1418,7 +1427,7 @@
                     </div>
                 `;
 
-                // Actions: Campuchia (VET) thì Telegram/Gọi; Việt Nam thì Zalo & Gọi Điện; Lào thì gửi WhatsApp
+                // Actions: Campuchia (VET) thì Telegram/Gọi; Việt Nam thì Zalo/Gọi; Lào thì gửi WhatsApp
                 let actionsHtml = '';
                 if (o.country === 'KH') {
                     actionsHtml = `
@@ -1534,25 +1543,22 @@
             document.getElementById('timelineModal').classList.remove('active');
         }
 
-        // Đồng bộ dữ liệu Cập Nhật Tức Thì Hợp Nhất (Hỗ trợ 24/7 cả khi máy Mac tắt)
+        // Đồng bộ dữ liệu Cập Nhật Tức Thì
         async function reloadAllOrdersData() {
             const btn = document.querySelector('.btn-sync');
             const originalText = btn.innerHTML;
-            btn.innerHTML = '⏳ Đang Quét Live Lào & SPX Việt Nam...';
+            btn.innerHTML = '⏳ Đang Quét Live Cả 3 Tác Vụ...';
             btn.disabled = true;
 
-            showToast('🚀 Đang kết nối bưu cục: Anousith, HAL (Lào) và SPX Express (Việt Nam)...', 'info', 3000);
+            showToast('🚀 Đang kết nối bưu cục Lào (Anousith, HAL), SPX Việt Nam & VET Express Campuchia...', 'info', 3000);
 
-            // Địa chỉ máy chủ API (ưu tiên localhost nếu mở trên Mac, hoặc qua Cloudflare Tunnel)
             const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
             const apiBase = isLocal ? '' : 'https://pages-quit-overall-avi.trycloudflare.com';
             const syncEndpoint = `${apiBase}/api/sync-tracking`;
 
-            // Đặt bộ đếm thời gian timeout 2.5s để không làm người dùng trên điện thoại phải chờ đợi lâu
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 2500);
 
-            let syncSuccess = false;
             try {
                 const response = await fetch(syncEndpoint, {
                     method: 'POST',
@@ -1565,22 +1571,26 @@
                     const result = await response.json();
                     await refreshScripts();
                     initData();
-                    syncSuccess = true;
 
                     const summary = result.summary || {};
-                    const msg = `🎉 ĐÃ QUÉT & CẬP NHẬT TỨC THÌ THÀNH CÔNG!\n• Tổng đơn hàng: ${summary.total_all_orders || allUnifiedOrders.length} đơn\n• Tuyến Lào (Anousith & HAL): ${summary.laos_total || 6} đơn\n• Tuyến Việt Nam (SPX Express): ${summary.vietnam_total || 4} đơn`;
+                    const msg = `🎉 ĐÃ QUÉT & CẬP NHẬT TỨC THÌ THÀNH CÔNG!
+• Lào: ${summary.laos_total || 7} đơn
+• SPX VN: ${summary.vietnam_total || 4} đơn
+• VET Cam: ${summary.cambodia_total || 0} đơn`;
                     showToast(msg, 'success', 6000);
                 }
             } catch (err) {
                 clearTimeout(timeoutId);
-                // Chế độ Cloud độc lập (khi máy Mac tắt hoặc đi ngoài đường)
                 console.log("Kích hoạt chế độ Cloud 24/7 độc lập:", err.message);
                 await refreshScripts();
                 initData();
 
                 const laosCount = allUnifiedOrders.filter(o => o.country === 'LA').length;
                 const vnCount = allUnifiedOrders.filter(o => o.country === 'VN').length;
-                const msg = `✅ ĐÃ LÀM MỚI DỮ LIỆU TỪ ĐÁM MÂY CLOUD 24/7!\n• Đang theo dõi: ${allUnifiedOrders.length} đơn hàng (${laosCount} đơn Lào, ${vnCount} đơn SPX Việt Nam)\n• Hệ thống hoạt động độc lập liên tục, bạn tắt máy Mac vẫn dùng tốt trên điện thoại ngoài đường!`;
+                const khCount = allUnifiedOrders.filter(o => o.country === 'KH').length;
+                const msg = `✅ ĐÃ LÀM MỚI DỮ LIỆU TỪ ĐÁM MÂY CLOUD 24/7!
+• Đang theo dõi: ${allUnifiedOrders.length} đơn hàng (${laosCount} đơn Lào, ${vnCount} đơn SPX VN, ${khCount} đơn VET Cam)
+• Tắt máy Mac vẫn cập nhật tốt trên điện thoại ngoài đường!`;
                 showToast(msg, 'success', 6000);
             } finally {
                 btn.innerHTML = originalText;
@@ -1603,6 +1613,7 @@
                 reloadScript('tracking-unified-script', 'orders_unified_data.js');
                 reloadScript('tracking-data-script', 'orders_tracking_data.js');
                 reloadScript('tracking-spx-script', 'orders_spx_data.js');
+                reloadScript('tracking-vet-script', 'orders_vet_data.js');
                 setTimeout(resolve, 600);
             });
         }
@@ -1628,17 +1639,33 @@
             btn.innerText = '💬 Đã Gửi WA';
         }
 
+        // Điều hướng Hash & History (Khi bấm nút Back trên điện thoại)
+        window.addEventListener('popstate', (e) => {
+            const hash = window.location.hash.toLowerCase();
+            if (hash === '#laos') openTask('LAOS');
+            else if (hash === '#spx' || hash === '#vietnam') openTask('VIETNAM');
+            else if (hash === '#vet' || hash === '#cambodia') openTask('CAMBODIA');
+            else backToHome();
+        });
+
         // Khởi động khi tải xong trang
         window.addEventListener('DOMContentLoaded', () => {
             initData();
 
-            // Đọc tham số URL nếu người dùng muốn mở sẵn tab Lào hoặc Việt Nam
+            // Kiểm tra Hash hoặc URL Params
+            const hash = window.location.hash.toLowerCase();
             const urlParams = new URLSearchParams(window.location.search);
-            const countryParam = (urlParams.get('country') || urlParams.get('tab') || '').toUpperCase();
-            if (countryParam === 'VIETNAM' || countryParam === 'VN' || countryParam === 'SPX') {
-                switchCountryTab('VIETNAM');
-            } else if (countryParam === 'LAOS' || countryParam === 'LAO' || countryParam === 'LA') {
-                switchCountryTab('LAOS');
+            const taskParam = (urlParams.get('task') || urlParams.get('country') || '').toUpperCase();
+
+            if (hash === '#laos' || taskParam === 'LAOS' || taskParam === 'LA') {
+                openTask('LAOS');
+            } else if (hash === '#spx' || hash === '#vietnam' || taskParam === 'VIETNAM' || taskParam === 'SPX') {
+                openTask('VIETNAM');
+            } else if (hash === '#vet' || hash === '#cambodia' || taskParam === 'CAMBODIA' || taskParam === 'VET') {
+                openTask('CAMBODIA');
+            } else {
+                // Mặc định hiển thị CẤP 1: TRANG CHỦ CHỈ CÓ 3 THẺ TÁC VỤ
+                backToHome();
             }
         });
     </script>
