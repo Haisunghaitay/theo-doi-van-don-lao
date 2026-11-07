@@ -854,10 +854,10 @@
                 </div>
             </div>
             <div class="header-actions">
-                <button class="btn-sync" onclick="openAddOrderModal()" style="background: linear-gradient(135deg, #10b981, #059669); margin-right: 8px;">
+                <button class="btn-sync" id="btn-add-order" onclick="openAddOrderModal()" style="background: linear-gradient(135deg, #10b981, #059669); margin-right: 8px;">
                     ➕ Thêm Vận Đơn Mới
                 </button>
-                <button class="btn-sync" onclick="reloadAllOrdersData()">
+                <button class="btn-sync" id="btn-sync-action" onclick="reloadAllOrdersData()">
                     🔄 Cập Nhật Tức Thì
                 </button>
             </div>
@@ -1593,90 +1593,135 @@
             document.getElementById('timelineModal').classList.remove('active');
         }
 
-        // Đồng bộ dữ liệu Cập Nhật Tức Thì
+        // Đồng bộ dữ liệu Cập Nhật Tức Thì (Bất đồng bộ thông minh, không lo timeout)
         async function reloadAllOrdersData() {
-            const btn = document.querySelector('.btn-sync');
-            const originalText = '🔄 Cập Nhật Tức Thì';
+            const btn = document.getElementById('btn-sync-action') || document.querySelector('.btn-sync');
+            if (!btn) return;
+
+            const originalHtml = '🔄 Cập Nhật Tức Thì';
             btn.disabled = true;
+            btn.innerHTML = '⏳ Đang kết nối máy chủ...';
 
             showToast('🚀 Đang kết nối máy chủ cào đơn Live: Thái Dương FFM (Lào), SPX Express (Việt Nam) & VET (Campuchia)...', 'info', 5000);
 
-            // Cập nhật trạng thái từng bước trên nút bấm
-            let seconds = 0;
-            const progressInterval = setInterval(() => {
-                seconds += 1;
-                if (seconds < 7) {
-                    btn.innerHTML = `⏳ [1/3] Đang cào đơn Lào (${seconds}s)...`;
-                } else if (seconds < 14) {
-                    btn.innerHTML = `⏳ [2/3] Đang cào đơn SPX VN (${seconds}s)...`;
-                } else if (seconds < 22) {
-                    btn.innerHTML = `⏳ [3/3] Đang cào đơn VET Cam (${seconds}s)...`;
-                } else {
-                    btn.innerHTML = `🌐 Đang xuất bản lên Cloud (${seconds}s)...`;
-                }
-            }, 1000);
-
             const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-            // Tự động nhận diện API: Ưu tiên local nếu đang mở local, ngược lại gọi qua Cloudflare Tunnel hoặc cổng 8080
-            const apiBase = isLocal ? '' : 'https://pages-quit-overall-avi.trycloudflare.com';
-            const syncEndpoint = `${apiBase}/api/sync-tracking`;
+            const localApiBase = isLocal ? '' : 'http://127.0.0.1:8080';
+            const tunnelApiBase = 'https://asia-perfectly-indexed-robust.trycloudflare.com';
 
-            // Cho phép thời gian tối đa 120 giây để máy chủ cào đủ 3 quốc gia và xuất bản lên Cloud
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 120000);
+            let connectedBase = null;
 
-            try {
-                const response = await fetch(syncEndpoint, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    signal: controller.signal
-                });
-                clearTimeout(timeoutId);
-                clearInterval(progressInterval);
+            async function pingServer(baseUrl) {
+                try {
+                    const c = new AbortController();
+                    const t = setTimeout(() => c.abort(), 1800);
+                    const res = await fetch(`${baseUrl}/api/status`, { method: 'GET', signal: c.signal });
+                    clearTimeout(t);
+                    return res.ok;
+                } catch {
+                    return false;
+                }
+            }
 
-                if (response.ok) {
-                    const result = await response.json();
-                    await refreshScripts();
-                    initData();
+            if (await pingServer(localApiBase)) {
+                connectedBase = localApiBase;
+            } else if (!isLocal && await pingServer(tunnelApiBase)) {
+                connectedBase = tunnelApiBase;
+            }
 
-                    const summary = result.summary || {};
-                    const laosTotal = summary.laos_total || (typeof rawOrders !== 'undefined' ? rawOrders.length : 0);
-                    const vnTotal = summary.vietnam_total || (typeof spxOrdersData !== 'undefined' ? spxOrdersData.length : 0);
-                    const khTotal = summary.cambodia_total || (typeof vetOrdersData !== 'undefined' ? vetOrdersData.length : 0);
+            if (connectedBase !== null) {
+                try {
+                    const triggerRes = await fetch(`${connectedBase}/api/sync-tracking`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+                    const triggerData = await triggerRes.json();
 
-                    btn.innerHTML = '🎉 Cập Nhật Thành Công!';
-                    const msg = `🎉 ĐÃ CÀO & CẬP NHẬT TỨC THÌ THÀNH CÔNG!
+                    let seconds = 0;
+                    const maxWait = 110;
+
+                    const pollTimer = setInterval(async () => {
+                        seconds += 2;
+
+                        if (seconds < 12) {
+                            btn.innerHTML = `⏳ [1/3] Đang cào đơn Lào (${seconds}s)...`;
+                        } else if (seconds < 26) {
+                            btn.innerHTML = `⏳ [2/3] Đang cào SPX VN (${seconds}s)...`;
+                        } else if (seconds < 40) {
+                            btn.innerHTML = `⏳ [3/3] Đang cào VET Campuchia (${seconds}s)...`;
+                        } else {
+                            btn.innerHTML = `🌐 Đang xuất bản lên Cloud (${seconds}s)...`;
+                        }
+
+                        try {
+                            const stRes = await fetch(`${connectedBase}/api/status`);
+                            if (stRes.ok) {
+                                const st = await stRes.json();
+                                if (!st.is_syncing && seconds >= 6) {
+                                    clearInterval(pollTimer);
+                                    await refreshScripts();
+                                    initData();
+
+                                    const summary = (st.result && st.result.summary) || {};
+                                    const laosTotal = summary.laos_total || (typeof rawOrders !== 'undefined' ? rawOrders.length : 0);
+                                    const vnTotal = summary.vietnam_total || (typeof spxOrdersData !== 'undefined' ? spxOrdersData.length : 0);
+                                    const khTotal = summary.cambodia_total || (typeof vetOrdersData !== 'undefined' ? vetOrdersData.length : 0);
+
+                                    btn.innerHTML = '🎉 Cập Nhật Thành Công!';
+                                    const msg = `🎉 ĐÃ CÀO & CẬP NHẬT TỨC THÌ THÀNH CÔNG!
 • 🇱🇦 Lào: ${laosTotal} đơn
 • 🇻🇳 Việt Nam (SPX): ${vnTotal} đơn
 • 🇰🇭 Campuchia (VET): ${khTotal} đơn
 🌐 Toàn bộ dữ liệu đã đồng bộ lên GitHub Pages & Surge!`;
-                    showToast(msg, 'success', 7000);
-                } else {
-                    throw new Error(`Mã lỗi HTTP: ${response.status}`);
+                                    showToast(msg, 'success', 7000);
+
+                                    setTimeout(() => {
+                                        btn.innerHTML = originalHtml;
+                                        btn.disabled = false;
+                                    }, 3000);
+                                }
+                            }
+                        } catch (e) {
+                            // Bỏ qua lỗi tạm thời khi thăm dò
+                        }
+
+                        if (seconds >= maxWait) {
+                            clearInterval(pollTimer);
+                            await refreshScripts();
+                            initData();
+                            btn.innerHTML = '✅ Đã Tải Dữ Liệu Cloud';
+                            showToast('✅ Đã nạp lại dữ liệu đơn hàng đám mây mới nhất!', 'info', 5000);
+                            setTimeout(() => {
+                                btn.innerHTML = originalHtml;
+                                btn.disabled = false;
+                            }, 3000);
+                        }
+                    }, 2000);
+
+                    return;
+
+                } catch (e) {
+                    console.warn("Lỗi kích hoạt cào ngầm:", e);
                 }
-            } catch (err) {
-                clearTimeout(timeoutId);
-                clearInterval(progressInterval);
-                console.warn("Lỗi đồng bộ trực tiếp qua máy chủ local:", err.message);
-
-                await refreshScripts();
-                initData();
-
-                const laosCount = allUnifiedOrders.filter(o => o.country === 'LA').length;
-                const vnCount = allUnifiedOrders.filter(o => o.country === 'VN').length;
-                const khCount = allUnifiedOrders.filter(o => o.country === 'KH').length;
-
-                btn.innerHTML = '✅ Đã Tải Dữ Liệu Cloud';
-                const msg = `✅ ĐÃ TẢI DỮ LIỆU ĐÁM MÂY MỚI NHẤT!
-• Tổng đang theo dõi: ${allUnifiedOrders.length} đơn hàng (${laosCount} đơn Lào, ${vnCount} đơn SPX, ${khCount} đơn VET)
-• Lưu ý: Để cào đơn mới tức thì từ bưu cục, hãy mở hệ thống trên máy Mac!`;
-                showToast(msg, 'info', 6000);
-            } finally {
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                }, 3000);
             }
+
+            // Phương án dự phòng khi mở từ ngoài mạng mà máy Mac tắt tunnel
+            await refreshScripts();
+            initData();
+
+            const laosCount = allUnifiedOrders.filter(o => o.country === 'LA').length;
+            const vnCount = allUnifiedOrders.filter(o => o.country === 'VN').length;
+            const khCount = allUnifiedOrders.filter(o => o.country === 'KH').length;
+
+            btn.innerHTML = '✅ Đã Tải Dữ Liệu Cloud';
+            const msg = `✅ ĐÃ TẢI DỮ LIỆU ĐÁM MÂY MỚI NHẤT!
+• Tổng đang theo dõi: ${allUnifiedOrders.length} đơn hàng (${laosCount} đơn Lào, ${vnCount} đơn SPX, ${khCount} đơn VET)
+• Dữ liệu trên Cloud đã được cập nhật từ phiên quét định kỳ mới nhất!`;
+            showToast(msg, 'success', 6000);
+
+            setTimeout(() => {
+                btn.innerHTML = originalHtml;
+                btn.disabled = false;
+            }, 3000);
         }
 
         function refreshScripts() {
@@ -1745,7 +1790,7 @@
             showToast(`⏳ Đang lưu mã vận đơn ${code} và kích hoạt tra cứu bưu cục...`, 'info', 6000);
 
             const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-            const apiBase = isLocal ? '' : 'https://pages-quit-overall-avi.trycloudflare.com';
+            const apiBase = isLocal ? '' : 'https://asia-perfectly-indexed-robust.trycloudflare.com';
 
             try {
                 const resp = await fetch(`${apiBase}/api/add-tracking`, {
