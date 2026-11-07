@@ -1,35 +1,68 @@
 window.__UNIFIED_TRACKING_DATA__ = {
   "summary": {
-    "last_updated": "08/11/2026 01:24:19",
-    "total_all_orders": 10,
-    "laos_total": 6,
+    "last_updated": "08/11/2026 01:26:32",
+    "total_all_orders": 11,
+    "laos_total": 7,
     "vietnam_total": 4,
     "cambodia_total": 0,
     "laos_ready_pickup": 4,
     "vietnam_delivering": 0,
     "cambodia_delivering": 0,
-    "total_cod_laos_kip": 2630000.0,
+    "total_cod_laos_kip": 2631111.0,
     "total_cod_vn_vnd": 1541000,
     "total_cod_kh_usd": 0.0
   },
   "laos": {
     "stats": {
-      "total_orders": 6,
+      "total_orders": 7,
       "total_with_code": 145,
       "completed": 0,
       "ready_for_pickup": 4,
       "in_transit": 0,
       "return_warning": 1,
-      "pending": 1,
-      "total_cod_kip": 2630000.0,
+      "pending": 2,
+      "total_cod_kip": 2631111.0,
       "collected_cod_kip": 0,
       "pending_cod_kip": 1921000.0,
-      "last_updated": "08/11/2026 01:23:12",
+      "last_updated": "08/11/2026 01:25:25",
       "delivery_rate": 0.0
     },
     "orders": [
       {
         "stt": 1,
+        "order_uid": "LAO162_20261108_3",
+        "shipping_order_code": null,
+        "carrier": "Anousith Express",
+        "buyer_name": "bbbb",
+        "buyer_phone": "bbbb",
+        "buyer_phone_raw": "bbbb",
+        "buyer_address": "bbb",
+        "dest_branch": "bbb",
+        "matched_branch_name": "bbb",
+        "cod_amount": 1111.0,
+        "created_at": "2026-11-07T18:24:55.567Z",
+        "status": {
+          "code": "PENDING",
+          "text": "Chờ bàn giao vận chuyển",
+          "badge_class": "badge-secondary",
+          "action_needed": "Xuất kho đóng gói",
+          "color": "#64748b"
+        },
+        "items": [],
+        "latest_scan_desc": "Chưa có dữ liệu quét",
+        "latest_scan_time": "",
+        "timeline": [],
+        "google_maps_link": "https://maps.google.com/?q=bbb%2C+Laos",
+        "wa_remind_link": null,
+        "anousith_tracking_url": null,
+        "hal_tracking_url": null,
+        "country": "LA",
+        "country_name": "Lào",
+        "flag": "🇱🇦",
+        "currency": "KIP"
+      },
+      {
+        "stt": 2,
         "order_uid": "LAO162_20261104_1",
         "shipping_order_code": "8263098019271",
         "carrier": "Anousith Express",
@@ -126,7 +159,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
         "currency": "KIP"
       },
       {
-        "stt": 2,
+        "stt": 3,
         "order_uid": "LAO162_20261102_3",
         "shipping_order_code": "8263072039944",
         "carrier": "Anousith Express",
@@ -230,7 +263,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
         "currency": "KIP"
       },
       {
-        "stt": 3,
+        "stt": 4,
         "order_uid": "LAO162_20261102_1",
         "shipping_order_code": "PXE46905477845",
         "carrier": "HAL Logistics",
@@ -324,7 +357,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
         "currency": "KIP"
       },
       {
-        "stt": 4,
+        "stt": 5,
         "order_uid": "LAO162_20261026_3",
         "shipping_order_code": "8263076668038",
         "carrier": "Anousith Express",
@@ -407,7 +440,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
         "currency": "KIP"
       },
       {
-        "stt": 5,
+        "stt": 6,
         "order_uid": "LAO162_20261012_1",
         "shipping_order_code": "8262897344949",
         "carrier": "Anousith Express",
@@ -518,7 +551,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
         "currency": "KIP"
       },
       {
-        "stt": 6,
+        "stt": 7,
         "order_uid": "LAO162_20260402_3",
         "shipping_order_code": "PXE89869531805",
         "carrier": "HAL Logistics",
@@ -607,7 +640,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
       "completed": 0,
       "return_warning": 1,
       "total_cod_vnd": 1541000,
-      "last_updated": "08/11/2026 01:24:19"
+      "last_updated": "08/11/2026 01:26:32"
     },
     "orders": [
       {
@@ -835,13 +868,46 @@ window.__UNIFIED_TRACKING_DATA__ = {
       "completed": 0,
       "return_warning": 0,
       "total_cod_usd": 0.0,
-      "last_updated": "08/11/2026 01:24:19"
+      "last_updated": "08/11/2026 01:26:32"
     },
     "orders": []
   },
   "all_orders": [
     {
       "stt": 1,
+      "order_uid": "LAO162_20261108_3",
+      "shipping_order_code": null,
+      "carrier": "Anousith Express",
+      "buyer_name": "bbbb",
+      "buyer_phone": "bbbb",
+      "buyer_phone_raw": "bbbb",
+      "buyer_address": "bbb",
+      "dest_branch": "bbb",
+      "matched_branch_name": "bbb",
+      "cod_amount": 1111.0,
+      "created_at": "2026-11-07T18:24:55.567Z",
+      "status": {
+        "code": "PENDING",
+        "text": "Chờ bàn giao vận chuyển",
+        "badge_class": "badge-secondary",
+        "action_needed": "Xuất kho đóng gói",
+        "color": "#64748b"
+      },
+      "items": [],
+      "latest_scan_desc": "Chưa có dữ liệu quét",
+      "latest_scan_time": "",
+      "timeline": [],
+      "google_maps_link": "https://maps.google.com/?q=bbb%2C+Laos",
+      "wa_remind_link": null,
+      "anousith_tracking_url": null,
+      "hal_tracking_url": null,
+      "country": "LA",
+      "country_name": "Lào",
+      "flag": "🇱🇦",
+      "currency": "KIP"
+    },
+    {
+      "stt": 2,
       "order_uid": "LAO162_20261104_1",
       "shipping_order_code": "8263098019271",
       "carrier": "Anousith Express",
@@ -938,7 +1004,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
       "currency": "KIP"
     },
     {
-      "stt": 2,
+      "stt": 3,
       "order_uid": "LAO162_20261102_3",
       "shipping_order_code": "8263072039944",
       "carrier": "Anousith Express",
@@ -1042,7 +1108,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
       "currency": "KIP"
     },
     {
-      "stt": 3,
+      "stt": 4,
       "order_uid": "LAO162_20261102_1",
       "shipping_order_code": "PXE46905477845",
       "carrier": "HAL Logistics",
@@ -1136,7 +1202,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
       "currency": "KIP"
     },
     {
-      "stt": 4,
+      "stt": 5,
       "order_uid": "LAO162_20261026_3",
       "shipping_order_code": "8263076668038",
       "carrier": "Anousith Express",
@@ -1219,7 +1285,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
       "currency": "KIP"
     },
     {
-      "stt": 5,
+      "stt": 6,
       "order_uid": "LAO162_20261012_1",
       "shipping_order_code": "8262897344949",
       "carrier": "Anousith Express",
@@ -1330,7 +1396,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
       "currency": "KIP"
     },
     {
-      "stt": 6,
+      "stt": 7,
       "order_uid": "LAO162_20260402_3",
       "shipping_order_code": "PXE89869531805",
       "carrier": "HAL Logistics",
