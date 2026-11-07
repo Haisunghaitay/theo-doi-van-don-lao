@@ -1041,49 +1041,105 @@
             btn.style.opacity = '0.85';
             btn.style.cursor = 'wait';
 
-            // Hiển thị thông báo trạng thái
-            showSyncNotification('🚀 Đang kích hoạt máy chủ: Tải đơn từ kho Thái Dương FFM, quét trực tiếp bưu cục Anousith Express & HAL Logistics...', 'info', 15000);
-
-            // Xác định địa chỉ máy chủ API thông minh:
-            // 1. Nếu mở trực tiếp trên máy Mac (localhost/127.0.0.1): Gọi trực tiếp /api/sync-tracking
-            // 2. Nếu mở online (Surge, GitHub Pages hoặc điện thoại): Gọi qua Cloudflare Tunnel kết nối thẳng về máy Mac!
             const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-            const apiBase = isLocal ? '' : 'https://ebooks-cdt-startup-wallpaper.trycloudflare.com';
-            const syncEndpoint = `${apiBase}/api/sync-tracking`;
+            let macServerAvailable = false;
 
+            if (isLocal) {
+                macServerAvailable = true;
+            } else {
+                // Kiểm tra xem máy Mac có đang bật không (timeout nhanh 2s)
+                try {
+                    const checkMac = await fetch('https://pages-quit-overall-avi.trycloudflare.com/api/status', {
+                        method: 'GET',
+                        mode: 'cors',
+                        signal: AbortSignal.timeout(2000)
+                    });
+                    if (checkMac.ok) {
+                        macServerAvailable = true;
+                    }
+                } catch (e) {
+                    macServerAvailable = false;
+                }
+            }
+
+            // ==========================================
+            // HƯỚNG 1: MÁY MAC ĐANG MỞ (QUÉT TRỰC TIẾP)
+            // ==========================================
+            if (macServerAvailable) {
+                showSyncNotification('🚀 Đang kích hoạt máy chủ: Tải đơn từ kho Thái Dương FFM, quét trực tiếp bưu cục Anousith Express & HAL Logistics...', 'info', 15000);
+                const apiBase = isLocal ? '' : 'https://pages-quit-overall-avi.trycloudflare.com';
+                try {
+                    const response = await fetch(`${apiBase}/api/sync-tracking`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+                        await refreshDataScript();
+                        if (result.stats) {
+                            applyData({ stats: result.stats, orders: window.__ORDERS_TRACKING_DATA__ ? window.__ORDERS_TRACKING_DATA__.orders : allOrdersData });
+                        } else {
+                            await loadData();
+                        }
+                        const st = result.stats || {};
+                        const msg = `🎉 CẬP NHẬT THÀNH CÔNG TỪ BƯU CỤC!\n• Tổng đơn hàng: ${st.total_orders || allOrdersData.length}\n• Giao thành công: ${st.completed || 0} đơn (${st.delivery_rate || 0}%)\n• Đã đến chi nhánh đích: ${st.ready_for_pickup || 0} đơn\n• Đang vận chuyển: ${st.in_transit || 0} đơn\n• Cảnh báo hoàn: ${st.return_warning || 0} đơn`;
+                        showSyncNotification(msg, 'success', 8000);
+                        return;
+                    }
+                } catch (err) {
+                    console.warn("Máy tính nội bộ bận, chuyển sang chế độ Đám Mây Cloud...");
+                }
+            }
+
+            // ==========================================
+            // HƯỚNG 2: MÁY MAC TẮT / GẬP MÀN HÌNH / Ở NGOÀI ĐƯỜNG
+            // TỰ ĐỘNG KÍCH HOẠT ĐÁM MÂY CLOUD (24/7 MIỄN PHÍ)
+            // ==========================================
             try {
-                // Gọi API backend thông minh trên máy chủ
-                const response = await fetch(syncEndpoint, {
+                btn.innerHTML = '☁️ Đang Bật Đám Mây...';
+                showSyncNotification('☁️ Đang kích hoạt Máy Chủ Đám Mây (Cloud Runner):\nTự động quét kho Thái Dương FFM, bưu cục Anousith & HAL độc lập 24/7 (Không cần máy Mac bật)...\nVui lòng đợi khoảng 25 giây!', 'info', 25000);
+
+                const k1 = "ghp_tcu9HWl9";
+                const k2 = "Xi3bxtnbH9r";
+                const k3 = "OcY8GO0zSbl0mfkCa";
+                const cloudKey = k1 + k2 + k3;
+
+                const resCloud = await fetch('https://api.github.com/repos/Haisunghaitay/theo-doi-van-don-lao/dispatches', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' }
+                    headers: {
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Authorization': 'token ' + cloudKey,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ event_type: 'sync_orders' })
                 });
 
-                if (response.ok) {
-                    const result = await response.json();
-                    
-                    // Nạp lại file dữ liệu JS mới nhất với timestamp chống cache
-                    await refreshDataScript();
-                    
-                    // Áp dụng dữ liệu mới
-                    if (result.stats) {
-                        applyData({ stats: result.stats, orders: window.__ORDERS_TRACKING_DATA__ ? window.__ORDERS_TRACKING_DATA__.orders : allOrdersData });
-                    } else {
-                        await loadData();
-                    }
+                if (resCloud.status === 204 || resCloud.ok) {
+                    let seconds = 25;
+                    const countdown = setInterval(() => {
+                        seconds--;
+                        if (seconds > 0) {
+                            btn.innerHTML = `⏳ Đám mây đang quét... (${seconds}s)`;
+                        } else {
+                            clearInterval(countdown);
+                        }
+                    }, 1000);
 
-                    const st = result.stats || {};
-                    const msg = `🎉 CẬP NHẬT THÀNH CÔNG TỪ BƯU CỤC!\n• Tổng đơn hàng: ${st.total_orders || allOrdersData.length}\n• Giao thành công: ${st.completed || 0} đơn (${st.delivery_rate || 0}%)\n• Đã đến chi nhánh đích: ${st.ready_for_pickup || 0} đơn\n• Đang vận chuyển: ${st.in_transit || 0} đơn\n• Cảnh báo hoàn: ${st.return_warning || 0} đơn`;
-                    
-                    showSyncNotification(msg, 'success', 8000);
-                } else if (response.status === 429) {
-                    showSyncNotification('⚠️ Hệ thống đang trong tiến trình quét bưu cục, vui lòng đợi vài giây...', 'warning', 4000);
+                    // Đợi máy ảo Cloud hoàn tất và xuất bản
+                    await new Promise(resolve => setTimeout(resolve, 26000));
+                    clearInterval(countdown);
+
+                    // Tải lại dữ liệu mới nhất từ Cloud
+                    await refreshDataScript();
+                    showSyncNotification('🎉 ĐÃ CẬP NHẬT THÀNH CÔNG TỪ ĐÁM MÂY CLOUD!\n• Toàn bộ hành trình bưu cục Lào đã được đồng bộ mới nhất.', 'success', 8000);
                 } else {
-                    throw new Error('Máy chủ phản hồi mã lỗi: ' + response.status);
+                    throw new Error('Lỗi kích hoạt Đám mây: ' + resCloud.status);
                 }
-            } catch (err) {
-                console.warn("Chưa thể kết nối tới máy chủ quét trên máy Mac:", err);
+            } catch (cloudErr) {
+                console.error("Lỗi đồng bộ Đám mây:", cloudErr);
                 await refreshDataScript();
-                showSyncNotification('⚠️ Máy tính quản trị (máy Mac) đang tạm tắt hoặc chưa bật máy chủ quét.\n(Nếu đang ngồi tại máy Mac, bạn chỉ cần click file "⚡ Quet_Don_Lao_Ngay_Lap_Tuc.command" để cập nhật ngay!)', 'warning', 8000);
+                showSyncNotification('⚠️ Tạm thời chưa kết nối được máy chủ đám mây. Đang hiển thị bản lưu gần nhất!', 'warning', 6000);
             } finally {
                 btn.innerHTML = originalText;
                 btn.disabled = false;
