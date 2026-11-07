@@ -492,11 +492,33 @@
         }
         .btn-zalo:hover { background: #0056d6; }
 
+        .btn-telegram {
+            background: #0088cc;
+            color: #fff;
+        }
+        .btn-telegram:hover { background: #0077b5; box-shadow: 0 0 10px rgba(0, 136, 204, 0.4); }
+
         .btn-call {
             background: #10b981;
             color: #fff;
         }
         .btn-call:hover { background: #059669; }
+
+        .carrier-vet {
+            background: rgba(168, 85, 247, 0.15);
+            color: #c084fc;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .country-tab.tab-kh.active {
+            background: #a855f7;
+            border-color: #a855f7;
+            color: #fff;
+        }
+        .country-tab.tab-kh:hover:not(.active) {
+            border-color: rgba(168, 85, 247, 0.5);
+            color: #c084fc;
+        }
 
         .btn-timeline {
             background: rgba(255, 255, 255, 0.08);
@@ -679,7 +701,7 @@
 
         .workspace-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 18px;
         }
 
@@ -714,9 +736,14 @@
             box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.3), 0 10px 25px rgba(0, 0, 0, 0.4);
         }
 
+        .workspace-card.card-vet.active {
+            border-color: #a855f7;
+            box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.3), 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
         .workspace-card.card-all.active {
             border-color: #10b981;
-            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3), 0 10px 25px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.3), 0 10px 25px rgba(0, 0, 0, 0.4);
         }
 
         .task-badge {
@@ -731,6 +758,7 @@
 
         .badge-lao { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
         .badge-vn { background: rgba(234, 88, 12, 0.15); color: #fb923c; border: 1px solid rgba(234, 88, 12, 0.3); }
+        .badge-kh { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
         .badge-all { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
 
         .task-name {
@@ -817,6 +845,17 @@
 
         .btn-open-spx:hover {
             background: #f97316;
+            color: #fff;
+        }
+
+        .btn-open-vet {
+            background: rgba(168, 85, 247, 0.15);
+            color: #c084fc;
+            border-color: rgba(168, 85, 247, 0.3);
+        }
+
+        .btn-open-vet:hover {
+            background: #a855f7;
             color: #fff;
         }
 
@@ -931,25 +970,54 @@
                     </div>
                 </div>
 
+                <!-- TÁC VỤ 3: VẬN ĐƠN CAMPUCHIA (VET EXPRESS) -->
+                <div class="workspace-card card-vet" id="card-task-cambodia" onclick="switchCountryTab('CAMBODIA')">
+                    <div>
+                        <div class="task-badge badge-kh">🇰🇭 TÁC VỤ 3: VẬN ĐƠN CAMPUCHIA (VET)</div>
+                        <div class="task-name">Giám Sát VET Express</div>
+                        <p class="task-desc">Quản lý kiện hàng xuất kho Phnom Penh & Bavet qua Virak Buntham Logistics (2604...-kh), đối soát tiền thu COD USD ($), chăm sóc khách hàng 1 chạm qua Telegram.</p>
+                    </div>
+                    <div>
+                        <div class="task-metrics">
+                            <div class="metric-item">
+                                <span class="m-val" id="ws-kh-count">3</span>
+                                <span class="m-lbl">Đơn theo dõi</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="m-val" id="ws-kh-cod" style="color: #34d399;">$90.00 USD</span>
+                                <span class="m-lbl">Tiền COD</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="m-val" id="ws-kh-delivering" style="color: #f59e0b;">1</span>
+                                <span class="m-lbl">Đang phát</span>
+                            </div>
+                        </div>
+                        <div class="task-footer">
+                            <span class="task-status">🟢 Đang trực tuyến</span>
+                            <button class="btn-open-task btn-open-vet">Mở Tác Vụ VET →</button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- TÁC VỤ HỢP NHẤT TOÀN THỂ -->
                 <div class="workspace-card card-all active" id="card-task-all" onclick="switchCountryTab('ALL')">
                     <div>
                         <div class="task-badge badge-all">🌐 TỔNG QUAN HỢP NHẤT</div>
                         <div class="task-name">Cổng Điều Hành Toàn Thể</div>
-                        <p class="task-desc">Giám sát song song toàn bộ 2 quốc gia Lào & Việt Nam trên cùng một giao diện, quản trị đa kênh và tổng hợp dòng tiền COD đa tiền tệ (KIP & VNĐ).</p>
+                        <p class="task-desc">Giám sát song song 3 quốc gia Lào, Việt Nam & Campuchia trên cùng một giao diện, quản trị đa kênh và tổng hợp dòng tiền COD đa tiền tệ (KIP, VNĐ & USD).</p>
                     </div>
                     <div>
                         <div class="task-metrics">
                             <div class="metric-item">
-                                <span class="m-val" id="ws-all-count">10</span>
+                                <span class="m-val" id="ws-all-count">13</span>
                                 <span class="m-lbl">Tổng đơn</span>
                             </div>
                             <div class="metric-item">
-                                <span class="m-val" style="color: #34d399; font-size: 11px;">KIP & VNĐ</span>
+                                <span class="m-val" style="color: #34d399; font-size: 11px;">KIP, VNĐ, USD</span>
                                 <span class="m-lbl">Đa tiền tệ</span>
                             </div>
                             <div class="metric-item">
-                                <span class="m-val">2 Quốc Gia</span>
+                                <span class="m-val">3 Quốc Gia</span>
                                 <span class="m-lbl">Phạm vi</span>
                             </div>
                         </div>
@@ -972,6 +1040,9 @@
             </button>
             <button class="country-tab tab-vn" id="tab-nav-vietnam" onclick="switchCountryTab('VIETNAM')">
                 🇻🇳 Vận Đơn Việt Nam (SPX Express) <span class="tab-badge" id="badge-count-vietnam">0</span>
+            </button>
+            <button class="country-tab tab-kh" id="tab-nav-cambodia" onclick="switchCountryTab('CAMBODIA')">
+                🇰🇭 Vận Đơn Campuchia (VET Express) <span class="tab-badge" id="badge-count-cambodia">0</span>
             </button>
         </div>
 
@@ -1043,6 +1114,7 @@
                 <button class="filter-btn carrier-btn" onclick="setCarrierFilter('Anousith Express', this)">🇱🇦 Anousith (<span id="tab-anousith-count">0</span>)</button>
                 <button class="filter-btn carrier-btn" onclick="setCarrierFilter('HAL Logistics', this)">🛡️ HAL (<span id="tab-hal-count">0</span>)</button>
                 <button class="filter-btn carrier-btn" onclick="setCarrierFilter('SPX Express', this)" style="border-color: rgba(234, 88, 12, 0.4); color: #fb923c;">⚡ SPX Express (<span id="tab-spx-count">0</span>)</button>
+                <button class="filter-btn carrier-btn" onclick="setCarrierFilter('VET Express', this)" style="border-color: rgba(168, 85, 247, 0.4); color: #c084fc;">🇰🇭 VET Express (<span id="tab-vet-count">0</span>)</button>
             </div>
         </div>
 
@@ -1095,11 +1167,12 @@
     <script id="tracking-unified-script" src="orders_unified_data.js"></script>
     <script id="tracking-data-script" src="orders_tracking_data.js"></script>
     <script id="tracking-spx-script" src="orders_spx_data.js"></script>
+    <script id="tracking-vet-script" src="orders_vet_data.js"></script>
 
     <script>
         // State Management
         let allUnifiedOrders = [];
-        let currentCountry = 'ALL';   // 'ALL', 'LAOS', 'VIETNAM'
+        let currentCountry = 'ALL';   // 'ALL', 'LAOS', 'VIETNAM', 'CAMBODIA'
         let currentStatusFilter = 'ALL';
         let currentCarrierFilter = 'ALL';
 
@@ -1111,7 +1184,7 @@
             if (window.__UNIFIED_TRACKING_DATA__ && window.__UNIFIED_TRACKING_DATA__.all_orders) {
                 combined = window.__UNIFIED_TRACKING_DATA__.all_orders;
             } else {
-                // 2. Fallback gộp dữ liệu Lào và Việt Nam
+                // 2. Fallback gộp dữ liệu Lào, Việt Nam và Campuchia
                 const laosOrders = (window.__ORDERS_TRACKING_DATA__ && window.__ORDERS_TRACKING_DATA__.orders) ? window.__ORDERS_TRACKING_DATA__.orders : [];
                 laosOrders.forEach(o => {
                     o.country = 'LA';
@@ -1128,7 +1201,15 @@
                     o.currency = 'VNĐ';
                 });
 
-                combined = [...laosOrders, ...spxOrders];
+                const vetOrders = (window.__VET_TRACKING_DATA__ && window.__VET_TRACKING_DATA__.orders) ? window.__VET_TRACKING_DATA__.orders : [];
+                vetOrders.forEach(o => {
+                    o.country = 'KH';
+                    o.country_name = 'Campuchia';
+                    o.flag = '🇰🇭';
+                    o.currency = 'USD';
+                });
+
+                combined = [...laosOrders, ...spxOrders, ...vetOrders];
             }
 
             allUnifiedOrders = combined;
@@ -1143,21 +1224,25 @@
             if (country === 'ALL') document.getElementById('tab-nav-all')?.classList.add('active');
             if (country === 'LAOS') document.getElementById('tab-nav-laos')?.classList.add('active');
             if (country === 'VIETNAM') document.getElementById('tab-nav-vietnam')?.classList.add('active');
+            if (country === 'CAMBODIA') document.getElementById('tab-nav-cambodia')?.classList.add('active');
 
             // Cập nhật trạng thái Active của các Thẻ Tác Vụ trên Trang Chủ
             document.querySelectorAll('.workspace-card').forEach(c => c.classList.remove('active'));
             if (country === 'ALL') document.getElementById('card-task-all')?.classList.add('active');
             if (country === 'LAOS') document.getElementById('card-task-laos')?.classList.add('active');
             if (country === 'VIETNAM') document.getElementById('card-task-vietnam')?.classList.add('active');
+            if (country === 'CAMBODIA') document.getElementById('card-task-cambodia')?.classList.add('active');
 
             // Cập nhật banner thông báo nghiệp vụ phù hợp
             const banner = document.getElementById('notice-banner-text');
-            if (country === 'VIETNAM') {
-                banner.innerHTML = `<span style="font-size: 18px;">🇻🇳</span><div><strong>Tác vụ Vận Đơn Việt Nam (SPX Express):</strong> Đơn hàng đồng bộ trực tiếp từ tài khoản spx.vn. Cập nhật đầy đủ tiền thu COD VNĐ, liên hệ trực tiếp Zalo 1 chạm hoặc gọi bưu tá / khách hàng ngay trên hệ thống.</div>`;
+            if (country === 'CAMBODIA') {
+                banner.innerHTML = `<span style="font-size: 18px;">🇰🇭</span><div><strong>Tác vụ Vận Đơn Campuchia (VET Express):</strong> Giám sát bưu phẩm Virak Buntham Logistics (2604...-kh). Đối soát tiền thu COD bằng <strong>USD ($)</strong>, hỗ trợ CSKH 1 chạm trực tiếp qua <strong>Telegram</strong> kèm nội dung soạn sẵn!</div>`;
+            } else if (country === 'VIETNAM') {
+                banner.innerHTML = `<span style="font-size: 18px;">🇻🇳</span><div><strong>Tác vụ Vận Đơn Việt Nam (SPX Express):</strong> Đơn hàng đồng bộ trực tiếp từ spx.vn. Cập nhật đầy đủ tiền thu COD VNĐ, liên hệ trực tiếp Zalo 1 chạm hoặc gọi bưu tá / khách hàng ngay trên hệ thống.</div>`;
             } else if (country === 'LAOS') {
                 banner.innerHTML = `<span style="font-size: 18px;">🇱🇦</span><div><strong>Tác vụ Vận Đơn Lào:</strong> Tự động giải mã bưu cục thành link Google Maps. Khóa an toàn WhatsApp: <strong>Chỉ khi đơn hàng đã về chi nhánh đích</strong> thì nút WhatsApp mới được kích hoạt.</div>`;
             } else {
-                banner.innerHTML = `<span style="font-size: 18px;">🎛️</span><div><strong>Trang Chủ Quản Trị Đa Tác Vụ:</strong> Quản lý tập trung song song 🇱🇦 <strong>Tác vụ Lào</strong> (Anousith & HAL) và 🇻🇳 <strong>Tác vụ Việt Nam</strong> (SPX Express). Sẵn sàng kết nối các module tiếp theo.</div>`;
+                banner.innerHTML = `<span style="font-size: 18px;">🎛️</span><div><strong>Trang Chủ Quản Trị Đa Tác Vụ:</strong> Quản lý tập trung song song 🇱🇦 <strong>Tác vụ Lào</strong> (Anousith & HAL), 🇻🇳 <strong>Tác vụ Việt Nam</strong> (SPX Express) và 🇰🇭 <strong>Tác vụ Campuchia</strong> (VET Express).</div>`;
             }
 
             filterOrders();
@@ -1180,25 +1265,34 @@
         function updateNavigationBadges() {
             const laosList = allUnifiedOrders.filter(o => o.country === 'LA');
             const vnList = allUnifiedOrders.filter(o => o.country === 'VN');
+            const khList = allUnifiedOrders.filter(o => o.country === 'KH');
             
             document.getElementById('badge-count-all').innerText = allUnifiedOrders.length;
             document.getElementById('badge-count-laos').innerText = laosList.length;
             document.getElementById('badge-count-vietnam').innerText = vnList.length;
+            const elKhBadge = document.getElementById('badge-count-cambodia');
+            if (elKhBadge) elKhBadge.innerText = khList.length;
 
             // Đếm theo hãng
             const anousithCount = allUnifiedOrders.filter(o => o.carrier === 'Anousith Express').length;
             const halCount = allUnifiedOrders.filter(o => o.carrier === 'HAL Logistics').length;
             const spxCount = allUnifiedOrders.filter(o => o.carrier === 'SPX Express').length;
+            const vetCount = allUnifiedOrders.filter(o => o.carrier === 'VET Express').length;
 
             document.getElementById('tab-anousith-count').innerText = anousithCount;
             document.getElementById('tab-hal-count').innerText = halCount;
             document.getElementById('tab-spx-count').innerText = spxCount;
+            const elVetCount = document.getElementById('tab-vet-count');
+            if (elVetCount) elVetCount.innerText = vetCount;
 
             // Cập nhật số liệu chi tiết cho các Thẻ Tác Vụ Trang Chủ
             const laosCod = laosList.reduce((acc, cur) => acc + (Number(cur.cod_amount) || 0), 0);
             const vnCod = vnList.reduce((acc, cur) => acc + (Number(cur.cod_amount) || 0), 0);
+            const khCod = khList.reduce((acc, cur) => acc + (Number(cur.cod_amount) || 0), 0);
+
             const laosReady = laosList.filter(o => o.status.code === 'READY_FOR_PICKUP').length;
             const vnTransit = vnList.filter(o => o.status.code === 'IN_TRANSIT').length;
+            const khDelivering = khList.filter(o => o.status.code === 'DELIVERING' || o.status.code === 'READY_FOR_PICKUP').length;
 
             const elLaosCount = document.getElementById('ws-laos-count');
             if (elLaosCount) elLaosCount.innerText = laosList.length;
@@ -1214,6 +1308,13 @@
             const elVnTransit = document.getElementById('ws-vn-transit');
             if (elVnTransit) elVnTransit.innerText = vnTransit;
 
+            const elKhCount = document.getElementById('ws-kh-count');
+            if (elKhCount) elKhCount.innerText = khList.length;
+            const elKhCod = document.getElementById('ws-kh-cod');
+            if (elKhCod) elKhCod.innerText = '$' + khCod.toFixed(2) + ' USD';
+            const elKhDelivering = document.getElementById('ws-kh-delivering');
+            if (elKhDelivering) elKhDelivering.innerText = khDelivering;
+
             const elAllCount = document.getElementById('ws-all-count');
             if (elAllCount) elAllCount.innerText = allUnifiedOrders.length;
         }
@@ -1225,6 +1326,7 @@
                 // 1. Lọc theo Quốc Gia
                 if (currentCountry === 'LAOS' && o.country !== 'LA') return false;
                 if (currentCountry === 'VIETNAM' && o.country !== 'VN') return false;
+                if (currentCountry === 'CAMBODIA' && o.country !== 'KH') return false;
 
                 // 2. Lọc theo Hãng vận chuyển
                 if (currentCarrierFilter !== 'ALL' && o.carrier !== currentCarrierFilter) return false;
@@ -1260,6 +1362,7 @@
             const currentScopeOrders = allUnifiedOrders.filter(o => {
                 if (currentCountry === 'LAOS' && o.country !== 'LA') return false;
                 if (currentCountry === 'VIETNAM' && o.country !== 'VN') return false;
+                if (currentCountry === 'CAMBODIA' && o.country !== 'KH') return false;
                 return true;
             });
 
@@ -1306,6 +1409,9 @@
                 } else if (o.carrier === 'SPX Express') {
                     carrierClass = 'carrier-spx';
                     carrierLabel = '⚡ SPX Express';
+                } else if (o.carrier === 'VET Express') {
+                    carrierClass = 'carrier-vet';
+                    carrierLabel = '🇰🇭 VET Express';
                 }
 
                 // Mã Vận Đơn & Link Tra Cứu Live
@@ -1317,6 +1423,8 @@
                         trackUrl = o.spx_tracking_url || `https://spx.vn/vi/tracking?sls_tracking_number=${trackCode}`;
                     } else if (o.carrier === 'HAL Logistics') {
                         trackUrl = o.hal_tracking_url || `https://hal.hal-logistics.la/api/v1/orders/tracking/${trackCode}?lang=la`;
+                    } else if (o.carrier === 'VET Express') {
+                        trackUrl = o.vet_tracking_url || `https://api.vetlogistic.com/v1/tracking?code=${trackCode}`;
                     } else {
                         trackUrl = o.anousith_tracking_url || `https://app.anousith.express/landing/search_tracking/search_item?_bill_detail=${trackCode}&n_home=2`;
                     }
@@ -1341,9 +1449,17 @@
                     </div>
                 `;
 
-                // Actions: Lào thì gửi WhatsApp; Việt Nam thì Zalo & Gọi Điện
+                // Actions: Lào thì gửi WhatsApp; Việt Nam thì Zalo/Gọi; Campuchia (VET) thì Telegram/Gọi
                 let actionsHtml = '';
-                if (o.country === 'VN') {
+                if (o.country === 'KH') {
+                    actionsHtml = `
+                        <div style="display: flex; gap: 5px; justify-content: center; align-items: center;">
+                            <button class="btn-action btn-timeline" onclick='showTimeline(${JSON.stringify(o).replace(/'/g, "&apos;")})'>👁️ Hành Trình</button>
+                            ${o.telegram_link ? `<a href="${o.telegram_link}" target="_blank" class="btn-action btn-telegram" title="Nhắn tin Telegram cho khách hàng">💬 Telegram</a>` : ''}
+                            ${o.call_link ? `<a href="${o.call_link}" class="btn-action btn-call" title="Gọi điện thoại cho khách hàng">📞 Gọi</a>` : ''}
+                        </div>
+                    `;
+                } else if (o.country === 'VN') {
                     actionsHtml = `
                         <div style="display: flex; gap: 5px; justify-content: center; align-items: center;">
                             <button class="btn-action btn-timeline" onclick='showTimeline(${JSON.stringify(o).replace(/'/g, "&apos;")})'>👁️ Hành Trình</button>
@@ -1375,8 +1491,13 @@
                 }
 
                 // COD Display
-                const codCurr = o.currency || (o.country === 'VN' ? 'VNĐ' : 'KIP');
-                const codDisplay = `${Number(o.cod_amount).toLocaleString()} ${codCurr}`;
+                let codDisplay = '';
+                if (o.currency === 'USD' || o.country === 'KH') {
+                    codDisplay = `$${Number(o.cod_amount).toFixed(2)} USD`;
+                } else {
+                    const codCurr = o.currency || (o.country === 'VN' ? 'VNĐ' : 'KIP');
+                    codDisplay = `${Number(o.cod_amount).toLocaleString()} ${codCurr}`;
+                }
 
                 tr.innerHTML = `
                     <td style="text-align: center; font-weight: 700; color: var(--text-muted);">${o.stt || index + 1}</td>
@@ -1448,17 +1569,16 @@
         async function reloadAllOrdersData() {
             const btn = document.querySelector('.btn-sync');
             const originalText = btn.innerHTML;
-            btn.innerHTML = '⏳ Đang Quét Live Lào & SPX Việt Nam...';
+            btn.innerHTML = '⏳ Đang Quét Live Lào, SPX & VET...';
             btn.disabled = true;
 
-            showToast('🚀 Đang kết nối bưu cục: Anousith, HAL (Lào) và SPX Express (Việt Nam)...', 'info', 3000);
+            showToast('🚀 Đang kết nối bưu cục: Anousith, HAL (Lào), SPX (Việt Nam) & VET Express (Campuchia)...', 'info', 3000);
 
             // Địa chỉ máy chủ API (ưu tiên localhost nếu mở trên Mac, hoặc qua Cloudflare Tunnel)
             const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
             const apiBase = isLocal ? '' : 'https://pages-quit-overall-avi.trycloudflare.com';
             const syncEndpoint = `${apiBase}/api/sync-tracking`;
 
-            // Đặt bộ đếm thời gian timeout 2.5s để không làm người dùng trên điện thoại phải chờ đợi lâu
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 2500);
 
@@ -1478,7 +1598,11 @@
                     syncSuccess = true;
 
                     const summary = result.summary || {};
-                    const msg = `🎉 ĐÃ QUÉT & CẬP NHẬT TỨC THÌ THÀNH CÔNG!\n• Tổng đơn hàng: ${summary.total_all_orders || allUnifiedOrders.length} đơn\n• Tuyến Lào (Anousith & HAL): ${summary.laos_total || 6} đơn\n• Tuyến Việt Nam (SPX Express): ${summary.vietnam_total || 4} đơn`;
+                    const msg = `🎉 ĐÃ QUÉT & CẬP NHẬT TỨC THÌ THÀNH CÔNG!
+• Tổng đơn hàng: ${summary.total_all_orders || allUnifiedOrders.length} đơn
+• Tuyến Lào (Anousith & HAL): ${summary.laos_total || 6} đơn
+• Tuyến Việt Nam (SPX Express): ${summary.vietnam_total || 4} đơn
+• Tuyến Campuchia (VET Express): ${summary.cambodia_total || 3} đơn`;
                     showToast(msg, 'success', 6000);
                 }
             } catch (err) {
@@ -1490,7 +1614,10 @@
 
                 const laosCount = allUnifiedOrders.filter(o => o.country === 'LA').length;
                 const vnCount = allUnifiedOrders.filter(o => o.country === 'VN').length;
-                const msg = `✅ ĐÃ LÀM MỚI DỮ LIỆU TỪ ĐÁM MÂY CLOUD 24/7!\n• Đang theo dõi: ${allUnifiedOrders.length} đơn hàng (${laosCount} đơn Lào, ${vnCount} đơn SPX Việt Nam)\n• Hệ thống hoạt động độc lập liên tục, bạn tắt máy Mac vẫn dùng tốt trên điện thoại ngoài đường!`;
+                const khCount = allUnifiedOrders.filter(o => o.country === 'KH').length;
+                const msg = `✅ ĐÃ LÀM MỚI DỮ LIỆU TỪ ĐÁM MÂY CLOUD 24/7!
+• Đang theo dõi: ${allUnifiedOrders.length} đơn (${laosCount} đơn Lào, ${vnCount} đơn SPX VN, ${khCount} đơn VET Campuchia)
+• Hệ thống hoạt động độc lập liên tục, bạn tắt máy Mac vẫn dùng tốt trên điện thoại ngoài đường!`;
                 showToast(msg, 'success', 6000);
             } finally {
                 btn.innerHTML = originalText;
@@ -1513,6 +1640,7 @@
                 reloadScript('tracking-unified-script', 'orders_unified_data.js');
                 reloadScript('tracking-data-script', 'orders_tracking_data.js');
                 reloadScript('tracking-spx-script', 'orders_spx_data.js');
+                reloadScript('tracking-vet-script', 'orders_vet_data.js');
                 setTimeout(resolve, 600);
             });
         }
@@ -1542,10 +1670,12 @@
         window.addEventListener('DOMContentLoaded', () => {
             initData();
 
-            // Đọc tham số URL nếu người dùng muốn mở sẵn tab Lào hoặc Việt Nam
+            // Đọc tham số URL nếu người dùng muốn mở sẵn tab Lào, Việt Nam hoặc Campuchia
             const urlParams = new URLSearchParams(window.location.search);
             const countryParam = (urlParams.get('country') || urlParams.get('tab') || '').toUpperCase();
-            if (countryParam === 'VIETNAM' || countryParam === 'VN' || countryParam === 'SPX') {
+            if (countryParam === 'CAMBODIA' || countryParam === 'KH' || countryParam === 'VET') {
+                switchCountryTab('CAMBODIA');
+            } else if (countryParam === 'VIETNAM' || countryParam === 'VN' || countryParam === 'SPX') {
                 switchCountryTab('VIETNAM');
             } else if (countryParam === 'LAOS' || countryParam === 'LAO' || countryParam === 'LA') {
                 switchCountryTab('LAOS');
