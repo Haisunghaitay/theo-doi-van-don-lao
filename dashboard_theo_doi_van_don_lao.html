@@ -1210,6 +1210,15 @@
         // Khởi động khi tải xong trang
         window.addEventListener('DOMContentLoaded', () => {
             initData();
+
+            // Đọc tham số URL nếu người dùng muốn mở sẵn tab Lào hoặc Việt Nam
+            const urlParams = new URLSearchParams(window.location.search);
+            const countryParam = (urlParams.get('country') || urlParams.get('tab') || '').toUpperCase();
+            if (countryParam === 'VIETNAM' || countryParam === 'VN' || countryParam === 'SPX') {
+                switchCountryTab('VIETNAM');
+            } else if (countryParam === 'LAOS' || countryParam === 'LAO' || countryParam === 'LA') {
+                switchCountryTab('LAOS');
+            }
         });
     </script>
 </body>
