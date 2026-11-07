@@ -1378,6 +1378,9 @@
                 } else if (o.carrier === 'SPX Express') {
                     carrierClass = 'carrier-spx';
                     carrierLabel = '⚡ SPX Express';
+                } else if (o.carrier === 'VET Express' || o.country === 'KH') {
+                    carrierClass = 'carrier-vet';
+                    carrierLabel = '🇰🇭 VET Express';
                 }
 
                 // Mã Vận Đơn & Link Tra Cứu Live
@@ -1389,6 +1392,8 @@
                         trackUrl = o.spx_tracking_url || `https://spx.vn/vi/tracking?sls_tracking_number=${trackCode}`;
                     } else if (o.carrier === 'HAL Logistics') {
                         trackUrl = o.hal_tracking_url || `https://hal.hal-logistics.la/api/v1/orders/tracking/${trackCode}?lang=la`;
+                    } else if (o.carrier === 'VET Express' || o.country === 'KH') {
+                        trackUrl = o.vet_tracking_url || `https://vetexpress.com.kh/tracking?code=${trackCode}`;
                     } else {
                         trackUrl = o.anousith_tracking_url || `https://app.anousith.express/landing/search_tracking/search_item?_bill_detail=${trackCode}&n_home=2`;
                     }
