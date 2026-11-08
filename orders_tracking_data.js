@@ -1,16 +1,16 @@
 window.__ORDERS_TRACKING_DATA__ = {
   "stats": {
-    "total_orders": 6,
+    "total_orders": 5,
     "total_with_code": 145,
     "completed": 0,
-    "ready_for_pickup": 4,
+    "ready_for_pickup": 3,
     "in_transit": 0,
     "return_warning": 1,
     "pending": 1,
-    "total_cod_kip": 2630000.0,
+    "total_cod_kip": 2131000.0,
     "collected_cod_kip": 0,
-    "pending_cod_kip": 1921000.0,
-    "last_updated": "08/11/2026 01:56:03",
+    "pending_cod_kip": 1422000.0,
+    "last_updated": "08/11/2026 18:04:09",
     "delivery_rate": 0.0
   },
   "orders": [
@@ -209,96 +209,6 @@ window.__ORDERS_TRACKING_DATA__ = {
     },
     {
       "stt": 3,
-      "order_uid": "LAO162_20261102_1",
-      "shipping_order_code": "PXE46905477845",
-      "carrier": "HAL Logistics",
-      "buyer_name": "Ha Tran",
-      "buyer_phone": "+8562099296989",
-      "buyer_phone_raw": "02099296989",
-      "buyer_address": "ນາຄ່ອນ giao HAL",
-      "dest_branch": "ນາຄ່ອນ",
-      "matched_branch_name": "ນາຄ່ອນ",
-      "cod_amount": 499000.0,
-      "created_at": "2026-11-02T06:55:24.664Z",
-      "status": {
-        "code": "READY_FOR_PICKUP",
-        "text": "Đã đến chi nhánh đích",
-        "badge_class": "badge-warning",
-        "action_needed": "Gửi tin nhắn WhatsApp thông báo nhận hàng",
-        "color": "#f59e0b"
-      },
-      "items": [],
-      "latest_scan_desc": "ສາຂາ ນາຄ່ອນ: Kiện hàng đã đến bưu cục đích (Chờ khách ra nhận)",
-      "latest_scan_time": "2026-11-06 13:24:07",
-      "timeline": [
-        {
-          "time": "2026-11-06 13:24:07",
-          "location": "ສາຂາ ນາຄ່ອນ",
-          "description": "Kiện hàng đã đến bưu cục đích (Chờ khách ra nhận)",
-          "status": "Delivered"
-        },
-        {
-          "time": "2026-11-06 13:24:06",
-          "location": "ສາງສາຂານາຄ່ອນ",
-          "description": "Đang trên đường vận chuyển luân chuyển",
-          "status": "On the way"
-        },
-        {
-          "time": "2026-11-06 13:24:02",
-          "location": "ສາງສາຂານາຄ່ອນ",
-          "description": "Kiện hàng đã đến trạm khai thác",
-          "status": "Wrong Branch Receiver"
-        },
-        {
-          "time": "2026-11-03 07:04:42",
-          "location": "ສູນຄັດແຍກປາກຊັນ",
-          "description": "Đang trên đường vận chuyển luân chuyển",
-          "status": "On the way"
-        },
-        {
-          "time": "2026-11-02 20:36:53",
-          "location": "ສູນຄັດແຍກປາກຊັນ",
-          "description": "Kiện hàng đã đến trạm khai thác",
-          "status": "Packing"
-        },
-        {
-          "time": "2026-11-02 16:50:50",
-          "location": "ສາງສາຂານາສົ້ມມໍ(ຫຼັກ9)",
-          "description": "Đang trên đường vận chuyển luân chuyển",
-          "status": "On the way"
-        },
-        {
-          "time": "2026-11-02 16:50:47",
-          "location": "ສາງສາຂານາສົ້ມມໍ(ຫຼັກ9)",
-          "description": "Kiện hàng đã đến trạm khai thác",
-          "status": "Packing"
-        },
-        {
-          "time": "2026-11-02 16:50:45",
-          "location": "ສາຂາ ນາສົ້ມມໍ(ຫຼັກ9)",
-          "description": "Đang trên đường vận chuyển luân chuyển",
-          "status": "On the way"
-        },
-        {
-          "time": "2026-11-02 16:48:43",
-          "location": "ສາຂາ ນາສົ້ມມໍ(ຫຼັກ9)",
-          "description": "Kiện hàng đã đến trạm khai thác",
-          "status": "Packing"
-        },
-        {
-          "time": "2026-11-02 16:48:42",
-          "location": "ສາຂາ ນາສົ້ມມໍ(ຫຼັກ9)",
-          "description": "Bưu cục gửi đã nhận kiện hàng",
-          "status": "Accept"
-        }
-      ],
-      "google_maps_link": "https://www.google.com/maps?q=19.068713448893,103.95361755858",
-      "wa_remind_link": "https://wa.me/8562099296989?text=Ch%C3%A0o%20anh/ch%E1%BB%8B%20Ha%20Tran%21%20%C4%90%C6%A1n%20h%C3%A0ng%20c%E1%BB%A7a%20anh/ch%E1%BB%8B%20%28M%C3%A3%20v%E1%BA%ADn%20%C4%91%C6%A1n%3A%20PXE46905477845%29%20hi%E1%BB%87n%20%C4%91%C3%A3%20%C4%91%E1%BA%BFn%20chi%20nh%C3%A1nh%20%C4%91%C3%ADch%20t%E1%BA%A1i%20%E0%BA%99%E0%BA%B2%E0%BA%84%E0%BB%88%E0%BA%AD%E0%BA%99.%0AS%E1%BB%91%20ti%E1%BB%81n%20c%E1%BA%A7n%20thanh%20to%C3%A1n%20khi%20nh%E1%BA%ADn%20h%C3%A0ng%20%28COD%29%3A%20499%2C000%20KIP.%0AV%E1%BB%8B%20tr%C3%AD%20%C4%91%E1%BB%8Bnh%20v%E1%BB%8B%20chi%20nh%C3%A1nh%20tr%C3%AAn%20Google%20Maps%3A%20https%3A//www.google.com/maps%3Fq%3D19.068713448893%2C103.95361755858",
-      "anousith_tracking_url": null,
-      "hal_tracking_url": "https://hal.hal-logistics.la/api/v1/orders/tracking/PXE46905477845?lang=la"
-    },
-    {
-      "stt": 4,
       "order_uid": "LAO162_20261026_3",
       "shipping_order_code": "8263076668038",
       "carrier": "Anousith Express",
@@ -377,7 +287,7 @@ window.__ORDERS_TRACKING_DATA__ = {
       "hal_tracking_url": null
     },
     {
-      "stt": 5,
+      "stt": 4,
       "order_uid": "LAO162_20261012_1",
       "shipping_order_code": "8262897344949",
       "carrier": "Anousith Express",
@@ -484,7 +394,7 @@ window.__ORDERS_TRACKING_DATA__ = {
       "hal_tracking_url": null
     },
     {
-      "stt": 6,
+      "stt": 5,
       "order_uid": "LAO162_20260402_3",
       "shipping_order_code": "PXE89869531805",
       "carrier": "HAL Logistics",
