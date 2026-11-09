@@ -10,7 +10,7 @@ window.__SPX_TRACKING_DATA__ = {
     "completed": 1,
     "return_warning": 1,
     "total_cod_vnd": 1577000,
-    "last_updated": "09/11/2026 11:34:56"
+    "last_updated": "09/11/2026 11:36:31"
   },
   "orders": [
     {
