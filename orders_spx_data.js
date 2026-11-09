@@ -7,14 +7,64 @@ window.__SPX_TRACKING_DATA__ = {
     "in_transit": 2,
     "ready_for_pickup": 0,
     "delivering": 0,
-    "completed": 0,
+    "completed": 1,
     "return_warning": 1,
-    "total_cod_vnd": 1541000,
-    "last_updated": "09/11/2026 11:17:39"
+    "total_cod_vnd": 1577000,
+    "last_updated": "09/11/2026 11:34:56"
   },
   "orders": [
     {
       "stt": 1,
+      "country": "VN",
+      "country_name": "Việt Nam",
+      "flag": "🇻🇳",
+      "carrier": "SPX Express",
+      "order_uid": "S230356620O5863",
+      "display_id": "#S230356620O5863",
+      "shipping_order_code": "SPXVN06397920458B",
+      "buyer_name": "Giang Em",
+      "buyer_phone": "0969427029",
+      "buyer_address": "Số nhà 514/13 ,tổ 5 ấp tân điền, Kiên Giang, Huyện Hòn Đất, Xã Mỹ Lâm",
+      "dest_branch": "SPX Rạch Giá Hub (Kiên Giang)",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=SPX+Express+Rạch+Giá+Kiên+Giang",
+      "cod_amount": 350000,
+      "cod_currency": "VNĐ",
+      "created_at": "08/11/2026 07:29:06",
+      "status": {
+        "code": "IN_TRANSIT",
+        "text": "Đang vận chuyển",
+        "badge_class": "badge-in-transit",
+        "action_needed": "Kiện hàng đang luân chuyển giữa các trung tâm khai thác",
+        "color": "#3b82f6"
+      },
+      "timeline": [
+        {
+          "time": "09/11/2026 10:56:42",
+          "location": "63-BDG An Phu Hub / Kho Thuận An",
+          "description": "Bưu tá SPX Express đã lấy hàng thành công từ kho người gửi",
+          "status": "PICKED_UP"
+        },
+        {
+          "time": "08/11/2026 07:29:06",
+          "location": "Kho Thuận An (Bình Dương)",
+          "description": "Người gửi đã tạo đơn trên hệ thống SPX Admin",
+          "status": "CREATED"
+        }
+      ],
+      "latest_scan_desc": "Bưu tá SPX Express đã lấy hàng thành công từ kho người gửi",
+      "latest_scan_time": "09/11/2026 10:56:42",
+      "spx_tracking_url": "https://spx.vn/track?spx_tracking_number=SPXVN06397920458B",
+      "zalo_link": "https://zalo.me/0969427029",
+      "call_link": "tel:0969427029",
+      "items": [
+        {
+          "product_name": "Kiện hàng SPX Express",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "stt": 2,
       "country": "VN",
       "country_name": "Việt Nam",
       "flag": "🇻🇳",
@@ -31,50 +81,6 @@ window.__SPX_TRACKING_DATA__ = {
       "cod_currency": "VNĐ",
       "created_at": "07/11/2026 19:31:04",
       "status": {
-        "code": "PENDING",
-        "text": "Chờ SPX lấy hàng",
-        "badge_class": "badge-info",
-        "action_needed": "Chờ bưu tá SPX qua kho lấy kiện hàng",
-        "color": "#64748b"
-      },
-      "timeline": [
-        {
-          "time": "07/11/2026 19:31:04",
-          "location": "Kho Thuận An (Bình Dương)",
-          "description": "Đơn hàng đã được tạo trên SPX Admin, đang chờ bưu tá qua lấy hàng",
-          "status": "CREATED"
-        }
-      ],
-      "latest_scan_desc": "Đơn hàng đã được tạo trên SPX Admin, đang chờ bưu tá qua lấy hàng",
-      "latest_scan_time": "07/11/2026 19:31:04",
-      "spx_tracking_url": "https://spx.vn/track?spx_tracking_number=SPXVN06720031905B",
-      "zalo_link": "https://zalo.me/0867690471",
-      "call_link": "tel:0867690471",
-      "items": [
-        {
-          "product_name": "Hộp kẹo sâm hamer x 1",
-          "quantity": 1
-        }
-      ]
-    },
-    {
-      "stt": 2,
-      "country": "VN",
-      "country_name": "Việt Nam",
-      "flag": "🇻🇳",
-      "carrier": "SPX Express",
-      "order_uid": "S230356620O5850",
-      "display_id": "#S230356620O5850",
-      "shipping_order_code": "SPXVN06268030486B",
-      "buyer_name": "NGUYỄN VĂN LANH",
-      "buyer_phone": "0779007946",
-      "buyer_address": "05 Trịnh Hoài Đức Quy Nhơn, Tỉnh Gia Lai, Phường Quy Nhơn Đông",
-      "dest_branch": "SPX Pleiku Hub (Gia Lai)",
-      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=SPX+Express+Pleiku+Gia+Lai",
-      "cod_amount": 314000,
-      "cod_currency": "VNĐ",
-      "created_at": "05/11/2026 18:30:36",
-      "status": {
         "code": "IN_TRANSIT",
         "text": "Đang vận chuyển",
         "badge_class": "badge-in-transit",
@@ -83,32 +89,26 @@ window.__SPX_TRACKING_DATA__ = {
       },
       "timeline": [
         {
-          "time": "06/11/2026 16:16:12",
-          "location": "Kho phân loại Củ Chi SOC (TP. HCM)",
-          "description": "Đã rời bưu cục lấy hàng, đang trung chuyển đến bưu cục phát",
-          "status": "IN_TRANSIT"
-        },
-        {
-          "time": "06/11/2026 16:16:12",
-          "location": "Bưu cục Thuận An (Bình Dương)",
+          "time": "09/11/2026 10:57:37",
+          "location": "63-BDG An Phu Hub / Kho Thuận An",
           "description": "Bưu tá SPX Express đã lấy hàng thành công từ kho người gửi",
           "status": "PICKED_UP"
         },
         {
-          "time": "05/11/2026 18:30:36",
+          "time": "07/11/2026 19:31:04",
           "location": "Kho Thuận An (Bình Dương)",
           "description": "Người gửi đã tạo đơn trên hệ thống SPX Admin",
           "status": "CREATED"
         }
       ],
-      "latest_scan_desc": "Đã rời bưu cục lấy hàng, đang trung chuyển đến bưu cục phát",
-      "latest_scan_time": "06/11/2026 16:16:12",
-      "spx_tracking_url": "https://spx.vn/track?spx_tracking_number=SPXVN06268030486B",
-      "zalo_link": "https://zalo.me/0779007946",
-      "call_link": "tel:0779007946",
+      "latest_scan_desc": "Bưu tá SPX Express đã lấy hàng thành công từ kho người gửi",
+      "latest_scan_time": "09/11/2026 10:57:37",
+      "spx_tracking_url": "https://spx.vn/track?spx_tracking_number=SPXVN06720031905B",
+      "zalo_link": "https://zalo.me/0867690471",
+      "call_link": "tel:0867690471",
       "items": [
         {
-          "product_name": "Nước Hoa Nam x 1",
+          "product_name": "Hộp kẹo sâm hamer x 1",
           "quantity": 1
         }
       ]
@@ -131,34 +131,34 @@ window.__SPX_TRACKING_DATA__ = {
       "cod_currency": "VNĐ",
       "created_at": "04/11/2026 17:30:03",
       "status": {
-        "code": "IN_TRANSIT",
-        "text": "Đang vận chuyển",
-        "badge_class": "badge-in-transit",
-        "action_needed": "Kiện hàng đang luân chuyển giữa các trung tâm khai thác",
-        "color": "#3b82f6"
+        "code": "COMPLETED",
+        "text": "Đã giao hàng",
+        "badge_class": "badge-success",
+        "action_needed": "Giao thành công đến người nhận",
+        "color": "#10b981"
       },
       "timeline": [
         {
-          "time": "05/11/2026 13:34:03",
-          "location": "Kho phân loại Củ Chi SOC (TP. HCM)",
-          "description": "Đã rời bưu cục lấy hàng, đang trung chuyển đến bưu cục phát",
-          "status": "IN_TRANSIT"
+          "time": "09/11/2026 09:15:37",
+          "location": "SPX Nghĩa Hành Hub (Quảng Ngãi)",
+          "description": "Bưu tá SPX Express đã giao hàng thành công đến tay khách hàng",
+          "status": "COMPLETED"
         },
         {
           "time": "05/11/2026 13:34:03",
-          "location": "Bưu cục Thuận An (Bình Dương)",
-          "description": "Bưu tá SPX Express đã lấy hàng thành công từ kho người gửi",
+          "location": "Kho Củ Chi SOC / Thuận An",
+          "description": "Bưu tá SPX đã lấy hàng từ kho",
           "status": "PICKED_UP"
         },
         {
           "time": "04/11/2026 17:30:03",
           "location": "Kho Thuận An (Bình Dương)",
-          "description": "Người gửi đã tạo đơn trên hệ thống SPX Admin",
+          "description": "Đơn hàng khởi tạo",
           "status": "CREATED"
         }
       ],
-      "latest_scan_desc": "Đã rời bưu cục lấy hàng, đang trung chuyển đến bưu cục phát",
-      "latest_scan_time": "05/11/2026 13:34:03",
+      "latest_scan_desc": "Bưu tá SPX Express đã giao hàng thành công đến tay khách hàng",
+      "latest_scan_time": "09/11/2026 09:15:37",
       "spx_tracking_url": "https://spx.vn/track?spx_tracking_number=SPXVN06782360735B",
       "zalo_link": "https://zalo.me/0798766709",
       "call_link": "tel:0798766709",
