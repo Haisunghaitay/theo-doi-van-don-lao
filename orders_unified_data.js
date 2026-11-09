@@ -1,6 +1,6 @@
 window.__UNIFIED_TRACKING_DATA__ = {
   "summary": {
-    "last_updated": "09/11/2026 11:03:01",
+    "last_updated": "09/11/2026 11:12:58",
     "total_all_orders": 10,
     "laos_total": 6,
     "vietnam_total": 4,
@@ -24,7 +24,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
       "total_cod_kip": 2581000.0,
       "collected_cod_kip": 499000.0,
       "pending_cod_kip": 923000.0,
-      "last_updated": "09/11/2026 11:01:38",
+      "last_updated": "09/11/2026 11:11:35",
       "delivery_rate": 16.7
     },
     "orders": [
@@ -560,7 +560,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
       "completed": 0,
       "return_warning": 1,
       "total_cod_vnd": 1541000,
-      "last_updated": "09/11/2026 11:03:01"
+      "last_updated": "09/11/2026 11:12:57"
     },
     "orders": [
       {
@@ -788,7 +788,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
       "completed": 0,
       "return_warning": 0,
       "total_cod_usd": 0.0,
-      "last_updated": "09/11/2026 11:03:01"
+      "last_updated": "09/11/2026 11:12:58"
     },
     "orders": []
   },
