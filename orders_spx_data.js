@@ -9,8 +9,8 @@ window.__SPX_TRACKING_DATA__ = {
     "delivering": 0,
     "completed": 1,
     "return_warning": 1,
-    "total_cod_vnd": 1577000,
-    "last_updated": "09/11/2026 11:36:31"
+    "total_cod_vnd": 2125000,
+    "last_updated": "09/11/2026 11:41:39"
   },
   "orders": [
     {
@@ -27,7 +27,7 @@ window.__SPX_TRACKING_DATA__ = {
       "buyer_address": "Số nhà 514/13 ,tổ 5 ấp tân điền, Kiên Giang, Huyện Hòn Đất, Xã Mỹ Lâm",
       "dest_branch": "SPX Rạch Giá Hub (Kiên Giang)",
       "google_maps_link": "https://www.google.com/maps/search/?api=1&query=SPX+Express+Rạch+Giá+Kiên+Giang",
-      "cod_amount": 350000,
+      "cod_amount": 898000,
       "cod_currency": "VNĐ",
       "created_at": "08/11/2026 07:29:06",
       "status": {
@@ -58,7 +58,7 @@ window.__SPX_TRACKING_DATA__ = {
       "call_link": "tel:0969427029",
       "items": [
         {
-          "product_name": "Kiện hàng SPX Express",
+          "product_name": "1 x Nước Hoa Nam",
           "quantity": 1
         }
       ]
