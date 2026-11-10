@@ -1,17 +1,17 @@
 window.__ORDERS_TRACKING_DATA__ = {
   "stats": {
-    "total_orders": 4,
+    "total_orders": 3,
     "total_with_code": 145,
-    "completed": 1,
+    "completed": 0,
     "ready_for_pickup": 0,
     "in_transit": 0,
     "return_warning": 1,
     "pending": 2,
-    "total_cod_kip": 1583000.0,
-    "collected_cod_kip": 424000.0,
+    "total_cod_kip": 1159000.0,
+    "collected_cod_kip": 0,
     "pending_cod_kip": 0,
-    "last_updated": "10/11/2026 07:53:05",
-    "delivery_rate": 25.0
+    "last_updated": "10/11/2026 15:57:51",
+    "delivery_rate": 0.0
   },
   "orders": [
     {
@@ -45,113 +45,6 @@ window.__ORDERS_TRACKING_DATA__ = {
     },
     {
       "stt": 2,
-      "order_uid": "LAO162_20261104_1",
-      "shipping_order_code": "8263098019271",
-      "carrier": "Anousith Express",
-      "buyer_name": "Phêrô Siêng",
-      "buyer_phone": "+8562097828737",
-      "buyer_phone_raw": "+856 20 97 828 737",
-      "buyer_address": "ສາຂາ ວຽງຈະເລີນ(ໄຊເສດຖາ)\nນະຄອນຫຼວງວຽງຈັນ\nບ້ານ ວຽງຈະເລີນ , ເມືອງ ໄຊເສດຖາ\nGIAO ANOUSITH",
-      "dest_branch": "ສາຂາ ວຽງຈະເລີນ(ໄຊເສດຖາ)",
-      "matched_branch_name": "ສາຂາ ວຽງຈະເລີນ(ໄຊເສດຖາ)",
-      "cod_amount": 424000.0,
-      "created_at": "2026-11-04T09:10:36.803Z",
-      "status": {
-        "code": "COMPLETED",
-        "text": "Khách đã nhận hàng thành công",
-        "badge_class": "badge-success",
-        "action_needed": "Đối soát tiền COD",
-        "color": "#10b981"
-      },
-      "items": [],
-      "latest_scan_desc": "Trạm trung chuyển Anousith: COMPLETED [ Tuyến: FORWARD ]",
-      "latest_scan_time": "09-11-2026, 09:23",
-      "timeline": [
-        {
-          "time": "09-11-2026, 09:23",
-          "rawTime": "2026-11-09T09:23:58.000Z",
-          "location": "Trạm trung chuyển Anousith",
-          "description": "COMPLETED [ Tuyến: FORWARD ]",
-          "status": "COMPLETED"
-        },
-        {
-          "time": "09-11-2026, 09:23",
-          "rawTime": "2026-11-09T09:23:58.000Z",
-          "location": "Bưu cục nhận đích",
-          "description": "Khách hàng đã nhận kiện hàng thành công & nộp tiền COD",
-          "status": "DELIVERED"
-        },
-        {
-          "time": "06-11-2026, 08:01",
-          "rawTime": "2026-11-06T08:01:15.000Z",
-          "location": "Trạm trung chuyển Anousith",
-          "description": "Quét nhập kho trung chuyển (ສະແກນເຂົ້າ) [ Tuyến: FORWARD ]",
-          "status": "SCAN_IN"
-        },
-        {
-          "time": "06-11-2026, 08:01",
-          "rawTime": "2026-11-06T08:01:15.000Z",
-          "location": "Chi nhánh đích Anousith",
-          "description": "Kiện hàng đã về đến chi nhánh đích Anousith - Chờ khách ra bưu cục nhận",
-          "status": "ARRIVED"
-        },
-        {
-          "time": "06-11-2026, 06:41",
-          "rawTime": "2026-11-06T06:41:18.000Z",
-          "location": "Trạm trung chuyển Anousith",
-          "description": "Quét xuất kho vận chuyển (ສະແກນອອກ) [ Tuyến: FORWARD ]",
-          "status": "SCAN_OUT"
-        },
-        {
-          "time": "06-11-2026, 05:31",
-          "rawTime": "2026-11-06T05:31:11.000Z",
-          "location": "Trạm trung chuyển Anousith",
-          "description": "Quét nhập kho trung chuyển (ສະແກນເຂົ້າ) [ Tuyến: FORWARD ]",
-          "status": "SCAN_IN"
-        },
-        {
-          "time": "05-11-2026, 20:45",
-          "rawTime": "2026-11-05T20:45:40.000Z",
-          "location": "Trạm trung chuyển Anousith",
-          "description": "Quét xuất kho vận chuyển (ສະແກນອອກ) [ Tuyến: FORWARD ]",
-          "status": "SCAN_OUT"
-        },
-        {
-          "time": "05-11-2026, 15:21",
-          "rawTime": "2026-11-05T15:21:57.000Z",
-          "location": "Trạm trung chuyển Anousith",
-          "description": "Quét nhập kho trung chuyển (ສະແກນເຂົ້າ) [ Tuyến: FORWARD ]",
-          "status": "SCAN_IN"
-        },
-        {
-          "time": "05-11-2026, 07:19",
-          "rawTime": "2026-11-05T07:19:46.000Z",
-          "location": "Trạm trung chuyển Anousith",
-          "description": "Quét xuất kho vận chuyển (ສະແກນອອກ) [ Tuyến: FORWARD ]",
-          "status": "SCAN_OUT"
-        },
-        {
-          "time": "05-11-2026, 07:19",
-          "rawTime": "2026-11-05T07:19:46.000Z",
-          "location": "Bưu cục gửi Anousith",
-          "description": "Bắt đầu vận chuyển trung chuyển liên tỉnh tới chi nhánh đích",
-          "status": "IN_TRANSIT"
-        },
-        {
-          "time": "05-11-2026, 04:57",
-          "rawTime": "2026-11-05T04:57:00.000Z",
-          "location": "Bưu cục gửi Anousith",
-          "description": "Đã tiếp nhận kiện hàng tại bưu cục gửi Anousith Express",
-          "status": "RECEIVED"
-        }
-      ],
-      "google_maps_link": "https://maps.app.goo.gl/fJdM1QKdxhDgAyeSA",
-      "wa_remind_link": null,
-      "anousith_tracking_url": "https://app.anousith.express/landing/search_tracking/search_item?_bill_detail=8263098019271&n_home=2",
-      "hal_tracking_url": null
-    },
-    {
-      "stt": 3,
       "order_uid": "LAO162_20261012_1",
       "shipping_order_code": "8262897344949",
       "carrier": "Anousith Express",
@@ -258,7 +151,7 @@ window.__ORDERS_TRACKING_DATA__ = {
       "hal_tracking_url": null
     },
     {
-      "stt": 4,
+      "stt": 3,
       "order_uid": "LAO162_20260402_3",
       "shipping_order_code": "PXE89869531805",
       "carrier": "HAL Logistics",
