@@ -9,8 +9,8 @@ window.__SPX_TRACKING_DATA__ = {
     "delivering": 0,
     "completed": 1,
     "return_warning": 1,
-    "total_cod_vnd": 1577000,
-    "last_updated": "09/11/2026 19:21:47"
+    "total_cod_vnd": 2125000,
+    "last_updated": "10/11/2026 07:54:39"
   },
   "orders": [
     {
@@ -27,7 +27,7 @@ window.__SPX_TRACKING_DATA__ = {
       "buyer_address": "Số nhà 514/13 ,tổ 5 ấp tân điền, Kiên Giang, Huyện Hòn Đất, Xã Mỹ Lâm",
       "dest_branch": "SPX Rạch Giá Hub (Kiên Giang)",
       "google_maps_link": "https://www.google.com/maps/search/?api=1&query=SPX+Express+Rạch+Giá+Kiên+Giang",
-      "cod_amount": 350000,
+      "cod_amount": 898000,
       "cod_currency": "VNĐ",
       "created_at": "08/11/2026 07:29:06",
       "status": {
@@ -40,13 +40,7 @@ window.__SPX_TRACKING_DATA__ = {
       "timeline": [
         {
           "time": "09/11/2026 10:56:42",
-          "location": "Kho phân loại Củ Chi SOC (TP. HCM)",
-          "description": "Đã rời bưu cục lấy hàng, đang trung chuyển đến bưu cục phát",
-          "status": "IN_TRANSIT"
-        },
-        {
-          "time": "09/11/2026 10:56:42",
-          "location": "Bưu cục Thuận An (Bình Dương)",
+          "location": "63-BDG An Phu Hub / Kho Thuận An",
           "description": "Bưu tá SPX Express đã lấy hàng thành công từ kho người gửi",
           "status": "PICKED_UP"
         },
@@ -57,14 +51,14 @@ window.__SPX_TRACKING_DATA__ = {
           "status": "CREATED"
         }
       ],
-      "latest_scan_desc": "Đã rời bưu cục lấy hàng, đang trung chuyển đến bưu cục phát",
+      "latest_scan_desc": "Bưu tá SPX Express đã lấy hàng thành công từ kho người gửi",
       "latest_scan_time": "09/11/2026 10:56:42",
       "spx_tracking_url": "https://spx.vn/track?spx_tracking_number=SPXVN06397920458B",
       "zalo_link": "https://zalo.me/0969427029",
       "call_link": "tel:0969427029",
       "items": [
         {
-          "product_name": "Kiện hàng SPX Express",
+          "product_name": "1 x Nước Hoa Nam",
           "quantity": 1
         }
       ]
@@ -96,13 +90,7 @@ window.__SPX_TRACKING_DATA__ = {
       "timeline": [
         {
           "time": "09/11/2026 10:57:37",
-          "location": "Kho phân loại Củ Chi SOC (TP. HCM)",
-          "description": "Đã rời bưu cục lấy hàng, đang trung chuyển đến bưu cục phát",
-          "status": "IN_TRANSIT"
-        },
-        {
-          "time": "09/11/2026 10:57:37",
-          "location": "Bưu cục Thuận An (Bình Dương)",
+          "location": "63-BDG An Phu Hub / Kho Thuận An",
           "description": "Bưu tá SPX Express đã lấy hàng thành công từ kho người gửi",
           "status": "PICKED_UP"
         },
@@ -113,7 +101,7 @@ window.__SPX_TRACKING_DATA__ = {
           "status": "CREATED"
         }
       ],
-      "latest_scan_desc": "Đã rời bưu cục lấy hàng, đang trung chuyển đến bưu cục phát",
+      "latest_scan_desc": "Bưu tá SPX Express đã lấy hàng thành công từ kho người gửi",
       "latest_scan_time": "09/11/2026 10:57:37",
       "spx_tracking_url": "https://spx.vn/track?spx_tracking_number=SPXVN06720031905B",
       "zalo_link": "https://zalo.me/0867690471",
@@ -158,9 +146,9 @@ window.__SPX_TRACKING_DATA__ = {
         },
         {
           "time": "05/11/2026 13:34:03",
-          "location": "Kho Củ Chi SOC",
-          "description": "Đã luân chuyển qua các trạm trung chuyển",
-          "status": "IN_TRANSIT"
+          "location": "Kho Củ Chi SOC / Thuận An",
+          "description": "Bưu tá SPX đã lấy hàng từ kho",
+          "status": "PICKED_UP"
         },
         {
           "time": "04/11/2026 17:30:03",
