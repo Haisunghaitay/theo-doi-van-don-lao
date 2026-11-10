@@ -10,7 +10,7 @@ window.__ORDERS_TRACKING_DATA__ = {
     "total_cod_kip": 1159000.0,
     "collected_cod_kip": 0,
     "pending_cod_kip": 0,
-    "last_updated": "10/11/2026 15:57:51",
+    "last_updated": "11/11/2026 00:01:48",
     "delivery_rate": 0.0
   },
   "orders": [
