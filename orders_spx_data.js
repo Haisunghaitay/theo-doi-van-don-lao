@@ -10,7 +10,7 @@ window.__SPX_TRACKING_DATA__ = {
     "completed": 1,
     "return_warning": 1,
     "total_cod_vnd": 2161000,
-    "last_updated": "11/11/2026 02:25:15"
+    "last_updated": "11/11/2026 11:07:54"
   },
   "orders": [
     {
@@ -25,8 +25,8 @@ window.__SPX_TRACKING_DATA__ = {
       "buyer_name": "Tạ Hoàng",
       "buyer_phone": "0796700062",
       "buyer_address": "122D Dương thiệu, Thừa Thiên Huế, Thành Phố Huế, Phường An Cựu",
-      "dest_branch": "SPX TP Huế Hub (Thừa Thiên Huế)",
-      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=SPX+Express+TP+Huế",
+      "dest_branch": "SPX Bưu cục phát tận nơi",
+      "google_maps_link": "https://www.google.com/maps/search/?api=1&query=SPX%20Express%20Th%E1%BB%ABa%20Thi%C3%AAn%20Hu%E1%BA%BF%2C%20Th%C3%A0nh%20Ph%E1%BB%91%20Hu%E1%BA%BF%2C%20Ph%C6%B0%E1%BB%9Dng%20An%20C%E1%BB%B1u",
       "cod_amount": 350000,
       "cod_currency": "VNĐ",
       "created_at": "11/11/2026 00:07:07",
