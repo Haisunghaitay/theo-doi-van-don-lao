@@ -1,17 +1,17 @@
 window.__ORDERS_TRACKING_DATA__ = {
   "stats": {
-    "total_orders": 12,
+    "total_orders": 11,
     "total_with_code": 155,
     "completed": 2,
     "ready_for_pickup": 3,
     "in_transit": 3,
     "return_warning": 1,
-    "pending": 3,
-    "total_cod_kip": 5356000.0,
+    "pending": 2,
+    "total_cod_kip": 4816000.0,
     "collected_cod_kip": 998000.0,
     "pending_cod_kip": 2395000.0,
-    "last_updated": "19/11/2026 21:42:38",
-    "delivery_rate": 16.7
+    "last_updated": "19/11/2026 22:14:09",
+    "delivery_rate": 18.2
   },
   "orders": [
     {
@@ -833,35 +833,6 @@ window.__ORDERS_TRACKING_DATA__ = {
     },
     {
       "stt": 11,
-      "order_uid": "LAO162_20260726_1",
-      "shipping_order_code": "8262083753540",
-      "carrier": "Anousith Express",
-      "buyer_name": "Quê Xa",
-      "buyer_phone": "+8562099913815",
-      "buyer_phone_raw": "02099913815",
-      "buyer_address": "ສາຂາ ຫຼັກ36(ເມືອງ ໄຊທານີ) GIAO Anousith",
-      "dest_branch": "ສາຂາ ຫຼັກ36(ເມືອງ ໄຊທານີ)",
-      "matched_branch_name": "ສາຂາ ຫຼັກ36(ເມືອງ ໄຊທານີ)",
-      "cod_amount": 540000.0,
-      "created_at": "2026-07-26T07:26:01.907Z",
-      "status": {
-        "code": "PENDING",
-        "text": "Chờ bàn giao vận chuyển",
-        "badge_class": "badge-secondary",
-        "action_needed": "Xuất kho đóng gói",
-        "color": "#64748b"
-      },
-      "items": [],
-      "latest_scan_desc": "Chưa có dữ liệu quét",
-      "latest_scan_time": "",
-      "timeline": [],
-      "google_maps_link": "https://maps.app.goo.gl/maSizvN3uYRA37Yv6",
-      "wa_remind_link": null,
-      "anousith_tracking_url": "https://app.anousith.express/landing/search_tracking/search_item?_bill_detail=8262083753540&n_home=2",
-      "hal_tracking_url": null
-    },
-    {
-      "stt": 12,
       "order_uid": "LAO162_20260402_3",
       "shipping_order_code": "PXE89869531805",
       "carrier": "HAL Logistics",
