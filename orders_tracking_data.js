@@ -1,17 +1,17 @@
 window.__ORDERS_TRACKING_DATA__ = {
   "stats": {
-    "total_orders": 12,
+    "total_orders": 11,
     "total_with_code": 155,
     "completed": 2,
     "ready_for_pickup": 3,
     "in_transit": 3,
     "return_warning": 1,
-    "pending": 3,
-    "total_cod_kip": 5175000.0,
+    "pending": 2,
+    "total_cod_kip": 4816000.0,
     "collected_cod_kip": 998000.0,
     "pending_cod_kip": 2395000.0,
-    "last_updated": "19/11/2026 18:33:05",
-    "delivery_rate": 16.7
+    "last_updated": "19/11/2026 19:04:42",
+    "delivery_rate": 18.2
   },
   "orders": [
     {
@@ -833,35 +833,6 @@ window.__ORDERS_TRACKING_DATA__ = {
     },
     {
       "stt": 11,
-      "order_uid": "LAO162_20260625_1",
-      "shipping_order_code": "8261763845110",
-      "carrier": "Anousith Express",
-      "buyer_name": "A Son",
-      "buyer_phone": "+8562098228668",
-      "buyer_phone_raw": "02098228668",
-      "buyer_address": "ສາຂາ ບ້ານເມືອງໝໍ(ເມືອງແກ່ນທ້າວ) Giao ANOUSITH",
-      "dest_branch": "ສາຂາ ບ້ານເມືອງໝໍ(ເມືອງແກ່ນທ້າວ)",
-      "matched_branch_name": "ສາຂາ ບ້ານເມືອງໝໍ(ເມືອງແກ່ນທ້າວ)",
-      "cod_amount": 359000.0,
-      "created_at": "2026-06-25T07:21:05.286Z",
-      "status": {
-        "code": "PENDING",
-        "text": "Chờ bàn giao vận chuyển",
-        "badge_class": "badge-secondary",
-        "action_needed": "Xuất kho đóng gói",
-        "color": "#64748b"
-      },
-      "items": [],
-      "latest_scan_desc": "Chưa có dữ liệu quét",
-      "latest_scan_time": "",
-      "timeline": [],
-      "google_maps_link": "https://maps.app.goo.gl/iN5ScTaWic74bCU28",
-      "wa_remind_link": null,
-      "anousith_tracking_url": "https://app.anousith.express/landing/search_tracking/search_item?_bill_detail=8261763845110&n_home=2",
-      "hal_tracking_url": null
-    },
-    {
-      "stt": 12,
       "order_uid": "LAO162_20260402_3",
       "shipping_order_code": "PXE89869531805",
       "carrier": "HAL Logistics",
