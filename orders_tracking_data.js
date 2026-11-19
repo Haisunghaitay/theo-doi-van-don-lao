@@ -1,17 +1,17 @@
 window.__ORDERS_TRACKING_DATA__ = {
   "stats": {
-    "total_orders": 11,
+    "total_orders": 12,
     "total_with_code": 155,
     "completed": 2,
-    "ready_for_pickup": 2,
-    "in_transit": 4,
+    "ready_for_pickup": 3,
+    "in_transit": 3,
     "return_warning": 1,
-    "pending": 2,
-    "total_cod_kip": 4816000.0,
+    "pending": 3,
+    "total_cod_kip": 5175000.0,
     "collected_cod_kip": 998000.0,
     "pending_cod_kip": 2395000.0,
-    "last_updated": "19/11/2026 18:01:43",
-    "delivery_rate": 18.2
+    "last_updated": "19/11/2026 18:33:05",
+    "delivery_rate": 16.7
   },
   "orders": [
     {
@@ -57,16 +57,30 @@ window.__ORDERS_TRACKING_DATA__ = {
       "cod_amount": 499000.0,
       "created_at": "2026-11-18T06:36:21.575Z",
       "status": {
-        "code": "IN_TRANSIT",
-        "text": "Đang vận chuyển trung chuyển",
-        "badge_class": "badge-info",
-        "action_needed": "Theo dõi tiến độ xe",
-        "color": "#3b82f6"
+        "code": "READY_FOR_PICKUP",
+        "text": "Đã đến chi nhánh đích",
+        "badge_class": "badge-warning",
+        "action_needed": "Gửi tin nhắn WhatsApp thông báo nhận hàng",
+        "color": "#f59e0b"
       },
       "items": [],
-      "latest_scan_desc": "Trạm trung chuyển Anousith: Quét xuất kho vận chuyển (ສະແກນອອກ) [ Tuyến: FORWARD ]",
-      "latest_scan_time": "19-11-2026, 07:12",
+      "latest_scan_desc": "Trạm trung chuyển Anousith: Quét nhập kho trung chuyển (ສະແກນເຂົ້າ) [ Tuyến: FORWARD ]",
+      "latest_scan_time": "19-11-2026, 11:12",
       "timeline": [
+        {
+          "time": "19-11-2026, 11:12",
+          "rawTime": "2026-11-19T11:12:02.000Z",
+          "location": "Trạm trung chuyển Anousith",
+          "description": "Quét nhập kho trung chuyển (ສະແກນເຂົ້າ) [ Tuyến: FORWARD ]",
+          "status": "SCAN_IN"
+        },
+        {
+          "time": "19-11-2026, 11:12",
+          "rawTime": "2026-11-19T11:12:02.000Z",
+          "location": "Chi nhánh đích Anousith",
+          "description": "Kiện hàng đã về đến chi nhánh đích Anousith - Chờ khách ra bưu cục nhận",
+          "status": "ARRIVED"
+        },
         {
           "time": "19-11-2026, 07:12",
           "rawTime": "2026-11-19T07:12:10.000Z",
@@ -118,7 +132,7 @@ window.__ORDERS_TRACKING_DATA__ = {
         }
       ],
       "google_maps_link": "https://maps.app.goo.gl/BS1tzrGko6MRxgNS7",
-      "wa_remind_link": null,
+      "wa_remind_link": "https://wa.me/8562091191988?text=Ch%C3%A0o%20anh/ch%E1%BB%8B%20L%C3%A2m%20Du%20Quang%21%20%C4%90%C6%A1n%20h%C3%A0ng%20c%E1%BB%A7a%20anh/ch%E1%BB%8B%20%28M%C3%A3%20v%E1%BA%ADn%20%C4%91%C6%A1n%3A%208263225774267%29%20hi%E1%BB%87n%20%C4%91%C3%A3%20%C4%91%E1%BA%BFn%20chi%20nh%C3%A1nh%20%C4%91%C3%ADch%20t%E1%BA%A1i%20%E0%BA%AA%E0%BA%B2%E0%BA%82%E0%BA%B2%20%E0%BB%9C%E0%BB%89%E0%BA%B2%E0%BA%AE%E0%BB%89%E0%BA%B2%E0%BA%99%E0%BB%82%E0%BA%AE%E0%BA%A1%E0%BB%80%E0%BA%9A%E0%BA%8D%28%E0%BA%99%E0%BA%B0%E0%BA%84%E0%BA%AD%E0%BA%99%E0%BB%84%E0%BA%81%E0%BA%AA%E0%BA%AD%E0%BA%99%29.%0AS%E1%BB%91%20ti%E1%BB%81n%20c%E1%BA%A7n%20thanh%20to%C3%A1n%20khi%20nh%E1%BA%ADn%20h%C3%A0ng%20%28COD%29%3A%20499%2C000%20KIP.%0AV%E1%BB%8B%20tr%C3%AD%20%C4%91%E1%BB%8Bnh%20v%E1%BB%8B%20chi%20nh%C3%A1nh%20tr%C3%AAn%20Google%20Maps%3A%20https%3A//maps.app.goo.gl/BS1tzrGko6MRxgNS7",
       "anousith_tracking_url": "https://app.anousith.express/landing/search_tracking/search_item?_bill_detail=8263225774267&n_home=2",
       "hal_tracking_url": null
     },
@@ -819,6 +833,35 @@ window.__ORDERS_TRACKING_DATA__ = {
     },
     {
       "stt": 11,
+      "order_uid": "LAO162_20260625_1",
+      "shipping_order_code": "8261763845110",
+      "carrier": "Anousith Express",
+      "buyer_name": "A Son",
+      "buyer_phone": "+8562098228668",
+      "buyer_phone_raw": "02098228668",
+      "buyer_address": "ສາຂາ ບ້ານເມືອງໝໍ(ເມືອງແກ່ນທ້າວ) Giao ANOUSITH",
+      "dest_branch": "ສາຂາ ບ້ານເມືອງໝໍ(ເມືອງແກ່ນທ້າວ)",
+      "matched_branch_name": "ສາຂາ ບ້ານເມືອງໝໍ(ເມືອງແກ່ນທ້າວ)",
+      "cod_amount": 359000.0,
+      "created_at": "2026-06-25T07:21:05.286Z",
+      "status": {
+        "code": "PENDING",
+        "text": "Chờ bàn giao vận chuyển",
+        "badge_class": "badge-secondary",
+        "action_needed": "Xuất kho đóng gói",
+        "color": "#64748b"
+      },
+      "items": [],
+      "latest_scan_desc": "Chưa có dữ liệu quét",
+      "latest_scan_time": "",
+      "timeline": [],
+      "google_maps_link": "https://maps.app.goo.gl/iN5ScTaWic74bCU28",
+      "wa_remind_link": null,
+      "anousith_tracking_url": "https://app.anousith.express/landing/search_tracking/search_item?_bill_detail=8261763845110&n_home=2",
+      "hal_tracking_url": null
+    },
+    {
+      "stt": 12,
       "order_uid": "LAO162_20260402_3",
       "shipping_order_code": "PXE89869531805",
       "carrier": "HAL Logistics",
