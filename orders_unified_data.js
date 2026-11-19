@@ -1,11 +1,11 @@
 window.__UNIFIED_TRACKING_DATA__ = {
   "summary": {
-    "last_updated": "19/11/2026 17:00:07",
+    "last_updated": "19/11/2026 17:31:33",
     "total_all_orders": 15,
     "laos_total": 11,
     "vietnam_total": 4,
     "cambodia_total": 0,
-    "laos_ready_pickup": 3,
+    "laos_ready_pickup": 2,
     "vietnam_delivering": 0,
     "cambodia_delivering": 0,
     "total_cod_laos_kip": 4816000.0,
@@ -16,16 +16,16 @@ window.__UNIFIED_TRACKING_DATA__ = {
     "stats": {
       "total_orders": 11,
       "total_with_code": 155,
-      "completed": 1,
-      "ready_for_pickup": 3,
+      "completed": 2,
+      "ready_for_pickup": 2,
       "in_transit": 4,
       "return_warning": 1,
       "pending": 2,
       "total_cod_kip": 4816000.0,
-      "collected_cod_kip": 499000.0,
-      "pending_cod_kip": 2894000.0,
-      "last_updated": "19/11/2026 16:58:40",
-      "delivery_rate": 9.1
+      "collected_cod_kip": 998000.0,
+      "pending_cod_kip": 2395000.0,
+      "last_updated": "19/11/2026 17:30:16",
+      "delivery_rate": 18.2
     },
     "orders": [
       {
@@ -587,16 +587,23 @@ window.__UNIFIED_TRACKING_DATA__ = {
         "cod_amount": 499000.0,
         "created_at": "2026-11-16T06:29:00.482Z",
         "status": {
-          "code": "READY_FOR_PICKUP",
-          "text": "Đã đến chi nhánh đích",
-          "badge_class": "badge-warning",
-          "action_needed": "Gửi tin nhắn WhatsApp thông báo nhận hàng",
-          "color": "#f59e0b"
+          "code": "COMPLETED",
+          "text": "Khách đã nhận hàng thành công",
+          "badge_class": "badge-success",
+          "action_needed": "Đối soát tiền COD",
+          "color": "#10b981"
         },
         "items": [],
-        "latest_scan_desc": "Trạm trung chuyển Anousith: Quét nhập kho trung chuyển (ສະແກນເຂົ້າ) [ Tuyến: FORWARD ]",
-        "latest_scan_time": "19-11-2026, 01:45",
+        "latest_scan_desc": "Bưu cục nhận đích: Khách hàng đã nhận kiện hàng thành công & nộp tiền COD",
+        "latest_scan_time": "19-11-2026, 10:21",
         "timeline": [
+          {
+            "time": "19-11-2026, 10:21",
+            "rawTime": "2026-11-19T10:21:47.000Z",
+            "location": "Bưu cục nhận đích",
+            "description": "Khách hàng đã nhận kiện hàng thành công & nộp tiền COD",
+            "status": "DELIVERED"
+          },
           {
             "time": "19-11-2026, 01:45",
             "rawTime": "2026-11-19T01:45:24.000Z",
@@ -662,7 +669,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
           }
         ],
         "google_maps_link": "https://www.google.com/maps?q=16.562741206949,104.75634714421",
-        "wa_remind_link": "https://wa.me/8562091974529?text=Ch%C3%A0o%20anh/ch%E1%BB%8B%20%E0%BA%9B%E0%BB%88%E0%BA%B2%E0%BA%88%E0%BA%BB%E0%BA%87%20%E0%BA%88%E0%BA%B0%21%20%C4%90%C6%A1n%20h%C3%A0ng%20c%E1%BB%A7a%20anh/ch%E1%BB%8B%20%28M%C3%A3%20v%E1%BA%ADn%20%C4%91%C6%A1n%3A%208263213751188%29%20hi%E1%BB%87n%20%C4%91%C3%A3%20%C4%91%E1%BA%BFn%20chi%20nh%C3%A1nh%20%C4%91%C3%ADch%20t%E1%BA%A1i%20%E0%BA%AA%E0%BA%B2%E0%BA%82%E0%BA%B2%20%E0%BA%AA%E0%BA%B8%E0%BA%99%E0%BA%B1%E0%BA%99%E0%BA%97%E0%BA%B2.%0AS%E1%BB%91%20ti%E1%BB%81n%20c%E1%BA%A7n%20thanh%20to%C3%A1n%20khi%20nh%E1%BA%ADn%20h%C3%A0ng%20%28COD%29%3A%20499%2C000%20KIP.%0AV%E1%BB%8B%20tr%C3%AD%20%C4%91%E1%BB%8Bnh%20v%E1%BB%8B%20chi%20nh%C3%A1nh%20tr%C3%AAn%20Google%20Maps%3A%20https%3A//www.google.com/maps%3Fq%3D16.562741206949%2C104.75634714421",
+        "wa_remind_link": null,
         "anousith_tracking_url": "https://app.anousith.express/landing/search_tracking/search_item?_bill_detail=8263213751188&n_home=2",
         "hal_tracking_url": null,
         "country": "LA",
@@ -954,7 +961,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
       "completed": 1,
       "return_warning": 1,
       "total_cod_vnd": 2161000,
-      "last_updated": "19/11/2026 17:00:06"
+      "last_updated": "19/11/2026 17:31:32"
     },
     "orders": [
       {
@@ -1170,7 +1177,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
       "completed": 0,
       "return_warning": 0,
       "total_cod_usd": 0.0,
-      "last_updated": "19/11/2026 17:00:07"
+      "last_updated": "19/11/2026 17:31:33"
     },
     "orders": []
   },
@@ -1734,16 +1741,23 @@ window.__UNIFIED_TRACKING_DATA__ = {
       "cod_amount": 499000.0,
       "created_at": "2026-11-16T06:29:00.482Z",
       "status": {
-        "code": "READY_FOR_PICKUP",
-        "text": "Đã đến chi nhánh đích",
-        "badge_class": "badge-warning",
-        "action_needed": "Gửi tin nhắn WhatsApp thông báo nhận hàng",
-        "color": "#f59e0b"
+        "code": "COMPLETED",
+        "text": "Khách đã nhận hàng thành công",
+        "badge_class": "badge-success",
+        "action_needed": "Đối soát tiền COD",
+        "color": "#10b981"
       },
       "items": [],
-      "latest_scan_desc": "Trạm trung chuyển Anousith: Quét nhập kho trung chuyển (ສະແກນເຂົ້າ) [ Tuyến: FORWARD ]",
-      "latest_scan_time": "19-11-2026, 01:45",
+      "latest_scan_desc": "Bưu cục nhận đích: Khách hàng đã nhận kiện hàng thành công & nộp tiền COD",
+      "latest_scan_time": "19-11-2026, 10:21",
       "timeline": [
+        {
+          "time": "19-11-2026, 10:21",
+          "rawTime": "2026-11-19T10:21:47.000Z",
+          "location": "Bưu cục nhận đích",
+          "description": "Khách hàng đã nhận kiện hàng thành công & nộp tiền COD",
+          "status": "DELIVERED"
+        },
         {
           "time": "19-11-2026, 01:45",
           "rawTime": "2026-11-19T01:45:24.000Z",
@@ -1809,7 +1823,7 @@ window.__UNIFIED_TRACKING_DATA__ = {
         }
       ],
       "google_maps_link": "https://www.google.com/maps?q=16.562741206949,104.75634714421",
-      "wa_remind_link": "https://wa.me/8562091974529?text=Ch%C3%A0o%20anh/ch%E1%BB%8B%20%E0%BA%9B%E0%BB%88%E0%BA%B2%E0%BA%88%E0%BA%BB%E0%BA%87%20%E0%BA%88%E0%BA%B0%21%20%C4%90%C6%A1n%20h%C3%A0ng%20c%E1%BB%A7a%20anh/ch%E1%BB%8B%20%28M%C3%A3%20v%E1%BA%ADn%20%C4%91%C6%A1n%3A%208263213751188%29%20hi%E1%BB%87n%20%C4%91%C3%A3%20%C4%91%E1%BA%BFn%20chi%20nh%C3%A1nh%20%C4%91%C3%ADch%20t%E1%BA%A1i%20%E0%BA%AA%E0%BA%B2%E0%BA%82%E0%BA%B2%20%E0%BA%AA%E0%BA%B8%E0%BA%99%E0%BA%B1%E0%BA%99%E0%BA%97%E0%BA%B2.%0AS%E1%BB%91%20ti%E1%BB%81n%20c%E1%BA%A7n%20thanh%20to%C3%A1n%20khi%20nh%E1%BA%ADn%20h%C3%A0ng%20%28COD%29%3A%20499%2C000%20KIP.%0AV%E1%BB%8B%20tr%C3%AD%20%C4%91%E1%BB%8Bnh%20v%E1%BB%8B%20chi%20nh%C3%A1nh%20tr%C3%AAn%20Google%20Maps%3A%20https%3A//www.google.com/maps%3Fq%3D16.562741206949%2C104.75634714421",
+      "wa_remind_link": null,
       "anousith_tracking_url": "https://app.anousith.express/landing/search_tracking/search_item?_bill_detail=8263213751188&n_home=2",
       "hal_tracking_url": null,
       "country": "LA",
